@@ -241,8 +241,7 @@ module BrowserWebData
         max_count = global_properties.max_by{|_, count| count}[1].to_f
         global_properties.each{|property, count|
           value = count / max_count
-          add_property_to_knowledge(type, property, knowledge_data){|from_knowledge|
-            from_knowledge[:counter] += 1
+          add_property_to_knowledge(type, property, knowledge_data, false){|from_knowledge|
             from_knowledge[:score] > 0 ? (from_knowledge[:score] + value / 2.0).round(4) : value.round(4)
           }
         }
@@ -252,19 +251,19 @@ module BrowserWebData
         update_knowledge_base(knowledge_data)
       end
 
-      def add_property_to_knowledge(type, property, knowledge_data)
+      def add_property_to_knowledge(type, property, knowledge_data, counter = true)
         load_identical_predicates(true) unless @identical_predicates
 
-        found = knowledge_data[type].find { |data| data[:predicates].include?(property) }
+        found = knowledge_data[type].find { |data| data[:predicates].include?(property.to_s) }
 
         unless found
           # add new
 
           found = {
             score: 0.0,
-            predicates: @identical_predicates.find { |group| group.include?(property.to_s) } || [property.to_s],
-            counter: 1
+            predicates: @identical_predicates.find { |group| group.include?(property.to_s) } || [property.to_s]
           }
+          found[:counter] = 0 if counter
 
           knowledge_data[type] ||= []
           knowledge_data[type] << found
