@@ -223,6 +223,14 @@ module BrowserWebData
 
         }
 
+
+        max_weight = knowledge_data[type].max_by { |data| data[:score] }[:score]
+        knowledge_data[type] = knowledge_data[type].map { |hash|
+          hash[:score] = (hash[:score] / max_weight).round(4)
+          hash.delete(:counter)
+          hash
+        }
+
         puts "#{__method__} - global literal properties"
 
         global_properties = get_global_statistic_by_type(type) || {}
@@ -230,20 +238,13 @@ module BrowserWebData
           identify_identical_predicates(global_properties.keys)
         end
 
-        max_count = global_properties.max_by{|_, count| count}.values.first.to_f
+        max_count = global_properties.max_by{|_, count| count}[1].to_f
         global_properties.each{|property, count|
           value = count / max_count
           add_property_to_knowledge(type, property, knowledge_data){|from_knowledge|
             from_knowledge[:counter] += 1
-            (from_knowledge[:score] + value / 2.0)
+            from_knowledge[:score] > 0 ? (from_knowledge[:score] + value / 2.0).round(4) : value.round(4)
           }
-        }
-
-        max_weight = knowledge_data[type].max_by { |data| data[:score] }[:score]
-        knowledge_data[type] = knowledge_data[type].map { |hash|
-          hash[:score] = (hash[:score] / max_weight).round(4)
-          hash.delete(:counter)
-          hash
         }
 
         knowledge_data[type] = knowledge_data[type].sort_by { |hash| hash[:score] }.reverse.take(best_count)
@@ -274,7 +275,7 @@ module BrowserWebData
         found[:score] = new_score
       end
 
-      def identify_identical_predicates(properties)
+      def identify_identical_predicates(properties, indetical_limit = IDENTICAL_PROPERTY_LIMIT)
         @temp_counts ||= {}
         identical_rewrite = false
         different_rewrite = false
@@ -306,7 +307,7 @@ module BrowserWebData
 
             identical_level = z / [x, y].max
 
-            if identical_level >= 0.9
+            if identical_level >= indetical_limit
               puts "     - result[#{identical_level}] z[#{z}] x[#{x}] y[#{y}] #{values.inspect}"
               @identical_predicates << values
               identical_rewrite = true
@@ -348,9 +349,6 @@ module BrowserWebData
         }
       end
 
-      def calculate_global_score
-
-      end
 
       private
 

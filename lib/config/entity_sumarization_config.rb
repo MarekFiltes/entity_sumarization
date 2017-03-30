@@ -6,6 +6,8 @@ module BrowserWebData
 
   module EntitySumarizationConfig
 
+    IDENTICAL_PROPERTY_LIMIT = 0.8
+
     NO_SENSE_PROPERTIES = %w(
 http://xmlns.com/foaf/0.1/primaryTopic
 http://dbpedia.org/ontology/wikiPageRedirects
