@@ -21,6 +21,10 @@ module BrowserWebData
       process_query(all_predicates_by_subject(subject, only_literal))
     end
 
+    def get_all_predicates_by_subject_object(subject, object)
+      process_query(all_predicates_by_object_and_subject(subject, object))
+    end
+
     def get_count_predicate_by_entity(entity_class, predicate)
       process_query(count_predicate_by_entity(entity_class, predicate))
     end

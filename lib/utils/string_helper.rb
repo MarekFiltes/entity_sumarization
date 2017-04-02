@@ -11,7 +11,7 @@ module StringHelper
   #
   # @return [String] path
   def self.get_clear_file_path(path)
-    path.to_s.gsub(/[:\/\.\*]/, '_')
+    path.to_s.gsub(/[:\/\.\*#]/, '_')
   end
 
   ##

@@ -10,14 +10,20 @@ Links are stored in dataset of NLP Interchange Format (NIF). In next step find a
 ### Global statistics
 
 ### Link based statistics
-This method require dataset in NIF format. For example download from 
+This method requires dataset in NIF format. For example download from 
 http://wiki.dbpedia.org/nif-abstract-datasets
+
+#### Strict properties
+ 
+#### Properties
 
 ## Results description 
 
-### Global statistics
-Statistics contains 
+### Global statistic
+Statistics contains predicates with their total count. Predicates are assign to every entity class ()
+Project requires only predicates that point to literals.
 
+File data example:
 ```json
 {
   "Entity_type_1": {
@@ -31,11 +37,16 @@ Statistics contains
 }
 ```
 
-### Link bases statistics
+### Link statistic
 process_time - relative time to find links in nif dataset and time to find relations with that link.
 resource_uri - resource
 nif_data - contains hashes of found links, anchor for link, indexes of anchor, paragraph information and relations by entity class.
  
+#### Strict predicates
+  
+#### Predicates
+
+File data example: 
 ```json
 {
   "process_time": {

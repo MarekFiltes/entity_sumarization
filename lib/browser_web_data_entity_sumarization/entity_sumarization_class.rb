@@ -79,7 +79,7 @@ module BrowserWebData
                 this_time = (Time.now - time_start).round(2)
                 puts "\n#{resource_uri}\n- nif found in #{this_time}\n- resources to find #{resources.size}"
 
-                result_relations = find_relations(actual_resource_data, type)
+                result_relations = find_relations(resource_uri, actual_resource_data, type)
                 generate_result_file(resource_uri, type, result_relations, this_time)
 
                 break if resources.empty?
@@ -103,7 +103,27 @@ module BrowserWebData
         end
       end
 
-      def find_relations(actual_resource_data, type)
+      def refresh_statistics_in_files(entities_type, count = 10)
+        resources = get_best_ranked_resources(entities_type, count)
+
+        resources = keep_loaded(resources)
+
+        resources.each { |resource_uri, resource_info|
+          puts "_____ #{resource_uri} _____"
+          begin
+            o, n = update_nif_file_properties(resource_uri, resource_info[:type]) { |link|
+              get_properties_by_link(resource_uri, link, resource_info[:type])
+            }
+          rescue => e
+            puts "\nENSURE OLD:\n#{o}"
+            puts "\nNEW:\n#{n}"
+            raise e
+          end
+        }
+
+      end
+
+      def find_relations(resource_uri, actual_resource_data, type)
         out = {
           sections: {},
           relations: []
@@ -123,19 +143,10 @@ module BrowserWebData
               to: section_group[0][2].to_i,
             }
 
-            properties = {type => {}}
+            result = get_properties_by_link(resource_uri, resource_data[:link], type)
 
-            @query.get_all_predicates_by_object(resource_data[:link]).each { |solution|
-              predicate = solution.to_h
-              property = predicate[:property].to_s.force_encoding('utf-8')
-
-              next if NO_SENSE_PROPERTIES.include?(property) || COMMON_PROPERTIES.include?(property)
-
-              count = @query.get_count_predicate_by_entity(type, property)[0].to_h[:count].to_f
-              properties[type][property] = count if count > 0
-            }
-
-            resource_data[:properties] = properties
+            resource_data[:properties] = result[:properties]
+            resource_data[:strict_properties] = result[:strict_properties]
 
             resource_data
           }.compact || []
@@ -146,6 +157,34 @@ module BrowserWebData
         puts "- properties found in #{out[:time]}"
 
         out
+      end
+
+      def get_properties_by_link(resource_uri, link, type)
+        properties = {type => {}}
+        strict_properties = {type => {}}
+
+        @query.get_all_predicates_by_subject_object(resource_uri, link).each { |solution|
+          predicate = solution.to_h
+          property = predicate[:property].to_s.force_encoding('utf-8')
+
+          next if unimportant?(property)
+
+          count = @query.get_count_predicate_by_entity(type, property)[0].to_h[:count].to_f
+          strict_properties[type][property] = count if count > 0
+        }
+
+        @query.get_all_predicates_by_object(link).each { |solution|
+          predicate = solution.to_h
+          property = predicate[:property].to_s.force_encoding('utf-8')
+
+          next if unimportant?(property) || strict_properties[type][property]
+
+          count = @query.get_count_predicate_by_entity(type, property)[0].to_h[:count].to_f
+          properties[type][property] = count if count > 0
+        }
+
+
+        {properties: properties, strict_properties: strict_properties}
       end
 
       def generate_result_file(resource_uri, type, result_relations, this_time)
@@ -177,14 +216,10 @@ module BrowserWebData
           nif_data: result_nif_data
         }
 
-        resource_name = resource_uri.split('/').last
-
-        dir_path = "#{@results_dir_path}/#{type}"
-        Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
-
-        result_path = "#{dir_path}/#{StringHelper.get_clear_file_path(resource_name)}.json"
+        result_path = get_resource_file_path(resource_uri, type)
         File.open(result_path, 'w:utf-8') { |f| f << JSON.pretty_generate(result) }
       end
+
 
       def generate_knowledge_base(type, best_count = 20, identify_identical = true)
         puts "_____ #{type} _____"
@@ -202,6 +237,7 @@ module BrowserWebData
             file_data[:nif_data].each { |data|
               identify_identical_predicates(data[:properties][type].keys)
             }
+            store_identical_properties
           end
 
           file_data[:nif_data].each { |found|
@@ -212,7 +248,7 @@ module BrowserWebData
               property = property.to_s
               value = count.to_i * weight
 
-              add_property_to_knowledge(type, property, knowledge_data){|from_knowledge|
+              prepare_add_property_to_knowledge(type, property, knowledge_data) { |from_knowledge|
                 old_score = from_knowledge[:score] * from_knowledge[:counter]
                 from_knowledge[:counter] += 1
                 (old_score + value) / from_knowledge[:counter]
@@ -223,25 +259,27 @@ module BrowserWebData
 
         }
 
-
-        max_weight = knowledge_data[type].max_by { |data| data[:score] }[:score]
-        knowledge_data[type] = knowledge_data[type].map { |hash|
-          hash[:score] = (hash[:score] / max_weight).round(4)
-          hash.delete(:counter)
-          hash
-        }
+        unless knowledge_data[type].empty?
+          max_weight = knowledge_data[type].max_by { |data| data[:score] }[:score]
+          knowledge_data[type] = knowledge_data[type].map { |hash|
+            hash[:score] = (hash[:score] / max_weight).round(4)
+            hash.delete(:counter)
+            hash
+          }
+        end
 
         puts "#{__method__} - global literal properties"
 
         global_properties = get_global_statistic_by_type(type) || {}
         if identify_identical
           identify_identical_predicates(global_properties.keys)
+          store_identical_properties
         end
 
-        max_count = global_properties.max_by{|_, count| count}[1].to_f
-        global_properties.each{|property, count|
+        max_count = global_properties.max_by { |_, count| count }[1].to_f
+        global_properties.each { |property, count|
           value = count / max_count
-          add_property_to_knowledge(type, property, knowledge_data, false){|from_knowledge|
+          prepare_add_property_to_knowledge(type, property, knowledge_data, false) { |from_knowledge|
             from_knowledge[:score] > 0 ? (from_knowledge[:score] + value / 2.0).round(4) : value.round(4)
           }
         }
@@ -251,7 +289,87 @@ module BrowserWebData
         update_knowledge_base(knowledge_data)
       end
 
-      def add_property_to_knowledge(type, property, knowledge_data, counter = true)
+      def identify_identical_predicates(properties, identical_limit = IDENTICAL_PROPERTY_LIMIT)
+        @temp_counts ||= {}
+
+        load_identical_predicates
+
+        combinations = properties.combination(2).to_a
+
+        combinations.each { |values|
+          values = values.map { |p| p.to_s }.sort
+
+          group_key = "#{values[0]}_#{values[1]}".to_sym
+
+          already_mark_same = @identical_predicates[group_key]
+          already_mark_different = @different_predicates[group_key]
+
+          if already_mark_same.nil? && already_mark_different.nil?
+
+            unless @temp_counts[values[0]]
+              @temp_counts[values[0]] = @query.get_count_of_identical_predicates(values[0])
+            end
+
+            unless @temp_counts[values[1]]
+              @temp_counts[values[1]] = @query.get_count_of_identical_predicates(values[1])
+            end
+
+            x = @temp_counts[values[0]]
+            y = @temp_counts[values[1]]
+            z = @query.get_count_of_identical_predicates(values)
+
+            identical_level = z / [x, y].max
+
+            if identical_level >= identical_limit
+              puts "     - result[#{identical_level}] z[#{z}] x[#{x}] y[#{y}] #{values.inspect}"
+              @identical_predicates[group_key] = ''
+            else
+              @different_predicates[group_key] = ''
+            end
+          end
+        }
+
+      end
+
+      def generate_literal_statistics(entities_type = nil, count = 10)
+        unless entities_type
+          entities_type = get_all_classes
+        end
+
+        entities_type = [entities_type] unless entities_type.is_a?(Array)
+
+        entities_type.each_with_index { |entity_type, index|
+          all_properties = {}
+          puts "#{__method__} - start process entity type: #{entity_type} [#{(index / entities_type.size.to_f).round(2)}]"
+          entity_type = entity_type.to_s.to_sym
+
+          get_best_ranked_resources(entity_type, count).each { |resource, _|
+            properties = @query.get_all_predicates_by_subject(resource.to_s, true).map { |solution_prop|
+              solution_prop[:property].to_s
+            } || []
+
+            properties.uniq.each { |prop|
+              next if unimportant?(prop)
+              all_properties[entity_type] ||= {}
+              all_properties[entity_type][prop] ||= 0
+              all_properties[entity_type][prop] += 1
+            }
+
+          }
+
+          update_global_statistic(all_properties)
+        }
+      end
+
+      def get_all_classes(path = '../knowledge/classes_hierarchy.json')
+        data = ensure_load_json(path, {})
+        HashHelper.recursive_map_keys(data)
+      end
+
+
+      private
+
+      def prepare_add_property_to_knowledge(type, property, knowledge_data, counter = true)
         load_identical_predicates(true) unless @identical_predicates
 
         found = knowledge_data[type].find { |data| data[:predicates].include?(property.to_s) }
@@ -274,90 +392,79 @@ module BrowserWebData
         found[:score] = new_score
       end
 
-      def identify_identical_predicates(properties, indetical_limit = IDENTICAL_PROPERTY_LIMIT)
-        @temp_counts ||= {}
-        identical_rewrite = false
-        different_rewrite = false
-
-        load_identical_predicates
-
-        combinations = properties.combination(2).to_a
-        # puts "- combination size[#{combinations.size}]"
-
-        combinations.each { |values|
-          values = values.map { |p| p.to_s }
-
-          already_mark_same = @identical_predicates.find { |group| group.include?(values[0]) && group.include?(values[1]) }
-          already_mark_different = @different_predicates.find { |group| group.include?(values[0]) && group.include?(values[1]) }
-
-          if already_mark_same.nil? && already_mark_different.nil?
-
-            unless @temp_counts[values[0]]
-              @temp_counts[values[0]] = @query.get_count_of_identical_predicates(values[0])
-            end
-
-            unless @temp_counts[values[1]]
-              @temp_counts[values[1]] = @query.get_count_of_identical_predicates(values[1])
-            end
-
-            x = @temp_counts[values[0]]
-            y = @temp_counts[values[1]]
-            z = @query.get_count_of_identical_predicates(values)
-
-            identical_level = z / [x, y].max
-
-            if identical_level >= indetical_limit
-              puts "     - result[#{identical_level}] z[#{z}] x[#{x}] y[#{y}] #{values.inspect}"
-              @identical_predicates << values
-              identical_rewrite = true
-            else
-              @different_predicates << values
-              different_rewrite = true
-            end
-          end
-        }
-
-        store_identical_properties(identical_rewrite, different_rewrite)
+      ###
+      # The method helps identify unimportant predicate by constants.
+      #
+      # @param [String] property
+      #
+      # @return [TrueClass, FalseClass] result
+      def unimportant?(property)
+        property = property.to_s
+        NO_SENSE_PROPERTIES.include?(property) || COMMON_PROPERTIES.include?(property)
       end
 
-      def generate_literal_statistics(entities_type = nil, count = 10)
-        unless entities_type
-          entities_type = get_all_classes
-        end
+      ###
+      # The method generate file path for given resource URI.
+      # Also ensure to exist sub directory by resource entity type.
+      #
+      # @param [String] resource_uri
+      # @param [String] type
+      #
+      # @return [String] resource_file_path
+      def get_resource_file_path(resource_uri, type)
+        type = type.split('/').last
+        resource_name = resource_uri.split('/').last
 
-        entities_type.each_with_index { |entity_type, index|
-          all_properties = {}
-          puts "#{__method__} - start process entity type: #{entity_type} [#{(index / entities_type.size.to_f).round(2)}]"
-          entity_type = entity_type.to_s.to_sym
+        dir_path = "#{@results_dir_path}/#{type}"
+        Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
 
-          get_best_ranked_resources(entity_type, count).each { |resource, _|
-            properties = @query.get_all_predicates_by_subject(resource.to_s, true).map { |solution_prop|
-              solution_prop[:property].to_s
-            } || []
+        "#{dir_path}/#{StringHelper.get_clear_file_path(resource_name)}.json"
+      end
 
-            properties.uniq.each { |prop|
-              next if NO_SENSE_PROPERTIES.include?(prop) || COMMON_PROPERTIES.include?(prop)
-              all_properties[entity_type] ||= {}
-              all_properties[entity_type][prop] ||= 0
-              all_properties[entity_type][prop] += 1
+      ###
+      # The method helps update found predicates to stored links.
+      #
+      # @param [String] resource_uri
+      # @param [String] type
+      #
+      # @return []
+      def update_nif_file_properties(resource_uri, type)
+        if block_given?
+          path = get_resource_file_path(resource_uri, type)
+          old_data = ensure_load_json(path, {}, symbolize_names: true)
+
+          new_data = old_data.dup
+
+          time = Benchmark.realtime {
+            new_data[:nif_data] = old_data[:nif_data].map { |hash|
+              actual_link = hash[:link].to_sym
+
+              result = yield actual_link
+
+              hash[:strict_properties] = result[:strict_properties] if result[:strict_properties]
+              hash[:properties] = result[:properties] if result[:properties]
+
+              hash
             }
-
           }
 
-          update_global_statistic(all_properties)
-        }
-      end
+          new_data[:process_time][:relations_find] = time.round(2)
 
-
-      private
-
-      def get_all_classes(path = '../knowledge/classes_hierarchy.json')
-        data = ensure_load_json(path, {})
-        HashHelper.recursive_map_keys(data)
+          File.write(path, JSON.pretty_generate(new_data))
+          return old_data, new_data
+        end
       end
 
       def keep_unloaded(resources)
         resources.delete_if { |resource, values|
+          dir_path = "#{@results_dir_path}/#{values[:type]}"
+          resource_name = resource.split('/').last
+          File.exists?("#{dir_path}/#{StringHelper.get_clear_file_path(resource_name)}.json")
+        }
+      end
+
+      def keep_loaded(resources)
+        resources.keep_if { |resource, values|
           dir_path = "#{@results_dir_path}/#{values[:type]}"
           resource_name = resource.split('/').last
           File.exists?("#{dir_path}/#{StringHelper.get_clear_file_path(resource_name)}.json")
@@ -383,7 +490,7 @@ module BrowserWebData
         data[type]
       end
 
-      def store_identical_properties(identical, different)
+      def store_identical_properties(identical = true, different = true)
         File.write("#{@results_dir_path}/identical_predicates.json", JSON.pretty_generate(@identical_predicates)) if identical
         File.write("#{@results_dir_path}/different_predicates.json", JSON.generate(@different_predicates)) if different
       end

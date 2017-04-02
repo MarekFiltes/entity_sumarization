@@ -47,6 +47,20 @@ module SPARQLQueries
       }"
   end
 
+  def all_predicates_by_object_and_subject(subject, object)
+    subject = subject['http'] ? "<#{subject}>" : "dbo:#{subject}"
+    object = object['http'] ? "<#{object}>" : "dbo:#{object}"
+
+    " PREFIX dbo:	<http://dbpedia.org/ontology/>
+      PREFIX dbp:	<http://dbpedia.org/property/>
+
+      SELECT DISTINCT ?property
+
+      WHERE {
+        #{subject} ?property #{object}.
+      }"
+  end
+
   def count_predicate_by_entity(entity_class, predicate)
     entity_class = entity_class['http'] ? "<#{entity_class}>" : "dbo:#{entity_class}"
     predicate = predicate['http'] ? "<#{predicate}>" : "dbo:#{predicate}"
