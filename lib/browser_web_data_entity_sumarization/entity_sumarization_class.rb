@@ -301,8 +301,8 @@ module BrowserWebData
 
           group_key = "#{values[0]}_#{values[1]}".to_sym
 
-          already_mark_same = @identical_predicates[group_key]
-          already_mark_different = @different_predicates[group_key]
+          already_mark_same = @identical_predicates.find(group_key)
+          already_mark_different = @different_predicates.find(group_key)
 
           if already_mark_same.nil? && already_mark_different.nil?
 
@@ -322,9 +322,9 @@ module BrowserWebData
 
             if identical_level >= identical_limit
               puts "     - result[#{identical_level}] z[#{z}] x[#{x}] y[#{y}] #{values.inspect}"
-              @identical_predicates[group_key] = ''
+              @identical_predicates << group_key
             else
-              @different_predicates[group_key] = ''
+              @different_predicates << group_key
             end
           end
         }
