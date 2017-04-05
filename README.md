@@ -188,3 +188,7 @@ File data example:
   ]
 }
 ```
+
+##Example of results usage
+
+http://browserwebdata.herokuapp.com
