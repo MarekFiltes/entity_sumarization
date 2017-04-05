@@ -243,15 +243,26 @@ module BrowserWebData
           file_data[:nif_data].each { |found|
 
             properties = found[:properties][type.to_sym]
+            strict_properties = (found[:strict_properties] ||{})[type] || {}
             weight = found[:weight]
+
+            strict_properties.each { |property, count|
+              property = property.to_s
+              value = count.to_i * weight
+
+              prepare_add_property_to_knowledge(property, knowledge_data[type]) { |from_knowledge|
+                old_score = from_knowledge[:score] * from_knowledge[:counter]
+                from_knowledge[:counter] += 1
+                (old_score + value) / from_knowledge[:counter]
+              }
+            }
 
             properties.each { |property, count|
               property = property.to_s
               value = count.to_i * weight
 
-              prepare_add_property_to_knowledge(type, property, knowledge_data) { |from_knowledge|
-                puts from_knowledge
-                old_score = from_knowledge[:score] * from_knowledge[:counter].to_i
+              prepare_add_property_to_knowledge(property, knowledge_data[type]) { |from_knowledge|
+                old_score = from_knowledge[:score] * from_knowledge[:counter]
                 from_knowledge[:counter] += 1
                 (old_score + value) / from_knowledge[:counter]
               }
@@ -262,20 +273,12 @@ module BrowserWebData
             max_weight = knowledge_data[type].max_by { |data| data[:score] }[:score]
             knowledge_data[type] = knowledge_data[type].map { |hash|
               hash[:score] = (hash[:score] / max_weight).round(4)
-              hash.delete(:counter)
               hash
             }
           end
 
-          file_data[:nif_data].each { |found|
-            strict_properties = (found[:strict_properties] ||{})[type] || {}
-            strict_properties.each { |property|
-              prepare_add_property_to_knowledge(type, property, knowledge_data) { 1 }
-            }
-          }
 
-
-          puts "#{__method__} - global literal properties"
+          #puts "#{__method__} - global literal properties"
 
           global_properties = get_global_statistic_by_type(type) || {}
           if identify_identical
@@ -286,17 +289,28 @@ module BrowserWebData
           if global_properties.size > 0
             max_count = global_properties.max_by { |_, count| count }[1].to_f
             global_properties.each { |property, count|
+
               value = count / max_count
-              prepare_add_property_to_knowledge(type, property, knowledge_data) { |from_knowledge|
-                from_knowledge[:score] > 0 ? (from_knowledge[:score] + value / 2.0).round(4) : value.round(4)
+
+              prepare_add_property_to_knowledge(property, knowledge_data[type]) { |from_knowledge|
+                if from_knowledge[:score] > 1
+                  x = 5
+                  return false
+                end
+
+                from_knowledge[:score] > 0 ? ((from_knowledge[:score] + value) / 2.0).round(4) : value.round(4)
               }
             }
           end
-
-          knowledge_data[type] = knowledge_data[type].sort_by { |hash| hash[:score] }.reverse.take(best_count)
         }
 
-        jj knowledge_data[type]
+        knowledge_data[type].map!{|hash|
+          hash.delete(:counter)
+          hash
+        }
+
+        knowledge_data[type] = knowledge_data[type].sort_by { |hash| hash[:score] }.reverse.take(best_count)
+
         update_knowledge_base(knowledge_data)
       end
 
@@ -312,8 +326,8 @@ module BrowserWebData
 
           group_key = "#{values[0]}_#{values[1]}".to_sym
 
-          already_mark_same = @identical_predicates.find{|p| p == group_key}
-          already_mark_different = @different_predicates.find{|p| p == group_key}
+          already_mark_same = @identical_predicates.find { |p| p == group_key }
+          already_mark_different = @different_predicates.find { |p| p == group_key }
 
           if already_mark_same.nil? && already_mark_different.nil?
 
@@ -384,28 +398,33 @@ module BrowserWebData
         key.to_s.scan(/(.*)_(http:\/\/.*)/).reduce(:+)
       end
 
-      def prepare_add_property_to_knowledge(type, property, knowledge_data)
+      def prepare_add_property_to_knowledge(property, this_knowledge_data)
+        property = property.to_s
         load_identical_predicates(true) unless @identical_predicates
 
-        found = knowledge_data[type].find { |data| data[:predicates].include?(property.to_s) }
+        this_knowledge_data ||= []
+        found = this_knowledge_data.find { |data| data[:predicates].include?(property) }
 
-        unless found
+        if found.nil? || found.empty?
           # add new
 
-          identica_properties_key = @identical_predicates.find{|p| p == property.to_s}
-          identical_properties = parse_identical_key(identica_properties_key)
+          identical_properties_key = @identical_predicates.find { |p| p[property] }
+          identical_properties = parse_identical_key(identical_properties_key)
 
           found = {
             counter: 0,
             score: 0.0,
-            predicates: identica_properties_key || [property.to_s]
+            predicates: identical_properties || [property.to_s]
           }
 
-          knowledge_data[type] ||= []
-          knowledge_data[type] << found
+          this_knowledge_data << found
         end
 
         new_score = yield found
+
+        if new_score > 1
+          x = 5
+        end
 
         found[:score] = new_score
       end

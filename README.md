@@ -7,6 +7,23 @@ Links are stored in dataset of NLP Interchange Format (NIF). In next step find a
 
 ## Basic usage
 
+### Install
+
+```cmd
+gem install browser_web_data_entity_sumarization
+```
+
+Gemfile:
+```ruby
+gem 'browser_web_data_entity_sumarization'
+```
+
+Script:
+```ruby
+require 'browser_web_data_entity_sumarization'
+```
+
+
 ### Global statistics
 
 ### Link based statistics
