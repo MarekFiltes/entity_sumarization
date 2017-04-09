@@ -58,7 +58,6 @@ module BrowserWebData
         @sparql_client.query(query)
       rescue => e
         if try < retries_count
-          puts '.'
           sleep(5 + (try * 2))
           try += 1
           retry

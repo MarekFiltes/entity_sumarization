@@ -9,6 +9,7 @@ Links are stored in dataset of NLP Interchange Format (NIF). In next step find a
 
 ### Install
 
+CMD:
 ```cmd
 gem install browser_web_data_entity_sumarization
 ```
@@ -55,140 +56,160 @@ File data example:
 ```
 
 ### Link statistic
-process_time - relative time to find links in nif dataset and time to find relations with that link.
-resource_uri - resource
-nif_data - contains hashes of found links, anchor for link, indexes of anchor, paragraph information and relations by entity class.
- 
+- process_time - relative time to find links in nif dataset and time to find relations with that link.
+- resource_uri - resource
+- nif_data - contains hashes of found links, anchor for link, indexes of anchor, paragraph information and relations by entity class.
+  - anchor - text from abstract
+  - indexes - position of anchor in paragraphs
+  - section - identifier of section where anchored text is included 
+  - weight - computed by relative position anchored text in abstract
+  - link
+  - strict_properties
+    - contains properties grouped by entity class type
+    - contains properties by strict relation between resource and link
+    - contains also total count of occurrence in resources by entity class type 
+  - properties - contains properties   
+    - contains properties grouped by entity class type
+    - contains properties by relation with ignore resource uri
+    - contains also total count of occurrence in resources by entity class type 
+                  
 #### Strict predicates
+properties by relation: 
+\<resource> ?property \<link>
   
 #### Predicates
+properties by relation: 
+?subject a \<entity_class>
+?subject ?property \<link>
 
 File data example: 
 ```json
 {
   "process_time": {
-    "nif_find": 2.1,
-    "relations_find": 2.56
+    "nif_find": 3.64,
+    "relations_find": 1.85
   },
-  "resource_uri": "http://dbpedia.org/resource/American_Mathematical_Monthly",
+  "resource_uri": "http://dbpedia.org/resource/Hamilton_(village),_New_York",
   "nif_data": [
     {
-      "link": "http://dbpedia.org/resource/Mathematics",
-      "anchor": "mathematical",
+      "link": "http://dbpedia.org/resource/Administrative_divisions_of_New_York#Village",
+      "anchor": "village",
       "indexes": [
-        "39",
-        "51"
+        "29",
+        "36"
       ],
-      "section": "paragraph_0_175",
+      "section": "paragraph_0_207",
       "properties": {
-        "AcademicJournal": {
-          "http://dbpedia.org/ontology/academicDiscipline": 7849.0,
-          "http://dbpedia.org/ontology/award": 28.0,
-          "http://dbpedia.org/ontology/field": 46.0,
-          "http://dbpedia.org/ontology/genre": 4.0,
-          "http://dbpedia.org/ontology/knownFor": 80.0,
-          "http://dbpedia.org/ontology/literaryGenre": 2.0,
-          "http://dbpedia.org/ontology/mainInterest": 4.0,
-          "http://dbpedia.org/ontology/nonFictionSubject": 2.0,
-          "http://dbpedia.org/ontology/occupation": 8.0,
-          "http://dbpedia.org/ontology/profession": 1.0,
-          "http://dbpedia.org/ontology/type": 9.0,
-          "http://dbpedia.org/property/subject": 2.0,
-          "http://dbpedia.org/property/discipline": 7659.0,
-          "http://dbpedia.org/property/field": 22.0,
-          "http://dbpedia.org/property/fields": 13.0,
-          "http://dbpedia.org/property/genre": 2.0,
-          "http://dbpedia.org/property/knownFor": 30.0,
-          "http://dbpedia.org/property/occupation": 2.0,
-          "http://dbpedia.org/property/profession": 1.0,
-          "http://dbpedia.org/property/type": 8.0
-        }
-      },
-      "weight": 0.9593
-    },
-    {
-      "link": "http://dbpedia.org/resource/Benjamin_Finkel",
-      "anchor": "Benjamin Finkel",
-      "indexes": [
-        "71",
-        "86"
-      ],
-      "section": "paragraph_0_175",
-      "properties": {
-        "AcademicJournal": {
+        "Village": {
 
         }
       },
-      "weight": 0.9259
-    },
-    {
-      "link": "http://dbpedia.org/resource/Mathematical_Association_of_America",
-      "anchor": "Mathematical Association of America",
-      "indexes": [
-        "139",
-        "174"
-      ],
-      "section": "paragraph_0_175",
-      "properties": {
-        "AcademicJournal": {
-          "http://dbpedia.org/ontology/award": 28.0,
-          "http://dbpedia.org/ontology/publisher": 6266.0,
-          "http://dbpedia.org/property/company": 1.0,
-          "http://dbpedia.org/property/publisher": 6149.0
+      "weight": 0.8599,
+      "strict_properties": {
+        "Village": {
+
         }
-      },
-      "weight": 0.8549
+      }
     },
     {
-      "link": "http://dbpedia.org/resource/JSTOR",
-      "anchor": "JSTOR",
+      "link": "http://dbpedia.org/resource/Hamilton_(town),_New_York",
+      "anchor": "Hamilton",
       "indexes": [
-        "701",
-        "706"
+        "64",
+        "72"
       ],
-      "section": "paragraph_176_707",
+      "section": "paragraph_0_207",
       "properties": {
-        "AcademicJournal": {
-          "http://dbpedia.org/ontology/employer": 3.0,
-          "http://dbpedia.org/property/employer": 1.0
-        }
-      },
-      "weight": 0.2683
-    },
-    {
-      "link": "http://www.maa.org/pubs/monthly_toc_archives.html",
-      "anchor": "Mathematical Association of America's website",
-      "indexes": [
-        "765",
-        "810"
-      ],
-      "section": "paragraph_708_811",
-      "properties": {
-        "AcademicJournal": {
+        "Village": {
 
         }
       },
-      "weight": 0.2015
+      "weight": 0.6908,
+      "strict_properties": {
+        "Village": {
+
+        }
+      }
     },
     {
-      "link": "http://dbpedia.org/resource/Lester_R._Ford_Award",
-      "anchor": "Lester R. Ford Awards",
+      "link": "http://dbpedia.org/resource/Madison_County,_New_York",
+      "anchor": "Madison County, New York",
       "indexes": [
-        "830",
-        "851"
+        "76",
+        "100"
       ],
-      "section": "paragraph_812_958",
+      "section": "paragraph_0_207",
       "properties": {
-        "AcademicJournal": {
+        "Village": {
+          "http://dbpedia.org/property/placeOfBirth": 2643.0,
+          "http://dbpedia.org/property/placeOfDeath": 555.0,
+          "http://dbpedia.org/ontology/location": 3255.0,
+          "http://dbpedia.org/ontology/region": 71.0,
+          "http://dbpedia.org/ontology/territory": 17.0,
+          "http://dbpedia.org/ontology/deathPlace": 1708.0,
+          "http://dbpedia.org/ontology/birthPlace": 7463.0,
+          "http://dbpedia.org/property/birthPlace": 4606.0,
+          "http://dbpedia.org/property/location": 1354.0,
+          "http://dbpedia.org/property/region": 19.0
+        }
+      },
+      "weight": 0.6329,
+      "strict_properties": {
+        "Village": {
+          "http://dbpedia.org/ontology/isPartOf": 498630.0,
+          "http://dbpedia.org/property/subdivisionName": 533823.0
+        }
+      }
+    },
+    {
+      "link": "http://dbpedia.org/resource/USA",
+      "anchor": "USA",
+      "indexes": [
+        "102",
+        "105"
+      ],
+      "section": "paragraph_0_207",
+      "properties": {
+        "Village": {
 
         }
       },
-      "weight": 0.1336
+      "weight": 0.5072,
+      "strict_properties": {
+        "Village": {
+
+        }
+      }
+    },
+    {
+      "link": "http://dbpedia.org/resource/Colgate_University",
+      "anchor": "Colgate University",
+      "indexes": [
+        "129",
+        "147"
+      ],
+      "section": "paragraph_0_207",
+      "properties": {
+        "Village": {
+          "http://dbpedia.org/ontology/education": 4.0,
+          "http://dbpedia.org/ontology/operator": 4.0,
+          "http://dbpedia.org/property/education": 2.0,
+          "http://dbpedia.org/property/operator": 1.0,
+          "http://dbpedia.org/property/owner": 8.0,
+          "http://dbpedia.org/property/youthclubs": 3.0
+        }
+      },
+      "weight": 0.3768,
+      "strict_properties": {
+        "Village": {
+
+        }
+      }
     }
   ]
 }
 ```
 
-##Example of results usage
+## Example of results usage
 
 http://browserwebdata.herokuapp.com

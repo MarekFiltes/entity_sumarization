@@ -1,0 +1,23 @@
+{
+  "http://dbpedia.org/ontology/thumbnail": {
+    "position": 1
+  },
+  "http://xmlns.com/foaf/0.1/name": {
+    "position": 2
+  },
+  "http://dbpedia.org/property/name": {
+    "position": 2
+  },
+  "http://dbpedia.org/property/commonName": {
+    "position": 2
+  },
+  "http://dbpedia.org/property/title": {
+    "position": 2
+  },
+  "http://www.w3.org/2000/01/rdf-schema#comment": {
+    "position": 3
+  },
+  "http://dbpedia.org/ontology/abstract": {
+    "position": 4
+  }
+}
