@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+###
+# Core project module
 module BrowserWebData
 
   class SPARQLRequest

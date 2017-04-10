@@ -74,12 +74,12 @@ File data example:
                   
 #### Strict predicates/properties
 Base relation:</br> 
-<b> \<resource> ?property \<link></b>
+\<resource> ?property \<link>
   
 #### Predicates/properties
 Base relation:</br>  
-<b> ?subject a \<entity_class\><br> 
-<b> ?subject ?property \<link\></b>
+?subject a \<entity_class\><br> 
+?subject ?property \<link\>
 
 File data example: 
 ```json

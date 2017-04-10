@@ -3,6 +3,10 @@
 # Module CacheHelper
 module CacheHelper
 
+  ###
+  # The method clear all application cache
+  #
+  # @param [String] type File extension type.
   def self.clear_cache(type = '.json')
     dir = "#{Dir.tmpdir}/#{BrowserWebData::TMP_DIR}/*#{type}"
     Dir.glob(dir).each { |path|
@@ -51,29 +55,13 @@ module CacheHelper
     HashHelper.recursive_symbolize_keys(hash)
   end
 
-  def self.update_knowledge(type)
+  ###
+  # The method helps to get build in knowledge by key.
+  #
+  # @param [String] key
+  def self.load_knowledge(key)
     dir_path = "#{File.dirname(File.expand_path('..', __FILE__))}/knowledge"
-    file_path = "#{dir_path}/#{StringHelper.get_clear_file_path(type)}.json"
-
-    hash = {}
-    if !File.exists?(file_path)
-
-      if block_given?
-        hash = yield hash
-        File.open(file_path, 'w') { |f| f.puts hash.to_json } unless hash.empty?
-      end
-    else
-      old_hash = JSON.parse(File.read(file_path).force_encoding('UTF-8'), symbolize_names: true)
-      hash = yield old_hash
-      File.open(file_path, 'w') { |f| f.puts hash.to_json } unless hash.empty?
-    end
-
-    HashHelper.recursive_symbolize_keys(hash)
-  end
-
-  def self.load_knowledge(type)
-    dir_path = "#{File.dirname(File.expand_path('..', __FILE__))}/knowledge"
-    file_path = "#{dir_path}/#{StringHelper.get_clear_file_path(type)}.json"
+    file_path = "#{dir_path}/#{StringHelper.get_clear_file_path(key)}.json"
 
     JSON.parse(File.read(file_path), symbolize_names: true)
   end

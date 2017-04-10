@@ -1,10 +1,17 @@
 # encoding: utf-8
 
+###
+# Core project module
 module BrowserWebData
 
+  ###
+  # Project logic module
   module EntitySumarization
 
 
+    ###
+    # The class include helper methods.
+    # (todo definition of predicate instance)
     class Predicate
       include BrowserWebData::EntitySumarizationConfig
 
