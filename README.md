@@ -24,7 +24,6 @@ Script:
 require 'browser_web_data_entity_sumarization'
 ```
 
-
 ### Global statistics
 
 ### Link based statistics
@@ -73,14 +72,14 @@ File data example:
     - contains properties by relation with ignore resource uri
     - contains also total count of occurrence in resources by entity class type 
                   
-#### Strict predicates
-properties by relation: 
-\<resource> ?property \<link>
+#### Strict predicates/properties
+Base relation:</br> 
+<b> \<resource> ?property \<link></b>
   
-#### Predicates
-properties by relation: 
-?subject a \<entity_class>
-?subject ?property \<link>
+#### Predicates/properties
+Base relation:</br>  
+<b> ?subject a \<entity_class\><br> 
+<b> ?subject ?property \<link\></b>
 
 File data example: 
 ```json

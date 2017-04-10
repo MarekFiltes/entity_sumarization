@@ -4,6 +4,11 @@ module BrowserWebData
 
   module EntitySumarization
 
+    ###
+    # Statistic class allow to find, collect and generate knowledge of entity sumarization.
+    # Entity sumarization is based on use dataset of NLP Interchange Format (NIF).
+    # For example datasets from http://wiki.dbpedia.org/nif-abstract-datasets
+    # Knowledge is generate by information in DBpedia.
     class Statistic
       include BrowserWebData::EntitySumarizationConfig
 
@@ -21,11 +26,13 @@ module BrowserWebData
 
         return false unless File.exists?(nif_dataset_path)
         return false unless File.exists?(results_dir_path)
+
         @nif_file_path = nif_dataset_path.gsub('\\', '/')
         @results_dir_path = results_dir_path.gsub('\\', '/').chomp('/')
         @console_output = console_output
 
-        @query = BrowserWebData::SPARQLRequest.new
+        @query = SPARQLRequest.new
+        @predicates_similarity = PredicatesSimilarity.new(@results_dir_path)
       end
 
       ###
@@ -153,43 +160,7 @@ module BrowserWebData
 
       end
 
-      ###
-      #
-      def find_relations(resource_uri, actual_resource_data, type)
-        out = {
-          sections: {},
-          relations: []
-        }
 
-        puts "- properties to find size[#{actual_resource_data.size}]" if @console_output
-
-        time = Benchmark.realtime {
-          out[:relations] = actual_resource_data.map! { |resource_data|
-            section_group = resource_data[:section].scan(SCAN_REGEXP[:group])
-
-            type_key = resource_data[:section].force_encoding('utf-8')
-
-            out[:sections][type_key] ||= {
-              type: section_group[0][0],
-              from: section_group[0][1].to_i,
-              to: section_group[0][2].to_i,
-            }
-
-            result = get_properties_by_link(resource_uri, resource_data[:link], type)
-
-            resource_data[:properties] = result[:properties]
-            resource_data[:strict_properties] = result[:strict_properties]
-
-            resource_data
-          }.compact || []
-        }
-
-        out[:time] = time.round(2)
-
-        puts "- properties found in #{out[:time]}" if @console_output
-
-        out
-      end
 
       def get_properties_by_link(resource_uri, link, type)
         properties = {type => {}}
@@ -199,7 +170,7 @@ module BrowserWebData
           predicate = solution.to_h
           property = predicate[:property].to_s.force_encoding('utf-8')
 
-          next if unimportant?(property)
+          next if Predicate.unimportant?(property)
 
           count = @query.get_count_predicate_by_entity(type, property)[0].to_h[:count].to_f
           strict_properties[type][property] = count if count > 0
@@ -209,7 +180,7 @@ module BrowserWebData
           predicate = solution.to_h
           property = predicate[:property].to_s.force_encoding('utf-8')
 
-          next if unimportant?(property) || strict_properties[type][property]
+          next if Predicate.unimportant?(property) || strict_properties[type][property]
 
           count = @query.get_count_predicate_by_entity(type, property)[0].to_h[:count].to_f
           properties[type][property] = count if count > 0
@@ -267,10 +238,9 @@ module BrowserWebData
           if identify_identical
             file_data[:nif_data].each { |data|
               all_properties = data[:properties][type].keys + ((data[:strict_properties]||{})[type] || {}).keys.uniq
-              identify_identical_predicates(all_properties)
+              @predicates_similarity.identify_identical_predicates(all_properties)
             }
-            reduce_identical
-            store_identical_properties
+            @predicates_similarity.reduce_identical
           end
 
           file_data[:nif_data].each { |found|
@@ -313,9 +283,8 @@ module BrowserWebData
 
         global_properties = get_global_statistic_by_type(type) || {}
         if identify_identical
-          identify_identical_predicates(global_properties.keys)
-          reduce_identical
-          store_identical_properties
+          @predicates_similarity.identify_identical_predicates(global_properties.keys)
+          @predicates_similarity.reduce_identical
         end
 
         if global_properties.size > 0
@@ -340,57 +309,7 @@ module BrowserWebData
         update_knowledge_base(knowledge_data)
       end
 
-      def identify_identical_predicates(properties, identical_limit = IDENTICAL_PROPERTY_LIMIT)
-        @temp_counts ||= {}
 
-        load_identical_predicates
-
-        combinations = properties.combination(2).to_a
-
-        combinations.each { |values|
-          values = values.map { |p| p.to_s }.sort
-
-          group_key = get_identical_key(values)
-
-          already_mark_same = @identical_predicates.find { |p| p == group_key }
-          already_mark_different = @different_predicates.find { |p| p == group_key }
-
-          if already_mark_same.nil? && already_mark_different.nil?
-
-            # in case of dbpedia ontology vs. property
-            # automatically became identical
-            temp = values.map { |val| val.split('/').last }.uniq
-            if temp.size == 1 && group_key['property/'] && group_key['ontology/']
-              @identical_predicates << group_key
-
-            else
-
-              unless @temp_counts[values[0]]
-                @temp_counts[values[0]] = @query.get_count_of_identical_predicates(values[0])
-              end
-
-              unless @temp_counts[values[1]]
-                @temp_counts[values[1]] = @query.get_count_of_identical_predicates(values[1])
-              end
-
-              x = @temp_counts[values[0]]
-              y = @temp_counts[values[1]]
-              z = @query.get_count_of_identical_predicates(values)
-
-              identical_level = z / [x, y].max
-
-              if identical_level >= identical_limit
-                puts "     - result[#{identical_level}] z[#{z}] x[#{x}] y[#{y}] #{values.inspect}" if @console_output
-                @identical_predicates << group_key
-              else
-                @different_predicates << group_key
-              end
-            end
-
-          end
-        }
-
-      end
 
       def generate_literal_statistics(entity_types = nil, count = 10)
         unless entity_types
@@ -410,7 +329,7 @@ module BrowserWebData
             } || []
 
             properties.uniq.each { |prop|
-              next if unimportant?(prop)
+              next if Predicate.unimportant?(prop)
               all_properties[entity_type] ||= {}
               all_properties[entity_type][prop] ||= 0
               all_properties[entity_type][prop] += 1
@@ -430,49 +349,49 @@ module BrowserWebData
 
       private
 
-      def reduce_identical
-        new_identical = []
-
-        @identical_predicates.each { |key|
-          values = parse_identical_key(key)
-          next if new_identical.find { |v| !(v & values).empty? }
-
-          ## find nodes with values predicates
-          values = recursive_find_identical(key, values)
-
-          new_identical << values.uniq.sort
+      ###
+      # The method helps to continue of process find links in nif dataset.
+      def find_relations(resource_uri, actual_resource_data, type)
+        out = {
+          sections: {},
+          relations: []
         }
 
-        @identical_predicates = new_identical.map { |v| get_identical_key(v) }
-      end
+        puts "- properties to find size[#{actual_resource_data.size}]" if @console_output
 
-      def recursive_find_identical(keys, values)
-        keys = [keys] unless keys.is_a?(Array)
+        time = Benchmark.realtime {
+          out[:relations] = actual_resource_data.map! { |resource_data|
+            section_group = resource_data[:section].scan(SCAN_REGEXP[:group])
 
-        @identical_predicates.each { |this_key|
-          next if keys.include?(this_key)
-          temp = parse_identical_key(this_key)
+            type_key = resource_data[:section].force_encoding('utf-8')
 
-          unless (temp & values).empty?
-            keys << this_key
-            return recursive_find_identical(keys, (values + temp).uniq)
-          end
+            out[:sections][type_key] ||= {
+              type: section_group[0][0],
+              from: section_group[0][1].to_i,
+              to: section_group[0][2].to_i,
+            }
+
+            result = get_properties_by_link(resource_uri, resource_data[:link], type)
+
+            resource_data[:properties] = result[:properties]
+            resource_data[:strict_properties] = result[:strict_properties]
+
+            resource_data
+          }.compact || []
         }
 
-        values
+        out[:time] = time.round(2)
+
+        puts "- properties found in #{out[:time]}" if @console_output
+
+        out
       end
 
-      def get_identical_key(predicates)
-        "<#{predicates.join('><')}>"
-      end
 
-      def parse_identical_key(key)
-        key.to_s.scan(SCAN_REGEXP[:identical_key]).reduce(:+)
-      end
+
 
       def prepare_add_property_to_knowledge(property, this_knowledge_data)
         property = property.to_s
-        load_identical_predicates(true) unless @identical_predicates
 
         this_knowledge_data ||= []
         found = this_knowledge_data.find { |data| data[:predicates].include?(property) }
@@ -480,8 +399,7 @@ module BrowserWebData
         if found.nil? || found.empty?
           # add new
 
-          identical_properties_key = @identical_predicates.find { |p| p[property] }
-          identical_properties = parse_identical_key(identical_properties_key)
+          identical_properties = @predicates_similarity.find_identical(property)
 
           found = {
             counter: 0,
@@ -498,16 +416,6 @@ module BrowserWebData
         found[:score] = new_score
       end
 
-      ###
-      # The method helps identify unimportant predicate by constants.
-      #
-      # @param [String] property
-      #
-      # @return [TrueClass, FalseClass] result
-      def unimportant?(property)
-        property = property.to_s
-        NO_SENSE_PROPERTIES.include?(property) || COMMON_PROPERTIES.include?(property)
-      end
 
       ###
       # The method generate file path for given resource URI.
@@ -596,24 +504,6 @@ module BrowserWebData
         data[type]
       end
 
-      def store_identical_properties(identical = true, different = true)
-        File.write("#{@results_dir_path}/identical_predicates.json", JSON.pretty_generate(@identical_predicates)) if identical
-        File.write("#{@results_dir_path}/different_predicates.json", JSON.generate(@different_predicates)) if different
-      end
-
-      def load_identical_predicates(no_different = false)
-        unless @identical_predicates
-          file_path = "#{@results_dir_path}/identical_predicates.json"
-          @identical_predicates = ensure_load_json(file_path, [])
-        end
-
-        unless no_different
-          unless @different_predicates
-            file_path = "#{@results_dir_path}/different_predicates.json"
-            @different_predicates = ensure_load_json(file_path, [])
-          end
-        end
-      end
 
       def ensure_load_json(file_path, def_val, json_params = {})
         if File.exists?(file_path)

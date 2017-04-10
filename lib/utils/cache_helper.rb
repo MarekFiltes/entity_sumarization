@@ -22,7 +22,7 @@ module CacheHelper
   #
   # @return [Hash] hash_value
   #
-  # @yield return value must by Hash
+  # @yield return value must be Hash
   def self.load_cached(key, params = {}, &block)
     default_load_attrs = {
         update: false,
