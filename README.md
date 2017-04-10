@@ -6,6 +6,7 @@ Tool was developed as part of diploma thesis. Tool lookup resource links that is
 Links are stored in dataset of NLP Interchange Format (NIF). In next step find all relations in witch are used collected links to entities of given class (eg. City, Artist, ...).   
 
 ## Basic usage
+Requires installed JRuby on machine.
 
 ### Install
 
@@ -19,9 +20,30 @@ Gemfile:
 gem 'browser_web_data_entity_sumarization'
 ```
 
+### Use in scripts
+
 Script:
 ```ruby
 require 'browser_web_data_entity_sumarization'
+```
+
+Initialize main instance:
+```ruby
+ nif_dataset_path = 'nif-text-links_en.ttl'
+ resource_dir = 'statisticts'
+ statistic = BrowserWebData::EntitySumarization::Statistic.new(nif_dataset_path, resource_dir, true)
+```
+
+Start generate knowledge base for all entity class types:
+```ruby
+params = {
+  entity_types: statistic.get_all_classes,
+  entity_count: 10,
+  best_score_count: 10,
+  demand_reload: false
+}
+
+statistic.create_by_nif_dataset(params)
 ```
 
 ### Global statistics
