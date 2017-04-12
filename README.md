@@ -14,18 +14,20 @@ CMD:
 ```cmd
 gem install browser_web_data_entity_sumarization
 ```
+### How to initialize tool in project
 
 Gemfile:
 ```ruby
 gem 'browser_web_data_entity_sumarization'
 ```
 
-### Use in scripts
+### How to initialize tool in script
 
 Script:
 ```ruby
 require 'browser_web_data_entity_sumarization'
 ```
+### Use in script
 
 Initialize main instance:
 ```ruby

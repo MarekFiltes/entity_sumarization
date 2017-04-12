@@ -31,6 +31,7 @@ module BrowserWebData
       #
       # @return [String] key
       def self.get_key(predicates)
+        predicates = [predicates] unless predicates.is_a?(Array)
         "<#{predicates.join('><')}>" if predicates && !predicates.empty?
       end
 
@@ -53,7 +54,7 @@ module BrowserWebData
       def identify_identical_predicates(predicates, identical_limit = @identical_limit)
         @temp_counts ||= {}
 
-        predicates.combination(2).each{ |values|
+        predicates.combination(2).each { |values|
 
           already_mark_same = find_identical(values)
           already_mark_different = find_different(values)
@@ -102,14 +103,20 @@ module BrowserWebData
       def find_identical(value)
         raise RuntimeError.new('No support identify identical for more than 2 predicates.') if value.is_a?(Array) && value.size >2
 
-        case value
-          when Array
-            value = value.map{|v| v.to_s}
-            @identical_predicates.find { |p| p[value[0]] && p[value[1]] }
-          else
-            value = value.to_s
-            @identical_predicates.find { |p| p[value] }
-        end
+        predicates_key = case value
+                           when Array
+                             value = value.map { |v| PredicatesSimilarity.get_key(v) }
+                             @identical_predicates.find { |p|
+                               p[value[0]] && p[value[1]]
+                             }
+                           else
+                             value = PredicatesSimilarity.get_key(value)
+                             @identical_predicates.find { |p|
+                               p[value]
+                             }
+                         end
+
+        PredicatesSimilarity.parse_key(predicates_key)
       end
 
       ###
@@ -123,10 +130,10 @@ module BrowserWebData
 
         key = case value
                 when Array
-                  value = value.map{|v| v.to_s}
+                  value = value.map { |v| PredicatesSimilarity.get_key(v) }
                   @different_predicates.find { |p| p[value[0]] && p[value[1]] }
                 else
-                  value = value.to_s
+                  value = PredicatesSimilarity.get_key(value)
                   @different_predicates.find { |p| p[value] }
               end
 
@@ -164,7 +171,7 @@ module BrowserWebData
       def try_auto_identical(values)
         group_key = PredicatesSimilarity.get_key(values)
 
-        temp = values.map { |val| val.split('/').last }.uniq
+        temp = values.map { |val| val.to_s.split('/').last }.uniq
         if temp.size == 1 && group_key['property/'] && group_key['ontology/']
           add_identical(values)
           true

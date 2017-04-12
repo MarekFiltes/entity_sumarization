@@ -578,7 +578,7 @@ module BrowserWebData
         type = type.to_s.to_sym
         path = "#{@results_dir_path}/global_statistic.json"
         data = ensure_load_json(path, {}, symbolize_names: true)
-        data[type].sort_by{|_, count| count}
+        data[type]
       end
 
       ###
