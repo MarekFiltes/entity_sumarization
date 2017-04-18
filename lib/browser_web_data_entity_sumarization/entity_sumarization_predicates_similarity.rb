@@ -13,6 +13,12 @@ module BrowserWebData
     class PredicatesSimilarity
       include BrowserWebData::EntitySumarizationConfig
 
+      ###
+      # The method create new instance of PredicatesSimilarity class.
+      #
+      # @param [String] results_dir_path
+      # @param [Float] identical_limit Define minimal identical percent rate of predicates to mark as identical.
+      # @param [TrueClass, FalseClass] console_output Allow puts info to console. Default is false.
       def initialize(results_dir_path, identical_limit = IDENTICAL_PROPERTY_LIMIT, console_output = false)
         @results_dir_path = results_dir_path
         @console_output = console_output
@@ -22,6 +28,7 @@ module BrowserWebData
 
         load_identical_predicates
         load_different_predicates
+        load_counts
       end
 
       ###
@@ -32,7 +39,7 @@ module BrowserWebData
       # @return [String] key
       def self.get_key(predicates)
         predicates = [predicates] unless predicates.is_a?(Array)
-        "<#{predicates.join('><')}>" if predicates && !predicates.empty?
+        "<#{predicates.sort.join('><')}>" if predicates && !predicates.empty?
       end
 
       ###
@@ -48,13 +55,17 @@ module BrowserWebData
       ###
       # The method verify every combination of two predicates.
       # Method store identify combination in two files identical_predicates.json and different_predicates.json
-      # files contains Array of combination keys
+      # files contains Array of combination keys.
+      # Given predicates count are is reduced to #IMPORTANCE_TO_IDENTIFY_MAX_COUNT (250)
       #
       # @param [Array<String>] predicates
       def identify_identical_predicates(predicates, identical_limit = @identical_limit)
-        @temp_counts ||= {}
+        combination = predicates.take(IMPORTANCE_TO_IDENTIFY_MAX_COUNT).map { |p| p.to_sym }.combination(2)
+        times_count = combination.size / 10
 
-        predicates.combination(2).each { |values|
+        combination.each_with_index { |values, i|
+
+
 
           already_mark_same = find_identical(values)
           already_mark_different = find_different(values)
@@ -63,18 +74,18 @@ module BrowserWebData
 
             # in case of dbpedia ontology vs. property
             # automatically became identical
-            unless try_auto_identical(values)
+            unless is_identical_property_ontology?(values)
 
-              unless @temp_counts[values[0]]
-                @temp_counts[values[0]] = @query.get_count_of_identical_predicates(values[0])
+              unless @counts[values[0]]
+                @counts[values[0]] = @query.get_count_of_identical_predicates(values[0])
               end
 
-              unless @temp_counts[values[1]]
-                @temp_counts[values[1]] = @query.get_count_of_identical_predicates(values[1])
+              unless @counts[values[1]]
+                @counts[values[1]] = @query.get_count_of_identical_predicates(values[1])
               end
 
-              x = @temp_counts[values[0]]
-              y = @temp_counts[values[1]]
+              x = @counts[values[0]]
+              y = @counts[values[1]]
               z = @query.get_count_of_identical_predicates(values)
 
               identical_level = z / [x, y].max
@@ -86,12 +97,15 @@ module BrowserWebData
                 add_different(values)
               end
             end
-
           end
 
-          true
+          if @console_output && ( i == 0 || (i+1) % times_count == 0 )
+            puts "#{Time.now.localtime} | #{(((i+1)/combination.size) * 100).round(2)}% | [#{(i+1)}/#{combination.size}]"
+          end
+
         }
 
+        store_counts
       end
 
       ###
@@ -140,6 +154,10 @@ module BrowserWebData
         PredicatesSimilarity.parse_key(key)
       end
 
+      ###
+      # The method add new identical values to local storage.
+      #
+      # @param [Array<String>] values
       def add_identical(values)
         values = values.map { |p| p.to_s }.uniq.sort
         group_key = PredicatesSimilarity.get_key(values)
@@ -150,6 +168,10 @@ module BrowserWebData
         end
       end
 
+      ###
+      # The method add new different values to local storage.
+      #
+      # @param [Array<String>] values
       def add_different(values)
         values = values.map { |p| p.to_s }.uniq.sort
         group_key = PredicatesSimilarity.get_key(values)
@@ -168,7 +190,14 @@ module BrowserWebData
         end
       end
 
-      def try_auto_identical(values)
+      ###
+      # The method helps to automatic identify identical properties
+      # that means DBpedia property versus ontology predicates.
+      #
+      # @param [Array<String>] values
+      #
+      # @return [TrueClass, FalseClass] resuls
+      def is_identical_property_ontology?(values)
         group_key = PredicatesSimilarity.get_key(values)
 
         temp = values.map { |val| val.to_s.split('/').last }.uniq
@@ -201,6 +230,13 @@ module BrowserWebData
         store_identical_properties
       end
 
+      ###
+      # The method helps to collect identical chains.
+      #
+      # @param [Array<String>] keys Array of identical key items.
+      # @param [Array<String>] values All values that is related to all keys.
+      #
+      # @return [Array<String>] all_find_values
       def recursive_find_identical(keys, values)
         keys = [keys] unless keys.is_a?(Array)
 
@@ -217,9 +253,7 @@ module BrowserWebData
         values
       end
 
-
       private
-
 
       def load_identical_predicates
         unless @identical_predicates
@@ -235,6 +269,13 @@ module BrowserWebData
         end
       end
 
+      def load_counts
+        unless @counts
+          file_path = "#{@results_dir_path}/counts.json"
+          @counts = ensure_load_json(file_path, {})
+        end
+      end
+
       def store_identical_properties
         File.write("#{@results_dir_path}/different_predicates.json", JSON.generate(@different_predicates))
       end
@@ -242,6 +283,11 @@ module BrowserWebData
       def store_different_predicates
         File.write("#{@results_dir_path}/different_predicates.json", JSON.generate(@different_predicates))
       end
+
+      def store_counts
+        File.write("#{@results_dir_path}/counts.json", JSON.generate(@counts))
+      end
+
 
       def ensure_load_json(file_path, def_val, json_params = {})
         if File.exists?(file_path)

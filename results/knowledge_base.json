@@ -96,6 +96,7 @@
     {
       "score": 0.0125,
       "predicates": [
+        "http://dbpedia.org/ontology/mediaType",
         "http://dbpedia.org/property/mediaType"
       ]
     },
@@ -208,7 +209,8 @@
     {
       "score": 0.0116,
       "predicates": [
-        "http://dbpedia.org/ontology/birthDate"
+        "http://dbpedia.org/ontology/birthDate",
+        "http://dbpedia.org/property/birthDate"
       ]
     },
     {
@@ -262,41 +264,17 @@
   ],
   "Agent": [
     {
-      "score": 1.0,
+      "score": 0.9861,
       "predicates": [
+        "http://dbpedia.org/ontology/birthDate",
         "http://dbpedia.org/property/birthDate"
       ]
     },
     {
-      "score": 0.9721,
+      "score": 0.6622,
       "predicates": [
-        "http://dbpedia.org/ontology/birthDate"
-      ]
-    },
-    {
-      "score": 0.7029,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6698,
-      "predicates": [
+        "http://dbpedia.org/ontology/deathDate",
         "http://dbpedia.org/property/deathDate"
-      ]
-    },
-    {
-      "score": 0.6547,
-      "predicates": [
-        "http://dbpedia.org/ontology/deathDate"
-      ]
-    },
-    {
-      "score": 0.5867,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
       ]
     },
     {
@@ -306,22 +284,9 @@
       ]
     },
     {
-      "score": 0.5644,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
       "score": 0.507,
       "predicates": [
         "http://dbpedia.org/property/website"
-      ]
-    },
-    {
-      "score": 0.3696,
-      "predicates": [
-        "http://dbpedia.org/property/birthName"
       ]
     },
     {
@@ -331,15 +296,16 @@
       ]
     },
     {
-      "score": 0.3542,
-      "predicates": [
-        "http://dbpedia.org/property/deathPlace"
-      ]
-    },
-    {
       "score": 0.3453,
       "predicates": [
         "http://dbpedia.org/ontology/birthYear"
+      ]
+    },
+    {
+      "score": 0.3406,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthName",
+        "http://dbpedia.org/property/birthName"
       ]
     },
     {
@@ -364,12 +330,6 @@
       "score": 0.3328,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.3117,
-      "predicates": [
-        "http://dbpedia.org/ontology/birthName"
       ]
     },
     {
@@ -383,35 +343,95 @@
       "predicates": [
         "http://dbpedia.org/ontology/activeYearsEndYear"
       ]
+    },
+    {
+      "score": 0.2831,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthPlace",
+        "http://dbpedia.org/property/birthPlace"
+      ]
+    },
+    {
+      "score": 0.2288,
+      "predicates": [
+        "http://dbpedia.org/property/nickname",
+        "http://xmlns.com/foaf/0.1/nick"
+      ]
+    },
+    {
+      "score": 0.2168,
+      "predicates": [
+        "http://dbpedia.org/ontology/spouse",
+        "http://dbpedia.org/property/spouse"
+      ]
+    },
+    {
+      "score": 0.215,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationYear"
+      ]
+    },
+    {
+      "score": 0.2129,
+      "predicates": [
+        "http://dbpedia.org/ontology/deathYear"
+      ]
+    },
+    {
+      "score": 0.2113,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
+      ]
+    },
+    {
+      "score": 0.1978,
+      "predicates": [
+        "http://dbpedia.org/property/foundation"
+      ]
     }
   ],
   "Organisation": [
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.9581,
+      "score": 0.8037,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/keyPerson"
       ]
     },
     {
-      "score": 0.833,
+      "score": 0.7674,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.7982,
+      "score": 0.7674,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.7674,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.7674,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.6248,
+      "predicates": [
+        "http://dbpedia.org/ontology/product"
       ]
     },
     {
@@ -422,51 +442,49 @@
       ]
     },
     {
-      "score": 0.5519,
+      "score": 0.5608,
       "predicates": [
-        "http://dbpedia.org/ontology/industry"
+        "http://dbpedia.org/ontology/industry",
+        "http://dbpedia.org/property/industry"
       ]
     },
     {
-      "score": 0.5001,
+      "score": 0.529,
       "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
+        "http://dbpedia.org/ontology/formationYear"
       ]
     },
     {
-      "score": 0.4371,
+      "score": 0.5192,
       "predicates": [
-        "http://dbpedia.org/ontology/keyPerson"
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
+      ]
+    },
+    {
+      "score": 0.4861,
+      "predicates": [
+        "http://dbpedia.org/ontology/party",
+        "http://dbpedia.org/property/party"
+      ]
+    },
+    {
+      "score": 0.4772,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.4438,
+      "predicates": [
+        "http://dbpedia.org/ontology/activeYearsStartYear"
       ]
     },
     {
       "score": 0.4215,
       "predicates": [
         "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.3837,
-      "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.3837,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.3837,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.3837,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
@@ -494,21 +512,10 @@
       ]
     },
     {
-      "score": 0.3436,
+      "score": 0.3525,
       "predicates": [
-        "http://dbpedia.org/ontology/capacity"
-      ]
-    },
-    {
-      "score": 0.3417,
-      "predicates": [
-        "http://dbpedia.org/property/revenue"
-      ]
-    },
-    {
-      "score": 0.3398,
-      "predicates": [
-        "http://dbpedia.org/ontology/product"
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
       ]
     }
   ],
@@ -516,129 +523,129 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/ontology/firstAirDate"
       ]
     },
     {
-      "score": 0.9876,
+      "score": 0.8972,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/property/launchDate"
       ]
     },
     {
-      "score": 0.9719,
-      "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
-      ]
-    },
-    {
-      "score": 0.9321,
-      "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
-      ]
-    },
-    {
-      "score": 0.788,
+      "score": 0.8191,
       "predicates": [
         "http://dbpedia.org/ontology/channel",
         "http://dbpedia.org/property/channel"
       ]
     },
     {
-      "score": 0.5093,
+      "score": 0.7965,
+      "predicates": [
+        "http://dbpedia.org/ontology/slogan",
+        "http://dbpedia.org/property/slogan"
+      ]
+    },
+    {
+      "score": 0.5314,
       "predicates": [
         "http://dbpedia.org/ontology/broadcastNetwork"
       ]
     },
     {
-      "score": 0.5027,
-      "predicates": [
-        "http://dbpedia.org/ontology/firstAirDate"
-      ]
-    },
-    {
-      "score": 0.482,
+      "score": 0.5011,
       "predicates": [
         "http://dbpedia.org/ontology/network",
         "http://dbpedia.org/property/network"
       ]
     },
     {
-      "score": 0.451,
-      "predicates": [
-        "http://dbpedia.org/property/launchDate"
-      ]
-    },
-    {
-      "score": 0.4048,
-      "predicates": [
-        "http://dbpedia.org/ontology/slogan"
-      ]
-    },
-    {
-      "score": 0.403,
+      "score": 0.4047,
       "predicates": [
         "http://dbpedia.org/property/available"
       ]
     },
     {
-      "score": 0.396,
+      "score": 0.3764,
       "predicates": [
-        "http://dbpedia.org/property/slogan"
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
       ]
     },
     {
-      "score": 0.3103,
+      "score": 0.3654,
+      "predicates": [
+        "http://dbpedia.org/property/branding"
+      ]
+    },
+    {
+      "score": 0.3479,
+      "predicates": [
+        "http://dbpedia.org/property/keyPeople"
+      ]
+    },
+    {
+      "score": 0.3265,
       "predicates": [
         "http://dbpedia.org/property/affiliations"
       ]
     },
     {
-      "score": 0.2776,
-      "predicates": [
-        "http://dbpedia.org/property/owner"
-      ]
-    },
-    {
-      "score": 0.268,
+      "score": 0.2783,
       "predicates": [
         "http://dbpedia.org/ontology/formerBroadcastNetwork",
         "http://dbpedia.org/property/formerAffiliations"
       ]
     },
     {
-      "score": 0.2612,
+      "score": 0.2524,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
     {
-      "score": 0.2106,
+      "score": 0.2493,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
+        "http://dbpedia.org/property/owner"
+      ]
+    },
+    {
+      "score": 0.2451,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationDate"
+      ]
+    },
+    {
+      "score": 0.2194,
       "predicates": [
         "http://dbpedia.org/ontology/owningCompany"
       ]
     },
     {
-      "score": 0.1918,
+      "score": 0.2057,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/ontology/formerName"
       ]
     },
     {
-      "score": 0.1892,
+      "score": 0.1969,
       "predicates": [
-        "http://dbpedia.org/ontology/alias"
+        "http://dbpedia.org/property/formerNames"
       ]
     },
     {
-      "score": 0.1837,
+      "score": 0.1794,
       "predicates": [
-        "http://dbpedia.org/property/branding"
+        "http://dbpedia.org/ontology/pictureFormat",
+        "http://dbpedia.org/property/pictureFormat"
+      ]
+    },
+    {
+      "score": 0.1685,
+      "predicates": [
+        "http://dbpedia.org/property/founded"
       ]
     }
   ],
@@ -646,13 +653,78 @@
     {
       "score": 1.0,
       "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
         "http://dbpedia.org/ontology/sisterStation"
       ]
     },
     {
-      "score": 0.6815,
+      "score": 0.9702,
       "predicates": [
+        "http://dbpedia.org/ontology/broadcastStationClass"
+      ]
+    },
+    {
+      "score": 0.9582,
+      "predicates": [
+        "http://dbpedia.org/ontology/class",
+        "http://dbpedia.org/property/class"
+      ]
+    },
+    {
+      "score": 0.8973,
+      "predicates": [
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
+      ]
+    },
+    {
+      "score": 0.8764,
+      "predicates": [
+        "http://dbpedia.org/property/branding"
+      ]
+    },
+    {
+      "score": 0.8114,
+      "predicates": [
+        "http://dbpedia.org/ontology/frequency",
         "http://dbpedia.org/property/frequency"
+      ]
+    },
+    {
+      "score": 0.7565,
+      "predicates": [
+        "http://dbpedia.org/ontology/facilityId",
+        "http://dbpedia.org/property/facilityId"
+      ]
+    },
+    {
+      "score": 0.7092,
+      "predicates": [
+        "http://dbpedia.org/ontology/slogan",
+        "http://dbpedia.org/property/slogan"
       ]
     },
     {
@@ -662,106 +734,48 @@
       ]
     },
     {
-      "score": 0.5402,
+      "score": 0.512,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/ontology/formerCallsign"
       ]
     },
     {
-      "score": 0.5003,
+      "score": 0.4999,
       "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.5003,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.5003,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.5003,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.4853,
-      "predicates": [
-        "http://dbpedia.org/ontology/broadcastStationClass"
-      ]
-    },
-    {
-      "score": 0.4794,
-      "predicates": [
-        "http://dbpedia.org/property/class"
-      ]
-    },
-    {
-      "score": 0.4721,
-      "predicates": [
-        "http://dbpedia.org/ontology/frequency"
-      ]
-    },
-    {
-      "score": 0.4489,
-      "predicates": [
-        "http://dbpedia.org/ontology/alias"
+        "http://dbpedia.org/property/formerCallsigns"
       ]
     },
     {
       "score": 0.4384,
       "predicates": [
-        "http://dbpedia.org/property/branding"
-      ]
-    },
-    {
-      "score": 0.3792,
-      "predicates": [
-        "http://dbpedia.org/ontology/facilityId"
-      ]
-    },
-    {
-      "score": 0.3777,
-      "predicates": [
-        "http://dbpedia.org/property/facilityId"
-      ]
-    },
-    {
-      "score": 0.356,
-      "predicates": [
-        "http://dbpedia.org/ontology/slogan"
-      ]
-    },
-    {
-      "score": 0.3536,
-      "predicates": [
-        "http://dbpedia.org/property/slogan"
-      ]
-    },
-    {
-      "score": 0.3279,
-      "predicates": [
+        "http://dbpedia.org/ontology/callsignMeaning",
         "http://dbpedia.org/property/callsignMeaning"
       ]
     },
     {
-      "score": 0.3275,
+      "score": 0.3547,
+      "predicates": [
+        "http://dbpedia.org/ontology/firstAirDate"
+      ]
+    },
+    {
+      "score": 0.3538,
+      "predicates": [
+        "http://dbpedia.org/ontology/licensee",
+        "http://dbpedia.org/property/licensee"
+      ]
+    },
+    {
+      "score": 0.3274,
       "predicates": [
         "http://dbpedia.org/property/airdate"
       ]
     },
     {
-      "score": 0.3087,
+      "score": 0.2992,
       "predicates": [
-        "http://dbpedia.org/ontology/broadcastArea"
+        "http://dbpedia.org/ontology/area",
+        "http://dbpedia.org/property/area"
       ]
     }
   ],
@@ -769,138 +783,127 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9817,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9667,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.949,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6606,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6386,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6238,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6031,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5765,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5665,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5482,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5476,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5299,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5115,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5001,
-      "predicates": [
         "http://dbpedia.org/ontology/firstAirDate"
       ]
     },
     {
-      "score": 0.4944,
+      "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/sisterStation"
       ]
     },
     {
-      "score": 0.436,
-      "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
-      ]
-    },
-    {
-      "score": 0.4153,
-      "predicates": [
-        "http://dbpedia.org/ontology/slogan"
-      ]
-    },
-    {
-      "score": 0.3959,
+      "score": 0.7917,
       "predicates": [
         "http://dbpedia.org/ontology/callSign"
       ]
     },
     {
-      "score": 0.3921,
+      "score": 0.7759,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/property/callLetters"
+      ]
+    },
+    {
+      "score": 0.6499,
+      "predicates": [
+        "http://dbpedia.org/ontology/digitalChannel"
+      ]
+    },
+    {
+      "score": 0.6371,
+      "predicates": [
+        "http://dbpedia.org/property/digital"
+      ]
+    },
+    {
+      "score": 0.6368,
+      "predicates": [
+        "http://dbpedia.org/ontology/effectiveRadiatedPower",
+        "http://dbpedia.org/property/effectiveRadiatedPower"
+      ]
+    },
+    {
+      "score": 0.6232,
+      "predicates": [
+        "http://dbpedia.org/ontology/slogan",
+        "http://dbpedia.org/property/slogan"
+      ]
+    },
+    {
+      "score": 0.6026,
+      "predicates": [
+        "http://dbpedia.org/ontology/pictureFormat",
+        "http://dbpedia.org/property/pictureFormat"
+      ]
+    },
+    {
+      "score": 0.5893,
+      "predicates": [
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
+      ]
+    },
+    {
+      "score": 0.5772,
+      "predicates": [
+        "http://dbpedia.org/property/stationBranding"
+      ]
+    },
+    {
+      "score": 0.55,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 0.55,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.55,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.55,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.5302,
+      "predicates": [
+        "http://dbpedia.org/ontology/facilityId",
+        "http://dbpedia.org/property/facilityId"
+      ]
+    },
+    {
+      "score": 0.5271,
+      "predicates": [
+        "http://dbpedia.org/ontology/locationCountry",
+        "http://dbpedia.org/property/locationCountry"
+      ]
+    },
+    {
+      "score": 0.5007,
+      "predicates": [
+        "http://dbpedia.org/ontology/heightAboveAverageTerrain"
+      ]
+    },
+    {
+      "score": 0.4854,
+      "predicates": [
+        "http://dbpedia.org/ontology/formerChannel"
+      ]
+    },
+    {
+      "score": 0.4816,
+      "predicates": [
+        "http://dbpedia.org/property/formerChannelNumbers"
       ]
     }
   ],
@@ -908,112 +911,106 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 1.0,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.9279,
+      "score": 0.8116,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/recordLabel",
+        "http://dbpedia.org/property/label"
       ]
     },
     {
-      "score": 0.803,
+      "score": 0.5023,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
       ]
     },
     {
-      "score": 0.7138,
+      "score": 0.5011,
+      "predicates": [
+        "http://dbpedia.org/property/website"
+      ]
+    },
+    {
+      "score": 0.357,
       "predicates": [
         "http://dbpedia.org/property/foundation"
       ]
     },
     {
-      "score": 0.5071,
+      "score": 0.3422,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
-      ]
-    },
-    {
-      "score": 0.4974,
-      "predicates": [
-        "http://dbpedia.org/property/numEmployees"
-      ]
-    },
-    {
-      "score": 0.3745,
-      "predicates": [
-        "http://dbpedia.org/property/keyPeople"
-      ]
-    },
-    {
-      "score": 0.343,
-      "predicates": [
-        "http://dbpedia.org/ontology/revenue"
-      ]
-    },
-    {
-      "score": 0.3414,
-      "predicates": [
+        "http://dbpedia.org/ontology/revenue",
         "http://dbpedia.org/property/revenue"
       ]
     },
     {
       "score": 0.2239,
       "predicates": [
-        "http://dbpedia.org/ontology/netIncome"
+        "http://dbpedia.org/ontology/industry",
+        "http://dbpedia.org/property/industry"
       ]
     },
     {
-      "score": 0.2214,
+      "score": 0.2226,
       "predicates": [
+        "http://dbpedia.org/ontology/netIncome",
         "http://dbpedia.org/property/netIncome"
       ]
     },
     {
-      "score": 0.2106,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.165,
-      "predicates": [
-        "http://dbpedia.org/ontology/operatingIncome"
-      ]
-    },
-    {
-      "score": 0.1629,
-      "predicates": [
-        "http://dbpedia.org/property/operatingIncome"
-      ]
-    },
-    {
-      "score": 0.1543,
+      "score": 0.217,
       "predicates": [
         "http://dbpedia.org/property/products"
       ]
     },
     {
-      "score": 0.1468,
+      "score": 0.19,
       "predicates": [
-        "http://dbpedia.org/ontology/assets"
+        "http://dbpedia.org/ontology/product"
       ]
     },
     {
-      "score": 0.1466,
+      "score": 0.1873,
       "predicates": [
+        "http://dbpedia.org/property/keyPeople"
+      ]
+    },
+    {
+      "score": 0.1688,
+      "predicates": [
+        "http://dbpedia.org/ontology/distributor",
+        "http://dbpedia.org/property/distributor"
+      ]
+    },
+    {
+      "score": 0.1655,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.1639,
+      "predicates": [
+        "http://dbpedia.org/ontology/operatingIncome",
+        "http://dbpedia.org/property/operatingIncome"
+      ]
+    },
+    {
+      "score": 0.1628,
+      "predicates": [
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
+      ]
+    },
+    {
+      "score": 0.1467,
+      "predicates": [
+        "http://dbpedia.org/ontology/assets",
         "http://dbpedia.org/property/assets"
       ]
     },
@@ -1028,9 +1025,28 @@
       "predicates": [
         "http://dbpedia.org/ontology/extinctionYear"
       ]
+    },
+    {
+      "score": 0.1262,
+      "predicates": [
+        "http://dbpedia.org/property/defunct"
+      ]
+    },
+    {
+      "score": 0.125,
+      "predicates": [
+        "http://dbpedia.org/ontology/fate",
+        "http://dbpedia.org/property/fate"
+      ]
     }
   ],
   "Airline": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/property/airline"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -1038,116 +1054,70 @@
       ]
     },
     {
-      "score": 0.5783,
-      "predicates": [
-        "http://dbpedia.org/property/headquarters"
-      ]
-    },
-    {
-      "score": 0.5044,
-      "predicates": [
-        "http://dbpedia.org/property/airline"
-      ]
-    },
-    {
-      "score": 0.4378,
+      "score": 0.8681,
       "predicates": [
         "http://dbpedia.org/ontology/icaoAirlineCode"
       ]
     },
     {
-      "score": 0.436,
+      "score": 0.8644,
       "predicates": [
         "http://dbpedia.org/property/icao"
       ]
     },
     {
-      "score": 0.4236,
+      "score": 0.8399,
       "predicates": [
         "http://dbpedia.org/ontology/iataAirlineCode"
       ]
     },
     {
-      "score": 0.4214,
+      "score": 0.8357,
       "predicates": [
         "http://dbpedia.org/property/iata"
       ]
     },
     {
-      "score": 0.2083,
+      "score": 0.5817,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/property/headquarters"
       ]
     },
     {
-      "score": 0.1934,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.1609,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.1515,
+      "score": 0.1524,
       "predicates": [
         "http://dbpedia.org/ontology/hubAirport",
         "http://dbpedia.org/property/hubs"
       ]
     },
     {
-      "score": 0.1494,
+      "score": 0.1058,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/closingDate"
       ]
     },
     {
-      "score": 0.1264,
+      "score": 0.105,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/property/ceased"
       ]
     },
     {
-      "score": 0.1231,
+      "score": 0.1001,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/openingDate"
       ]
     },
     {
-      "score": 0.1174,
+      "score": 0.0998,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.1168,
+      "score": 0.0995,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.1143,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.1085,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/property/commenced"
       ]
     },
     {
@@ -1161,132 +1131,181 @@
       "predicates": [
         "http://dbpedia.org/ontology/destination"
       ]
+    },
+    {
+      "score": 0.0578,
+      "predicates": [
+        "http://dbpedia.org/property/bases"
+      ]
+    },
+    {
+      "score": 0.052,
+      "predicates": [
+        "http://dbpedia.org/property/founded"
+      ]
+    },
+    {
+      "score": 0.0468,
+      "predicates": [
+        "http://dbpedia.org/property/destinations"
+      ]
+    },
+    {
+      "score": 0.0342,
+      "predicates": [
+        "http://dbpedia.org/ontology/parentCompany",
+        "http://dbpedia.org/property/parent",
+        "http://dbpedia.org/property/parentCompany"
+      ]
+    },
+    {
+      "score": 0.0327,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
+      ]
     }
   ],
   "Bank": [
     {
-      "score": 0.9193,
-      "predicates": [
-        "http://dbpedia.org/ontology/product"
-      ]
-    },
-    {
-      "score": 0.7481,
-      "predicates": [
-        "http://dbpedia.org/ontology/industry"
-      ]
-    },
-    {
-      "score": 0.5807,
-      "predicates": [
-        "http://dbpedia.org/property/products"
-      ]
-    },
-    {
-      "score": 0.5632,
-      "predicates": [
-        "http://dbpedia.org/ontology/type"
-      ]
-    },
-    {
-      "score": 0.551,
-      "predicates": [
-        "http://dbpedia.org/property/type"
-      ]
-    },
-    {
-      "score": 0.5138,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.4755,
+      "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/property/industry"
+        "http://dbpedia.org/ontology/product"
       ]
     },
     {
-      "score": 0.4383,
+      "score": 0.6124,
       "predicates": [
-        "http://dbpedia.org/property/foundation"
+        "http://dbpedia.org/property/products"
       ]
     },
     {
-      "score": 0.2839,
+      "score": 0.5514,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
-      ]
-    },
-    {
-      "score": 0.2828,
-      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
         "http://dbpedia.org/property/numEmployees"
       ]
     },
     {
-      "score": 0.2295,
+      "score": 0.4983,
+      "predicates": [
+        "http://dbpedia.org/ontology/industry",
+        "http://dbpedia.org/property/industry"
+      ]
+    },
+    {
+      "score": 0.4467,
       "predicates": [
         "http://dbpedia.org/property/keyPeople"
       ]
     },
     {
-      "score": 0.2242,
+      "score": 0.4333,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
       ]
     },
     {
-      "score": 0.1922,
+      "score": 0.4267,
       "predicates": [
-        "http://dbpedia.org/ontology/assets"
+        "http://dbpedia.org/property/foundation"
       ]
     },
     {
-      "score": 0.192,
+      "score": 0.3739,
       "predicates": [
+        "http://dbpedia.org/ontology/assets",
         "http://dbpedia.org/property/assets"
       ]
     },
     {
-      "score": 0.1692,
+      "score": 0.2663,
       "predicates": [
-        "http://dbpedia.org/ontology/regionServed"
-      ]
-    },
-    {
-      "score": 0.1371,
-      "predicates": [
-        "http://dbpedia.org/ontology/revenue"
-      ]
-    },
-    {
-      "score": 0.1366,
-      "predicates": [
+        "http://dbpedia.org/ontology/revenue",
         "http://dbpedia.org/property/revenue"
       ]
     },
     {
-      "score": 0.1188,
+      "score": 0.2298,
       "predicates": [
-        "http://dbpedia.org/ontology/netIncome"
-      ]
-    },
-    {
-      "score": 0.1173,
-      "predicates": [
+        "http://dbpedia.org/ontology/netIncome",
         "http://dbpedia.org/property/netIncome"
       ]
     },
     {
-      "score": 0.1146,
+      "score": 0.1773,
+      "predicates": [
+        "http://dbpedia.org/ontology/regionServed",
+        "http://dbpedia.org/property/regionServed"
+      ]
+    },
+    {
+      "score": 0.1263,
+      "predicates": [
+        "http://dbpedia.org/ontology/internationally"
+      ]
+    },
+    {
+      "score": 0.1259,
+      "predicates": [
+        "http://dbpedia.org/property/intl"
+      ]
+    },
+    {
+      "score": 0.1245,
       "predicates": [
         "http://dbpedia.org/ontology/service"
+      ]
+    },
+    {
+      "score": 0.1186,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.1142,
+      "predicates": [
+        "http://dbpedia.org/ontology/equity",
+        "http://dbpedia.org/property/equity"
+      ]
+    },
+    {
+      "score": 0.1098,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingDate"
+      ]
+    },
+    {
+      "score": 0.0925,
+      "predicates": [
+        "http://dbpedia.org/ontology/operatingIncome",
+        "http://dbpedia.org/property/operatingIncome"
+      ]
+    },
+    {
+      "score": 0.0855,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfLocations",
+        "http://dbpedia.org/property/locations"
       ]
     }
   ],
   "Publisher": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -1295,40 +1314,37 @@
       ]
     },
     {
-      "score": 0.5009,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.4456,
+      "score": 0.4452,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.0757,
+      "score": 0.1511,
       "predicates": [
+        "http://dbpedia.org/ontology/founder",
         "http://dbpedia.org/property/founder"
       ]
     },
     {
-      "score": 0.0412,
+      "score": 0.0822,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
+        "http://dbpedia.org/property/numemployees"
       ]
     },
     {
-      "score": 0.0412,
+      "score": 0.0415,
       "predicates": [
-        "http://dbpedia.org/property/numemployees"
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
       ]
     },
     {
       "score": 0.0406,
       "predicates": [
         "http://dbpedia.org/ontology/parentCompany",
-        "http://dbpedia.org/property/parent"
+        "http://dbpedia.org/property/parent",
+        "http://dbpedia.org/property/parentCompany"
       ]
     },
     {
@@ -1363,8 +1379,9 @@
       ]
     },
     {
-      "score": 0.0163,
+      "score": 0.0164,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
@@ -1389,28 +1406,30 @@
       ]
     },
     {
-      "score": 0.0037,
-      "predicates": [
-        "http://dbpedia.org/ontology/employer"
-      ]
-    },
-    {
-      "score": 0.0031,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.003,
-      "predicates": [
-        "http://dbpedia.org/ontology/owner"
-      ]
-    },
-    {
       "score": 0.0028,
       "predicates": [
-        "http://dbpedia.org/ontology/producer"
+        "http://dbpedia.org/ontology/employer",
+        "http://dbpedia.org/property/employer"
+      ]
+    },
+    {
+      "score": 0.0023,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthDate",
+        "http://dbpedia.org/property/birthDate"
+      ]
+    },
+    {
+      "score": 0.0023,
+      "predicates": [
+        "http://dbpedia.org/ontology/deathDate",
+        "http://dbpedia.org/property/deathDate"
+      ]
+    },
+    {
+      "score": 0.0023,
+      "predicates": [
+        "http://xmlns.com/foaf/0.1/surname"
       ]
     }
   ],
@@ -1418,128 +1437,10 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/almaMater",
-        "http://dbpedia.org/property/almaMater"
-      ]
-    },
-    {
-      "score": 0.9346,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5056,
-      "predicates": [
+        "http://dbpedia.org/ontology/numberOfGraduateStudents",
         "http://dbpedia.org/property/graduates"
       ]
     },
-    {
-      "score": 0.5056,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfGraduateStudents"
-      ]
-    },
-    {
-      "score": 0.4578,
-      "predicates": [
-        "http://dbpedia.org/property/undergraduates"
-      ]
-    },
-    {
-      "score": 0.4578,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfUndergraduateStudents"
-      ]
-    },
-    {
-      "score": 0.2733,
-      "predicates": [
-        "http://dbpedia.org/property/fullName"
-      ]
-    },
-    {
-      "score": 0.2596,
-      "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.2596,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.2596,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.2596,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.1981,
-      "predicates": [
-        "http://dbpedia.org/ontology/formerName"
-      ]
-    },
-    {
-      "score": 0.1845,
-      "predicates": [
-        "http://dbpedia.org/property/oldNames"
-      ]
-    },
-    {
-      "score": 0.1366,
-      "predicates": [
-        "http://dbpedia.org/property/motto"
-      ]
-    },
-    {
-      "score": 0.1366,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.0888,
-      "predicates": [
-        "http://dbpedia.org/property/head"
-      ]
-    },
-    {
-      "score": 0.0886,
-      "predicates": [
-        "http://dbpedia.org/ontology/education"
-      ]
-    },
-    {
-      "score": 0.0748,
-      "predicates": [
-        "http://dbpedia.org/property/education"
-      ]
-    },
-    {
-      "score": 0.0353,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.0228,
-      "predicates": [
-        "http://dbpedia.org/ontology/bandMember"
-      ]
-    }
-  ],
-  "University": [
     {
       "score": 1.0,
       "predicates": [
@@ -1548,125 +1449,260 @@
       ]
     },
     {
-      "score": 0.6346,
+      "score": 0.9054,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/property/undergraduates"
       ]
     },
     {
-      "score": 0.5926,
+      "score": 0.9054,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/numberOfUndergraduateStudents",
+        "http://dbpedia.org/property/undergrad"
       ]
     },
     {
-      "score": 0.5004,
+      "score": 0.5405,
+      "predicates": [
+        "http://dbpedia.org/property/fullName"
+      ]
+    },
+    {
+      "score": 0.5135,
       "predicates": [
         "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.5004,
+      "score": 0.5135,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.5004,
+      "score": 0.5135,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#long"
       ]
     },
     {
-      "score": 0.5004,
+      "score": 0.5135,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
-      "score": 0.3291,
+      "score": 0.3919,
+      "predicates": [
+        "http://dbpedia.org/ontology/formerName"
+      ]
+    },
+    {
+      "score": 0.3649,
+      "predicates": [
+        "http://dbpedia.org/property/oldNames"
+      ]
+    },
+    {
+      "score": 0.2703,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.0919,
+      "predicates": [
+        "http://dbpedia.org/ontology/head",
+        "http://dbpedia.org/property/head"
+      ]
+    },
+    {
+      "score": 0.0817,
+      "predicates": [
+        "http://dbpedia.org/ontology/education",
+        "http://dbpedia.org/property/education"
+      ]
+    },
+    {
+      "score": 0.0405,
+      "predicates": [
+        "http://dbpedia.org/property/established"
+      ]
+    },
+    {
+      "score": 0.0405,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingDate"
+      ]
+    },
+    {
+      "score": 0.0225,
+      "predicates": [
+        "http://dbpedia.org/ontology/bandMember"
+      ]
+    },
+    {
+      "score": 0.0223,
+      "predicates": [
+        "http://dbpedia.org/ontology/sisterCollege",
+        "http://dbpedia.org/property/sisterCollege"
+      ]
+    },
+    {
+      "score": 0.0211,
+      "predicates": [
+        "http://dbpedia.org/ontology/university",
+        "http://dbpedia.org/property/university"
+      ]
+    },
+    {
+      "score": 0.0067,
+      "predicates": [
+        "http://dbpedia.org/ontology/isPartOf",
+        "http://dbpedia.org/property/subdivisionName"
+      ]
+    }
+  ],
+  "University": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/almaMater",
+        "http://dbpedia.org/property/almaMater"
+      ]
+    },
+    {
+      "score": 0.6576,
       "predicates": [
         "http://dbpedia.org/ontology/numberOfStudents"
       ]
     },
     {
-      "score": 0.3282,
+      "score": 0.6559,
       "predicates": [
         "http://dbpedia.org/property/students"
       ]
     },
     {
-      "score": 0.3232,
+      "score": 0.5964,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.3109,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.286,
-      "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.2422,
-      "predicates": [
-        "http://dbpedia.org/ontology/city"
-      ]
-    },
-    {
-      "score": 0.2366,
-      "predicates": [
-        "http://dbpedia.org/ontology/type"
-      ]
-    },
-    {
-      "score": 0.2313,
+      "score": 0.4623,
       "predicates": [
         "http://dbpedia.org/ontology/officialSchoolColour"
       ]
     },
     {
-      "score": 0.2204,
+      "score": 0.416,
+      "predicates": [
+        "http://dbpedia.org/property/nativeName"
+      ]
+    },
+    {
+      "score": 0.394,
+      "predicates": [
+        "http://dbpedia.org/ontology/facultySize",
+        "http://dbpedia.org/property/faculty"
+      ]
+    },
+    {
+      "score": 0.3918,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfUndergraduateStudents",
+        "http://dbpedia.org/property/undergrad"
+      ]
+    },
+    {
+      "score": 0.3622,
+      "predicates": [
+        "http://dbpedia.org/property/colors"
+      ]
+    },
+    {
+      "score": 0.3326,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfPostgraduateStudents",
+        "http://dbpedia.org/property/postgrad"
+      ]
+    },
+    {
+      "score": 0.2313,
+      "predicates": [
+        "http://dbpedia.org/property/mottoeng"
+      ]
+    },
+    {
+      "score": 0.2275,
+      "predicates": [
+        "http://dbpedia.org/ontology/endowment",
+        "http://dbpedia.org/property/endowment"
+      ]
+    },
+    {
+      "score": 0.2245,
+      "predicates": [
+        "http://dbpedia.org/ontology/staff",
+        "http://dbpedia.org/property/staff"
+      ]
+    },
+    {
+      "score": 0.2203,
       "predicates": [
         "http://dbpedia.org/property/nickname",
         "http://xmlns.com/foaf/0.1/nick"
       ]
     },
     {
-      "score": 0.2193,
+      "score": 0.1968,
       "predicates": [
+        "http://dbpedia.org/ontology/city",
+        "http://dbpedia.org/property/city"
+      ]
+    },
+    {
+      "score": 0.1955,
+      "predicates": [
+        "http://dbpedia.org/ontology/type",
         "http://dbpedia.org/property/type"
-      ]
-    },
-    {
-      "score": 0.2112,
-      "predicates": [
-        "http://dbpedia.org/ontology/education"
-      ]
-    },
-    {
-      "score": 0.2082,
-      "predicates": [
-        "http://dbpedia.org/property/nativeName"
-      ]
-    },
-    {
-      "score": 0.1975,
-      "predicates": [
-        "http://dbpedia.org/ontology/facultySize"
       ]
     }
   ],
   "GovernmentAgency": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/property/agencyName"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -1675,119 +1711,117 @@
       ]
     },
     {
-      "score": 0.8137,
-      "predicates": [
-        "http://dbpedia.org/ontology/architect"
-      ]
-    },
-    {
-      "score": 0.577,
-      "predicates": [
-        "http://dbpedia.org/property/agencyName"
-      ]
-    },
-    {
-      "score": 0.4095,
+      "score": 0.7097,
       "predicates": [
         "http://dbpedia.org/ontology/formationYear"
       ]
     },
     {
-      "score": 0.3763,
+      "score": 0.6522,
       "predicates": [
         "http://dbpedia.org/property/formed"
       ]
     },
     {
-      "score": 0.2409,
-      "predicates": [
-        "http://dbpedia.org/ontology/occupation"
-      ]
-    },
-    {
-      "score": 0.2275,
-      "predicates": [
-        "http://dbpedia.org/property/headquarters"
-      ]
-    },
-    {
-      "score": 0.197,
-      "predicates": [
-        "http://dbpedia.org/ontology/leader"
-      ]
-    },
-    {
-      "score": 0.1863,
+      "score": 0.3228,
       "predicates": [
         "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.1533,
+      "score": 0.2657,
       "predicates": [
         "http://dbpedia.org/property/nativename"
       ]
     },
     {
-      "score": 0.1454,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
-      ]
-    },
-    {
-      "score": 0.1452,
+      "score": 0.2517,
       "predicates": [
         "http://dbpedia.org/property/employees"
       ]
     },
     {
-      "score": 0.1337,
+      "score": 0.2033,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.2012,
+      "predicates": [
+        "http://dbpedia.org/ontology/architect",
+        "http://dbpedia.org/property/architect"
+      ]
+    },
+    {
+      "score": 0.1987,
+      "predicates": [
+        "http://dbpedia.org/property/headquarters"
+      ]
+    },
+    {
+      "score": 0.1915,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 0.1915,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.1915,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.1915,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.177,
+      "predicates": [
+        "http://dbpedia.org/ontology/leader",
+        "http://dbpedia.org/property/leader"
+      ]
+    },
+    {
+      "score": 0.1678,
       "predicates": [
         "http://dbpedia.org/ontology/budget",
         "http://dbpedia.org/property/budget"
       ]
     },
     {
-      "score": 0.1284,
+      "score": 0.126,
       "predicates": [
-        "http://dbpedia.org/property/occupation"
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
       ]
     },
     {
-      "score": 0.1134,
+      "score": 0.1234,
       "predicates": [
-        "http://dbpedia.org/property/office"
+        "http://dbpedia.org/property/chief1Name"
       ]
     },
     {
-      "score": 0.1106,
+      "score": 0.1104,
       "predicates": [
-        "http://www.georss.org/georss/point"
+        "http://dbpedia.org/ontology/extinctionYear"
       ]
     },
     {
-      "score": 0.1106,
+      "score": 0.109,
       "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.1106,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.1106,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.1009,
-      "predicates": [
-        "http://dbpedia.org/ontology/distributor",
-        "http://dbpedia.org/property/distributor"
+        "http://dbpedia.org/ontology/dissolved",
+        "http://dbpedia.org/property/dissolved"
       ]
     }
   ],
@@ -1800,27 +1834,34 @@
       ]
     },
     {
-      "score": 0.7767,
+      "score": 0.9988,
       "predicates": [
-        "http://dbpedia.org/ontology/artist"
+        "http://dbpedia.org/ontology/background",
+        "http://dbpedia.org/property/background"
       ]
     },
     {
-      "score": 0.5396,
+      "score": 0.9754,
+      "predicates": [
+        "http://dbpedia.org/ontology/activeYearsStartYear"
+      ]
+    },
+    {
+      "score": 0.9686,
+      "predicates": [
+        "http://dbpedia.org/property/yearsActive"
+      ]
+    },
+    {
+      "score": 0.5397,
       "predicates": [
         "http://dbpedia.org/property/associatedActs"
       ]
     },
     {
-      "score": 0.5002,
+      "score": 0.5278,
       "predicates": [
-        "http://dbpedia.org/ontology/background"
-      ]
-    },
-    {
-      "score": 0.499,
-      "predicates": [
-        "http://dbpedia.org/property/background"
+        "http://dbpedia.org/ontology/activeYearsEndYear"
       ]
     },
     {
@@ -1830,27 +1871,16 @@
       ]
     },
     {
-      "score": 0.489,
-      "predicates": [
-        "http://dbpedia.org/property/artist"
-      ]
-    },
-    {
-      "score": 0.4878,
-      "predicates": [
-        "http://dbpedia.org/ontology/activeYearsStartYear"
-      ]
-    },
-    {
-      "score": 0.4844,
-      "predicates": [
-        "http://dbpedia.org/property/yearsActive"
-      ]
-    },
-    {
-      "score": 0.4613,
+      "score": 0.4614,
       "predicates": [
         "http://dbpedia.org/property/currentMembers"
+      ]
+    },
+    {
+      "score": 0.4383,
+      "predicates": [
+        "http://dbpedia.org/ontology/artist",
+        "http://dbpedia.org/property/artist"
       ]
     },
     {
@@ -1863,12 +1893,6 @@
       "score": 0.3002,
       "predicates": [
         "http://dbpedia.org/ontology/formerBandMember"
-      ]
-    },
-    {
-      "score": 0.2639,
-      "predicates": [
-        "http://dbpedia.org/ontology/activeYearsEndYear"
       ]
     },
     {
@@ -1886,12 +1910,6 @@
       ]
     },
     {
-      "score": 0.2028,
-      "predicates": [
-        "http://dbpedia.org/ontology/producer"
-      ]
-    },
-    {
       "score": 0.1695,
       "predicates": [
         "http://dbpedia.org/property/origin"
@@ -1905,36 +1923,71 @@
       ]
     },
     {
-      "score": 0.073,
+      "score": 0.1449,
       "predicates": [
-        "http://dbpedia.org/ontology/alias"
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
       ]
     },
     {
-      "score": 0.072,
+      "score": 0.0777,
       "predicates": [
-        "http://dbpedia.org/property/alias"
+        "http://dbpedia.org/ontology/producer",
+        "http://dbpedia.org/property/producer"
+      ]
+    },
+    {
+      "score": 0.0402,
+      "predicates": [
+        "http://dbpedia.org/property/filename"
+      ]
+    },
+    {
+      "score": 0.0389,
+      "predicates": [
+        "http://dbpedia.org/property/description"
+      ]
+    },
+    {
+      "score": 0.0314,
+      "predicates": [
+        "http://dbpedia.org/ontology/writer",
+        "http://dbpedia.org/property/writer"
       ]
     }
   ],
   "ComedyGroup": [
     {
-      "score": 0.9147,
+      "score": 0.8966,
       "predicates": [
-        "http://dbpedia.org/ontology/influencedBy"
+        "http://dbpedia.org/ontology/influencedBy",
+        "http://dbpedia.org/property/influencedBy"
       ]
     },
     {
       "score": 0.8333,
       "predicates": [
-        "http://dbpedia.org/ontology/ideology",
-        "http://dbpedia.org/property/ideology"
+        "http://dbpedia.org/property/id"
+      ]
+    },
+    {
+      "score": 0.8333,
+      "predicates": [
+        "http://dbpedia.org/ontology/imdbId"
+      ]
+    },
+    {
+      "score": 0.7522,
+      "predicates": [
+        "http://dbpedia.org/property/shortDescription",
+        "http://purl.org/dc/elements/1.1/description"
       ]
     },
     {
       "score": 0.6667,
       "predicates": [
-        "http://dbpedia.org/property/shortDescription"
+        "http://dbpedia.org/ontology/pseudonym",
+        "http://dbpedia.org/property/pseudonym"
       ]
     },
     {
@@ -1944,104 +1997,93 @@
       ]
     },
     {
-      "score": 0.6664,
-      "predicates": [
-        "http://purl.org/dc/elements/1.1/description"
-      ]
-    },
-    {
-      "score": 0.6466,
-      "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
-      ]
-    },
-    {
-      "score": 0.5553,
-      "predicates": [
-        "http://dbpedia.org/ontology/imdbId"
-      ]
-    },
-    {
-      "score": 0.4442,
-      "predicates": [
-        "http://dbpedia.org/property/pseudonym"
-      ]
-    },
-    {
-      "score": 0.4442,
-      "predicates": [
-        "http://dbpedia.org/ontology/pseudonym"
-      ]
-    },
-    {
-      "score": 0.4429,
-      "predicates": [
-        "http://dbpedia.org/ontology/creator"
-      ]
-    },
-    {
-      "score": 0.3581,
+      "score": 0.382,
       "predicates": [
         "http://dbpedia.org/ontology/genre",
         "http://dbpedia.org/property/genre"
       ]
     },
     {
-      "score": 0.3464,
+      "score": 0.2966,
       "predicates": [
-        "http://dbpedia.org/ontology/ideology",
-        "http://dbpedia.org/property/ideology"
-      ]
-    },
-    {
-      "score": 0.3464,
-      "predicates": [
-        "http://dbpedia.org/ontology/ideology",
-        "http://dbpedia.org/property/ideology"
-      ]
-    },
-    {
-      "score": 0.3417,
-      "predicates": [
-        "http://dbpedia.org/property/nationality"
-      ]
-    },
-    {
-      "score": 0.3178,
-      "predicates": [
+        "http://dbpedia.org/ontology/creator",
         "http://dbpedia.org/property/creator"
       ]
     },
     {
-      "score": 0.3107,
+      "score": 0.2915,
       "predicates": [
-        "http://dbpedia.org/ontology/writer"
+        "http://dbpedia.org/ontology/nationality",
+        "http://dbpedia.org/property/nationality"
       ]
     },
     {
-      "score": 0.2874,
+      "score": 0.2467,
       "predicates": [
-        "http://dbpedia.org/property/artist"
-      ]
-    },
-    {
-      "score": 0.2827,
-      "predicates": [
+        "http://dbpedia.org/ontology/writer",
         "http://dbpedia.org/property/writer"
       ]
     },
     {
-      "score": 0.2009,
+      "score": 0.2419,
       "predicates": [
-        "http://dbpedia.org/ontology/artist"
+        "http://dbpedia.org/ontology/artist",
+        "http://dbpedia.org/property/artist"
       ]
     },
     {
-      "score": 0.1704,
+      "score": 0.1667,
       "predicates": [
-        "http://dbpedia.org/ontology/starring",
-        "http://dbpedia.org/property/starring"
+        "http://xmlns.com/foaf/0.1/surname"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://xmlns.com/foaf/0.1/givenName"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthDate",
+        "http://dbpedia.org/property/birthDate"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/dateOfBirth"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/showName"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/runtime"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/numSeries"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/numEpisodes"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/alternativeNames"
       ]
     }
   ],
@@ -2049,131 +2091,143 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5002,
-      "predicates": [
+        "http://dbpedia.org/ontology/numberOfMembers",
         "http://dbpedia.org/property/members"
       ]
     },
     {
-      "score": 0.5002,
+      "score": 0.7718,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfMembers"
+        "http://dbpedia.org/ontology/office",
+        "http://dbpedia.org/property/office"
       ]
     },
     {
-      "score": 0.3332,
+      "score": 0.6661,
       "predicates": [
+        "http://dbpedia.org/ontology/lastElectionDate",
         "http://dbpedia.org/property/lastElection"
       ]
     },
     {
-      "score": 0.3332,
-      "predicates": [
-        "http://dbpedia.org/ontology/lastElectionDate"
-      ]
-    },
-    {
-      "score": 0.2592,
-      "predicates": [
-        "http://dbpedia.org/property/houseType"
-      ]
-    },
-    {
-      "score": 0.2578,
-      "predicates": [
-        "http://dbpedia.org/property/meetingPlace"
-      ]
-    },
-    {
-      "score": 0.2464,
-      "predicates": [
-        "http://dbpedia.org/property/nativeName"
-      ]
-    },
-    {
-      "score": 0.2272,
-      "predicates": [
-        "http://dbpedia.org/ontology/legislativePeriodName"
-      ]
-    },
-    {
-      "score": 0.2252,
-      "predicates": [
-        "http://dbpedia.org/property/politicalGroups"
-      ]
-    },
-    {
-      "score": 0.2199,
-      "predicates": [
-        "http://dbpedia.org/property/election"
-      ]
-    },
-    {
-      "score": 0.2199,
-      "predicates": [
-        "http://dbpedia.org/ontology/electionDateLeader"
-      ]
-    },
-    {
-      "score": 0.168,
+      "score": 0.66,
       "predicates": [
         "http://dbpedia.org/property/legislature"
       ]
     },
     {
-      "score": 0.1254,
+      "score": 0.5627,
       "predicates": [
-        "http://dbpedia.org/property/leader"
+        "http://dbpedia.org/ontology/governingBody",
+        "http://dbpedia.org/property/governingBody"
       ]
     },
     {
-      "score": 0.1238,
+      "score": 0.4927,
+      "predicates": [
+        "http://dbpedia.org/property/nativeName"
+      ]
+    },
+    {
+      "score": 0.4555,
+      "predicates": [
+        "http://dbpedia.org/property/houseType"
+      ]
+    },
+    {
+      "score": 0.4544,
+      "predicates": [
+        "http://dbpedia.org/ontology/legislativePeriodName"
+      ]
+    },
+    {
+      "score": 0.4503,
+      "predicates": [
+        "http://dbpedia.org/property/politicalGroups"
+      ]
+    },
+    {
+      "score": 0.4397,
+      "predicates": [
+        "http://dbpedia.org/ontology/electionDateLeader",
+        "http://dbpedia.org/property/election"
+      ]
+    },
+    {
+      "score": 0.3228,
+      "predicates": [
+        "http://dbpedia.org/property/order"
+      ]
+    },
+    {
+      "score": 0.2855,
+      "predicates": [
+        "http://dbpedia.org/property/meetingPlace"
+      ]
+    },
+    {
+      "score": 0.2476,
       "predicates": [
         "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.1238,
+      "score": 0.2476,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.1238,
+      "score": 0.2476,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#long"
       ]
     },
     {
-      "score": 0.1238,
+      "score": 0.2476,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
-      "score": 0.0925,
+      "score": 0.1901,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.1849,
       "predicates": [
         "http://dbpedia.org/property/body"
       ]
     },
     {
-      "score": 0.0735,
+      "score": 0.1765,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
+      ]
+    },
+    {
+      "score": 0.1254,
+      "predicates": [
+        "http://dbpedia.org/ontology/leader",
+        "http://dbpedia.org/property/leader"
       ]
     }
   ],
   "MilitaryUnit": [
     {
-      "score": 0.6221,
+      "score": 0.9308,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
+        "http://dbpedia.org/ontology/activeYearsStartYear"
+      ]
+    },
+    {
+      "score": 0.6318,
+      "predicates": [
+        "http://dbpedia.org/ontology/activeYearsEndYear"
       ]
     },
     {
@@ -2184,114 +2238,114 @@
       ]
     },
     {
-      "score": 0.5285,
+      "score": 0.5404,
       "predicates": [
         "http://dbpedia.org/property/unitName"
       ]
     },
     {
-      "score": 0.4842,
-      "predicates": [
-        "http://dbpedia.org/ontology/activeYearsStartYear"
-      ]
-    },
-    {
-      "score": 0.4841,
+      "score": 0.4729,
       "predicates": [
         "http://dbpedia.org/property/dates"
       ]
     },
     {
-      "score": 0.4536,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.44,
+      "score": 0.4472,
       "predicates": [
         "http://dbpedia.org/property/branch"
       ]
     },
     {
-      "score": 0.3286,
-      "predicates": [
-        "http://dbpedia.org/ontology/activeYearsEndYear"
-      ]
-    },
-    {
-      "score": 0.2651,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.2392,
-      "predicates": [
-        "http://dbpedia.org/ontology/role"
-      ]
-    },
-    {
-      "score": 0.217,
+      "score": 0.4172,
       "predicates": [
         "http://dbpedia.org/ontology/militaryUnitSize"
       ]
     },
     {
-      "score": 0.1936,
+      "score": 0.3348,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.3269,
+      "predicates": [
+        "http://dbpedia.org/ontology/identificationSymbol",
+        "http://dbpedia.org/property/identificationSymbol"
+      ]
+    },
+    {
+      "score": 0.3076,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.2713,
+      "predicates": [
+        "http://dbpedia.org/ontology/role",
+        "http://dbpedia.org/property/role"
+      ]
+    },
+    {
+      "score": 0.2519,
       "predicates": [
         "http://dbpedia.org/property/nickname",
         "http://xmlns.com/foaf/0.1/nick"
       ]
     },
     {
-      "score": 0.1824,
-      "predicates": [
-        "http://dbpedia.org/ontology/identificationSymbol"
-      ]
-    },
-    {
-      "score": 0.1645,
-      "predicates": [
-        "http://dbpedia.org/property/identificationSymbol"
-      ]
-    },
-    {
-      "score": 0.1644,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.1616,
-      "predicates": [
-        "http://dbpedia.org/property/motto"
-      ]
-    },
-    {
-      "score": 0.1616,
-      "predicates": [
-        "http://dbpedia.org/property/role"
-      ]
-    },
-    {
-      "score": 0.1589,
+      "score": 0.1571,
       "predicates": [
         "http://dbpedia.org/property/size"
       ]
     },
     {
-      "score": 0.1013,
+      "score": 0.1449,
       "predicates": [
+        "http://dbpedia.org/ontology/garrison",
+        "http://dbpedia.org/property/garrison"
+      ]
+    },
+    {
+      "score": 0.1121,
+      "predicates": [
+        "http://dbpedia.org/ontology/colourName"
+      ]
+    },
+    {
+      "score": 0.109,
+      "predicates": [
+        "http://dbpedia.org/property/colors"
+      ]
+    },
+    {
+      "score": 0.0998,
+      "predicates": [
+        "http://dbpedia.org/ontology/commandStructure",
         "http://dbpedia.org/property/commandStructure"
       ]
     },
     {
-      "score": 0.0805,
+      "score": 0.0891,
       "predicates": [
-        "http://dbpedia.org/ontology/councilArea",
-        "http://dbpedia.org/property/unitaryScotland"
+        "http://dbpedia.org/property/notableCommanders"
+      ]
+    },
+    {
+      "score": 0.0809,
+      "predicates": [
+        "http://dbpedia.org/ontology/allegiance",
+        "http://dbpedia.org/property/allegiance"
+      ]
+    },
+    {
+      "score": 0.0545,
+      "predicates": [
+        "http://dbpedia.org/ontology/commander",
+        "http://dbpedia.org/property/commander"
       ]
     }
   ],
@@ -2299,76 +2353,102 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/keyPerson"
-      ]
-    },
-    {
-      "score": 0.5212,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.464,
+      "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/foundedBy"
+        "http://dbpedia.org/ontology/keyPerson"
       ]
     },
     {
-      "score": 0.4295,
+      "score": 0.8242,
       "predicates": [
         "http://dbpedia.org/property/foundedDate"
       ]
     },
     {
-      "score": 0.3737,
+      "score": 0.5133,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/foundedBy"
       ]
     },
     {
-      "score": 0.2338,
+      "score": 0.2529,
       "predicates": [
+        "http://dbpedia.org/ontology/founder",
         "http://dbpedia.org/property/founder"
       ]
     },
     {
-      "score": 0.1315,
+      "score": 0.2291,
       "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
       ]
     },
     {
-      "score": 0.1219,
-      "predicates": [
-        "http://dbpedia.org/ontology/owner"
-      ]
-    },
-    {
-      "score": 0.1081,
+      "score": 0.2073,
       "predicates": [
         "http://dbpedia.org/property/keyPeople"
       ]
     },
     {
-      "score": 0.0986,
+      "score": 0.1824,
       "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
-      ]
-    },
-    {
-      "score": 0.0952,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
-      ]
-    },
-    {
-      "score": 0.0949,
-      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
         "http://dbpedia.org/property/numEmployees"
+      ]
+    },
+    {
+      "score": 0.1424,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingDate"
+      ]
+    },
+    {
+      "score": 0.1292,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 0.1292,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.1292,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.1292,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.1229,
+      "predicates": [
+        "http://dbpedia.org/ontology/revenue",
+        "http://dbpedia.org/property/revenue"
+      ]
+    },
+    {
+      "score": 0.1122,
+      "predicates": [
+        "http://dbpedia.org/property/nonProfitName"
+      ]
+    },
+    {
+      "score": 0.096,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
+        "http://dbpedia.org/property/owner"
       ]
     },
     {
@@ -2378,53 +2458,33 @@
       ]
     },
     {
-      "score": 0.0846,
+      "score": 0.0578,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/product"
       ]
     },
     {
-      "score": 0.0831,
+      "score": 0.054,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     },
     {
-      "score": 0.0754,
+      "score": 0.0511,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.0742,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingDate"
-      ]
-    },
-    {
-      "score": 0.0741,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.07,
-      "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.07,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+        "http://dbpedia.org/ontology/publisher",
+        "http://dbpedia.org/property/publisher"
       ]
     }
   ],
   "PoliticalParty": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationYear"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -2433,55 +2493,62 @@
       ]
     },
     {
-      "score": 0.5006,
-      "predicates": [
-        "http://dbpedia.org/ontology/formationYear"
-      ]
-    },
-    {
-      "score": 0.4129,
-      "predicates": [
-        "http://dbpedia.org/property/foundation"
-      ]
-    },
-    {
-      "score": 0.2991,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.2517,
+      "score": 0.5027,
       "predicates": [
         "http://dbpedia.org/property/nativeName"
       ]
     },
     {
-      "score": 0.206,
+      "score": 0.4125,
+      "predicates": [
+        "http://dbpedia.org/property/foundation"
+      ]
+    },
+    {
+      "score": 0.4114,
       "predicates": [
         "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.2006,
-      "predicates": [
-        "http://dbpedia.org/property/headquarters"
-      ]
-    },
-    {
-      "score": 0.1947,
+      "score": 0.3888,
       "predicates": [
         "http://dbpedia.org/ontology/colourName"
       ]
     },
     {
-      "score": 0.1755,
+      "score": 0.3505,
       "predicates": [
         "http://dbpedia.org/ontology/extinctionYear"
       ]
     },
     {
-      "score": 0.1391,
+      "score": 0.3061,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.2605,
+      "predicates": [
+        "http://dbpedia.org/property/colours"
+      ]
+    },
+    {
+      "score": 0.2005,
+      "predicates": [
+        "http://dbpedia.org/property/headquarters"
+      ]
+    },
+    {
+      "score": 0.1598,
+      "predicates": [
+        "http://dbpedia.org/property/dissolution"
+      ]
+    },
+    {
+      "score": 0.1393,
       "predicates": [
         "http://dbpedia.org/ontology/ideology",
         "http://dbpedia.org/property/ideology"
@@ -2494,44 +2561,28 @@
       ]
     },
     {
-      "score": 0.1304,
+      "score": 0.1303,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.1304,
-      "predicates": [
-        "http://dbpedia.org/property/colours"
-      ]
-    },
-    {
-      "score": 0.08,
-      "predicates": [
-        "http://dbpedia.org/property/dissolution"
-      ]
-    },
-    {
-      "score": 0.0622,
+      "score": 0.1244,
       "predicates": [
         "http://dbpedia.org/ontology/extinctionDate"
       ]
     },
     {
-      "score": 0.0609,
+      "score": 0.1217,
       "predicates": [
+        "http://dbpedia.org/ontology/dissolved",
         "http://dbpedia.org/property/dissolved"
       ]
     },
     {
-      "score": 0.0569,
+      "score": 0.0322,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.0308,
-      "predicates": [
+        "http://dbpedia.org/ontology/leader",
         "http://dbpedia.org/property/leader"
       ]
     },
@@ -2543,9 +2594,17 @@
       ]
     },
     {
-      "score": 0.0282,
+      "score": 0.0208,
       "predicates": [
-        "http://dbpedia.org/ontology/leader"
+        "http://dbpedia.org/ontology/nationalAffiliation",
+        "http://dbpedia.org/property/national"
+      ]
+    },
+    {
+      "score": 0.0136,
+      "predicates": [
+        "http://dbpedia.org/ontology/internationalAffiliation",
+        "http://dbpedia.org/property/international"
       ]
     }
   ],
@@ -2553,130 +2612,130 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.7997,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.7896,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.7515,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.74,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.7072,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6979,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6615,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.618,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5001,
-      "predicates": [
         "http://dbpedia.org/ontology/openingYear"
       ]
     },
     {
-      "score": 0.2599,
+      "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfLines"
+        "http://dbpedia.org/ontology/owningOrganisation",
+        "http://dbpedia.org/property/owned"
       ]
     },
     {
-      "score": 0.2479,
+      "score": 0.7401,
+      "predicates": [
+        "http://dbpedia.org/ontology/operatedBy"
+      ]
+    },
+    {
+      "score": 0.572,
+      "predicates": [
+        "http://dbpedia.org/property/locale"
+      ]
+    },
+    {
+      "score": 0.4956,
       "predicates": [
         "http://dbpedia.org/property/railroadName"
       ]
     },
     {
-      "score": 0.2422,
+      "score": 0.448,
       "predicates": [
-        "http://dbpedia.org/property/lines"
+        "http://dbpedia.org/ontology/headquarter"
       ]
     },
     {
-      "score": 0.2391,
+      "score": 0.4334,
       "predicates": [
-        "http://dbpedia.org/property/ridership"
-      ]
-    },
-    {
-      "score": 0.2378,
-      "predicates": [
-        "http://dbpedia.org/ontology/passengersPerDay"
-      ]
-    },
-    {
-      "score": 0.2187,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfStations"
-      ]
-    },
-    {
-      "score": 0.2147,
-      "predicates": [
+        "http://dbpedia.org/ontology/numberOfStations",
         "http://dbpedia.org/property/stations"
       ]
     },
     {
-      "score": 0.2097,
+      "score": 0.4193,
       "predicates": [
         "http://dbpedia.org/property/startYear"
       ]
     },
     {
-      "score": 0.2094,
+      "score": 0.4186,
       "predicates": [
         "http://dbpedia.org/property/beganOperation"
       ]
     },
     {
-      "score": 0.1839,
+      "score": 0.3721,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfLines",
+        "http://dbpedia.org/property/lines"
+      ]
+    },
+    {
+      "score": 0.3677,
       "predicates": [
         "http://dbpedia.org/ontology/closingYear"
+      ]
+    },
+    {
+      "score": 0.3218,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.3077,
+      "predicates": [
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
+      ]
+    },
+    {
+      "score": 0.29,
+      "predicates": [
+        "http://dbpedia.org/property/endYear"
+      ]
+    },
+    {
+      "score": 0.2586,
+      "predicates": [
+        "http://dbpedia.org/ontology/isPartOf",
+        "http://dbpedia.org/property/subdivisionName"
+      ]
+    },
+    {
+      "score": 0.2579,
+      "predicates": [
+        "http://dbpedia.org/ontology/openingDate"
+      ]
+    },
+    {
+      "score": 0.2545,
+      "predicates": [
+        "http://dbpedia.org/ontology/trackLength"
+      ]
+    },
+    {
+      "score": 0.2385,
+      "predicates": [
+        "http://dbpedia.org/ontology/passengersPerDay",
+        "http://dbpedia.org/property/ridership"
+      ]
+    },
+    {
+      "score": 0.2295,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
+        "http://dbpedia.org/property/owner"
+      ]
+    },
+    {
+      "score": 0.203,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfVehicles",
+        "http://dbpedia.org/property/vehicles"
       ]
     }
   ],
@@ -2684,124 +2743,131 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/team"
-      ]
-    },
-    {
-      "score": 0.7942,
-      "predicates": [
-        "http://dbpedia.org/property/teams"
-      ]
-    },
-    {
-      "score": 0.7518,
-      "predicates": [
-        "http://dbpedia.org/ontology/series"
-      ]
-    },
-    {
-      "score": 0.648,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.6408,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
+      ]
+    },
+    {
+      "score": 0.9889,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.612,
+      "score": 0.9444,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.4973,
+      "score": 0.7508,
+      "predicates": [
+        "http://dbpedia.org/ontology/series",
+        "http://dbpedia.org/property/series"
+      ]
+    },
+    {
+      "score": 0.6597,
+      "predicates": [
+        "http://dbpedia.org/property/teams"
+      ]
+    },
+    {
+      "score": 0.6222,
+      "predicates": [
+        "http://dbpedia.org/ontology/title"
+      ]
+    },
+    {
+      "score": 0.5035,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.4465,
+      "score": 0.3878,
       "predicates": [
-        "http://dbpedia.org/ontology/occupation"
-      ]
-    },
-    {
-      "score": 0.4032,
-      "predicates": [
-        "http://dbpedia.org/ontology/title"
-      ]
-    },
-    {
-      "score": 0.297,
-      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
         "http://dbpedia.org/property/occupation"
       ]
     },
     {
-      "score": 0.2802,
-      "predicates": [
-        "http://dbpedia.org/ontology/tenant"
-      ]
-    },
-    {
-      "score": 0.2448,
+      "score": 0.3778,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.2223,
+      "score": 0.3335,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.2207,
+      "score": 0.2797,
+      "predicates": [
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
+      ]
+    },
+    {
+      "score": 0.2757,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1556,
+      "score": 0.2111,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.1552,
       "predicates": [
         "http://dbpedia.org/ontology/formerTeam"
       ]
     },
     {
-      "score": 0.1499,
+      "score": 0.1495,
       "predicates": [
         "http://dbpedia.org/ontology/presenter",
         "http://dbpedia.org/property/presenter"
       ]
     },
     {
-      "score": 0.1368,
-      "predicates": [
-        "http://dbpedia.org/property/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1368,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1328,
+      "score": 0.1326,
       "predicates": [
         "http://dbpedia.org/ontology/athletics",
         "http://dbpedia.org/property/athletics"
       ]
     },
     {
-      "score": 0.1159,
+      "score": 0.0996,
       "predicates": [
-        "http://dbpedia.org/ontology/company"
+        "http://dbpedia.org/ontology/company",
+        "http://dbpedia.org/property/company"
+      ]
+    },
+    {
+      "score": 0.0895,
+      "predicates": [
+        "http://dbpedia.org/property/boards"
+      ]
+    },
+    {
+      "score": 0.0725,
+      "predicates": [
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     }
   ],
@@ -2809,127 +2875,140 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/team"
-      ]
-    },
-    {
-      "score": 0.9941,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.9172,
-      "predicates": [
-        "http://dbpedia.org/ontology/award"
-      ]
-    },
-    {
-      "score": 0.6122,
-      "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.6084,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/award",
+        "http://dbpedia.org/property/award"
+      ]
+    },
+    {
+      "score": 0.9937,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.579,
+      "score": 0.9457,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.5585,
+      "score": 0.9123,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.5448,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.5292,
+      "score": 0.8643,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.3605,
+      "score": 0.837,
       "predicates": [
-        "http://dbpedia.org/ontology/languageFamily",
-        "http://dbpedia.org/property/fam"
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
       ]
     },
     {
-      "score": 0.2761,
+      "score": 0.6343,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.4509,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.2761,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.2122,
+      "score": 0.3466,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.2032,
+      "score": 0.2216,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
       ]
     },
     {
-      "score": 0.1487,
-      "predicates": [
-        "http://dbpedia.org/property/champion"
-      ]
-    },
-    {
-      "score": 0.1384,
+      "score": 0.1509,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.138,
+      "score": 0.1276,
+      "predicates": [
+        "http://dbpedia.org/property/champion"
+      ]
+    },
+    {
+      "score": 0.1172,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.0981,
+      "score": 0.107,
       "predicates": [
         "http://dbpedia.org/property/tenants"
       ]
     },
     {
-      "score": 0.0588,
+      "score": 0.0627,
       "predicates": [
+        "http://dbpedia.org/ontology/occupation",
         "http://dbpedia.org/property/occupation"
       ]
     },
     {
-      "score": 0.0567,
+      "score": 0.0564,
       "predicates": [
-        "http://dbpedia.org/ontology/occupation"
+        "http://dbpedia.org/property/website"
+      ]
+    },
+    {
+      "score": 0.0564,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.0482,
+      "predicates": [
+        "http://dbpedia.org/ontology/founder",
+        "http://dbpedia.org/property/founder"
+      ]
+    },
+    {
+      "score": 0.0313,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationDate"
       ]
     }
   ],
   "IceHockeyLeague": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -2938,57 +3017,53 @@
       ]
     },
     {
-      "score": 0.7987,
-      "predicates": [
-        "http://dbpedia.org/ontology/tenant"
-      ]
-    },
-    {
-      "score": 0.7504,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.7476,
+      "score": 0.9963,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.7119,
+      "score": 0.9487,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.6267,
+      "score": 0.8352,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.4535,
+      "score": 0.7987,
+      "predicates": [
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
+      ]
+    },
+    {
+      "score": 0.6044,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.2474,
+      "score": 0.3297,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.2474,
+      "score": 0.2418,
       "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
+        "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1814,
+      "score": 0.2161,
       "predicates": [
-        "http://dbpedia.org/property/champion"
+        "http://dbpedia.org/property/inaugural"
       ]
     },
     {
@@ -2998,15 +3073,10 @@
       ]
     },
     {
-      "score": 0.1622,
+      "score": 0.1392,
       "predicates": [
-        "http://dbpedia.org/property/inaugural"
-      ]
-    },
-    {
-      "score": 0.1566,
-      "predicates": [
-        "http://dbpedia.org/ontology/occupation"
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
       ]
     },
     {
@@ -3017,43 +3087,64 @@
       ]
     },
     {
-      "score": 0.1237,
+      "score": 0.1352,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.0825,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.1044,
+      "score": 0.053,
       "predicates": [
-        "http://dbpedia.org/property/country"
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     },
     {
-      "score": 0.0957,
-      "predicates": [
-        "http://dbpedia.org/property/occupation"
-      ]
-    },
-    {
-      "score": 0.0637,
-      "predicates": [
-        "http://dbpedia.org/ontology/knownFor"
-      ]
-    },
-    {
-      "score": 0.055,
-      "predicates": [
-        "http://dbpedia.org/ontology/team"
-      ]
-    },
-    {
-      "score": 0.0275,
+      "score": 0.0366,
       "predicates": [
         "http://dbpedia.org/property/website"
+      ]
+    },
+    {
+      "score": 0.0314,
+      "predicates": [
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
+      ]
+    },
+    {
+      "score": 0.0264,
+      "predicates": [
+        "http://dbpedia.org/property/tenants"
+      ]
+    },
+    {
+      "score": 0.022,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationDate"
       ]
     }
   ],
   "RugbyLeague": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/participant"
+      ]
+    },
+    {
+      "score": 0.9653,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
     {
       "score": 0.9075,
       "predicates": [
@@ -3061,86 +3152,65 @@
       ]
     },
     {
-      "score": 0.5677,
-      "predicates": [
-        "http://dbpedia.org/ontology/participant"
-      ]
-    },
-    {
-      "score": 0.548,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.5079,
-      "predicates": [
-        "http://dbpedia.org/property/champion"
-      ]
-    },
-    {
-      "score": 0.4856,
+      "score": 0.8555,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.4079,
+      "score": 0.5021,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
+        "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1837,
+      "score": 0.3237,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.178,
+      "score": 0.2543,
+      "predicates": [
+        "http://dbpedia.org/property/inaugural"
+      ]
+    },
+    {
+      "score": 0.2543,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.1962,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.1788,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.1444,
-      "predicates": [
-        "http://dbpedia.org/property/inaugural"
-      ]
-    },
-    {
-      "score": 0.1444,
-      "predicates": [
-        "http://dbpedia.org/property/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1444,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1315,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.0461,
+      "score": 0.0416,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.03,
+      "score": 0.0298,
       "predicates": [
-        "http://dbpedia.org/ontology/birthPlace"
+        "http://dbpedia.org/ontology/birthPlace",
+        "http://dbpedia.org/property/birthPlace"
       ]
     },
     {
-      "score": 0.0152,
+      "score": 0.0151,
       "predicates": [
         "http://dbpedia.org/ontology/presenter",
         "http://dbpedia.org/property/presenter"
@@ -3149,32 +3219,45 @@
     {
       "score": 0.0099,
       "predicates": [
-        "http://dbpedia.org/ontology/knownFor"
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     },
     {
-      "score": 0.0052,
+      "score": 0.0058,
       "predicates": [
-        "http://dbpedia.org/ontology/race",
-        "http://dbpedia.org/property/race"
+        "http://dbpedia.org/ontology/ceo",
+        "http://dbpedia.org/property/ceo"
       ]
     },
     {
-      "score": 0.0044,
+      "score": 0.0058,
       "predicates": [
-        "http://dbpedia.org/property/services"
+        "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.0037,
+      "score": 0.0058,
       "predicates": [
-        "http://dbpedia.org/ontology/deathPlace"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.0034,
+      "score": 0.0058,
       "predicates": [
-        "http://dbpedia.org/ontology/service"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.0058,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.0058,
+      "predicates": [
+        "http://dbpedia.org/property/teamname"
       ]
     }
   ],
@@ -24902,62 +24985,49 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9847,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5773,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5008,
-      "predicates": [
         "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.5008,
+      "score": 1.0,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.5008,
+      "score": 1.0,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#long"
       ]
     },
     {
-      "score": 0.5008,
+      "score": 1.0,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
-      "score": 0.0464,
+      "score": 0.7887,
       "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.0705,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
         "http://dbpedia.org/property/owner"
       ]
     },
     {
-      "score": 0.0309,
+      "score": 0.048,
       "predicates": [
-        "http://dbpedia.org/property/foundation"
+        "http://dbpedia.org/ontology/product"
       ]
     },
     {
-      "score": 0.0207,
+      "score": 0.0412,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
@@ -24969,16 +25039,28 @@
       ]
     },
     {
-      "score": 0.0103,
+      "score": 0.0176,
       "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
+        "http://dbpedia.org/property/products"
       ]
     },
     {
-      "score": 0.0103,
+      "score": 0.016,
       "predicates": [
-        "http://dbpedia.org/property/founder"
+        "http://dbpedia.org/property/foundation"
+      ]
+    },
+    {
+      "score": 0.0157,
+      "predicates": [
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
+      ]
+    },
+    {
+      "score": 0.0113,
+      "predicates": [
+        "http://dbpedia.org/property/youthclubs"
       ]
     },
     {
@@ -25008,23 +25090,30 @@
     {
       "score": 0.0103,
       "predicates": [
-        "http://dbpedia.org/property/revenue"
-      ]
-    },
-    {
-      "score": 0.0103,
-      "predicates": [
         "http://dbpedia.org/property/intl"
       ]
     },
     {
       "score": 0.0103,
       "predicates": [
-        "http://dbpedia.org/ontology/revenue"
+        "http://dbpedia.org/ontology/revenue",
+        "http://dbpedia.org/property/revenue"
+      ]
+    },
+    {
+      "score": 0.0103,
+      "predicates": [
+        "http://dbpedia.org/ontology/internationally"
       ]
     }
   ],
   "RecordLabel": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -25033,13 +25122,7 @@
       ]
     },
     {
-      "score": 0.5002,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.4254,
+      "score": 0.4253,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
@@ -25047,14 +25130,8 @@
     {
       "score": 0.0856,
       "predicates": [
+        "http://dbpedia.org/ontology/founder",
         "http://dbpedia.org/property/founder"
-      ]
-    },
-    {
-      "score": 0.0776,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
       ]
     },
     {
@@ -25072,8 +25149,16 @@
       ]
     },
     {
+      "score": 0.0388,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
       "score": 0.0343,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
@@ -25084,10 +25169,11 @@
       ]
     },
     {
-      "score": 0.0178,
+      "score": 0.0177,
       "predicates": [
         "http://dbpedia.org/ontology/parentCompany",
-        "http://dbpedia.org/property/parent"
+        "http://dbpedia.org/property/parent",
+        "http://dbpedia.org/property/parentCompany"
       ]
     },
     {
@@ -25156,130 +25242,131 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9589,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9444,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.7381,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6971,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5155,
-      "predicates": [
         "http://dbpedia.org/property/libraryName"
       ]
     },
     {
-      "score": 0.3905,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.3905,
-      "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.3905,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.3905,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.3905,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.3688,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.067,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/property/significantBuildings"
       ]
     },
     {
-      "score": 0.064,
+      "score": 0.7574,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 0.7574,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.7574,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.7574,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.715,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
+        "http://dbpedia.org/property/owner"
+      ]
+    },
+    {
+      "score": 0.4603,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.3513,
+      "predicates": [
+        "http://dbpedia.org/ontology/employer",
+        "http://dbpedia.org/property/employer"
+      ]
+    },
+    {
+      "score": 0.3053,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.2895,
+      "predicates": [
+        "http://dbpedia.org/property/architecture"
+      ]
+    },
+    {
+      "score": 0.2603,
+      "predicates": [
+        "http://dbpedia.org/ontology/architecturalStyle",
+        "http://dbpedia.org/property/architecturalStyle"
+      ]
+    },
+    {
+      "score": 0.2399,
+      "predicates": [
+        "http://dbpedia.org/ontology/significantBuilding"
+      ]
+    },
+    {
+      "score": 0.2365,
+      "predicates": [
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
+      ]
+    },
+    {
+      "score": 0.1341,
+      "predicates": [
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
+      ]
+    },
+    {
+      "score": 0.1314,
+      "predicates": [
+        "http://dbpedia.org/ontology/parentOrganisation"
+      ]
+    },
+    {
+      "score": 0.131,
+      "predicates": [
+        "http://dbpedia.org/ontology/parentCompany",
+        "http://dbpedia.org/property/parent",
+        "http://dbpedia.org/property/parentCompany"
+      ]
+    },
+    {
+      "score": 0.1241,
       "predicates": [
         "http://dbpedia.org/property/nameEn"
       ]
     },
     {
-      "score": 0.0588,
+      "score": 0.1005,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/property/affiliations"
       ]
     },
     {
-      "score": 0.0555,
+      "score": 0.0953,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.0433,
-      "predicates": [
-        "http://dbpedia.org/ontology/owner"
-      ]
-    },
-    {
-      "score": 0.036,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.0339,
-      "predicates": [
-        "http://dbpedia.org/property/owner"
-      ]
-    },
-    {
-      "score": 0.0282,
-      "predicates": [
-        "http://dbpedia.org/property/established"
+        "http://dbpedia.org/ontology/publisher",
+        "http://dbpedia.org/property/publisher"
       ]
     }
   ],
@@ -25287,64 +25374,31 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.9844,
+      "score": 0.9423,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.9782,
+      "score": 0.9423,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.971,
+      "score": 0.9423,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
       ]
     },
     {
-      "score": 0.9495,
+      "score": 0.9423,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9436,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9367,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9018,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.8699,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
@@ -25360,59 +25414,87 @@
       ]
     },
     {
-      "score": 0.7026,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.6777,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5001,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.4712,
-      "predicates": [
-        "http://www.georss.org/georss/point"
-      ]
-    },
-    {
-      "score": 0.4712,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
-      ]
-    },
-    {
-      "score": 0.4712,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.4712,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.4264,
-      "predicates": [
-        "http://dbpedia.org/ontology/mascot"
-      ]
-    },
-    {
-      "score": 0.3578,
+      "score": 0.6893,
       "predicates": [
         "http://dbpedia.org/property/streetaddress"
+      ]
+    },
+    {
+      "score": 0.6672,
+      "predicates": [
+        "http://dbpedia.org/property/enrollment"
+      ]
+    },
+    {
+      "score": 0.6485,
+      "predicates": [
+        "http://dbpedia.org/ontology/postalCode"
+      ]
+    },
+    {
+      "score": 0.56,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.3824,
+      "predicates": [
+        "http://dbpedia.org/ontology/mascot",
+        "http://dbpedia.org/property/mascot"
+      ]
+    },
+    {
+      "score": 0.3345,
+      "predicates": [
+        "http://dbpedia.org/property/zipcode"
+      ]
+    },
+    {
+      "score": 0.2634,
+      "predicates": [
+        "http://dbpedia.org/ontology/lowerAge",
+        "http://dbpedia.org/property/lowerAge"
+      ]
+    },
+    {
+      "score": 0.2515,
+      "predicates": [
+        "http://dbpedia.org/ontology/officialSchoolColour"
+      ]
+    },
+    {
+      "score": 0.2504,
+      "predicates": [
+        "http://dbpedia.org/ontology/upperAge",
+        "http://dbpedia.org/property/upperAge"
+      ]
+    },
+    {
+      "score": 0.2484,
+      "predicates": [
+        "http://dbpedia.org/property/postcode"
+      ]
+    },
+    {
+      "score": 0.2375,
+      "predicates": [
+        "http://dbpedia.org/ontology/headLabel",
+        "http://dbpedia.org/property/headLabel"
+      ]
+    },
+    {
+      "score": 0.2281,
+      "predicates": [
+        "http://dbpedia.org/ontology/address",
+        "http://dbpedia.org/property/address"
+      ]
+    },
+    {
+      "score": 0.2274,
+      "predicates": [
+        "http://dbpedia.org/property/colours"
       ]
     }
   ],
@@ -25420,121 +25502,130 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
-      ]
-    },
-    {
-      "score": 0.5987,
-      "predicates": [
-        "http://dbpedia.org/ontology/employer"
-      ]
-    },
-    {
-      "score": 0.5832,
-      "predicates": [
-        "http://dbpedia.org/property/employer"
-      ]
-    },
-    {
-      "score": 0.5011,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.4666,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
+      ]
+    },
+    {
+      "score": 0.9314,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.4586,
+      "score": 0.9154,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.4223,
+      "score": 0.8429,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.3836,
+      "score": 0.591,
       "predicates": [
-        "http://dbpedia.org/ontology/occupation"
+        "http://dbpedia.org/ontology/employer",
+        "http://dbpedia.org/property/employer"
       ]
     },
     {
-      "score": 0.2392,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1938,
+      "score": 0.3867,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.1825,
+      "score": 0.3644,
       "predicates": [
         "http://dbpedia.org/ontology/numberOfTeams"
       ]
     },
     {
-      "score": 0.1427,
+      "score": 0.3328,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.2904,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.2847,
       "predicates": [
         "http://dbpedia.org/property/season"
       ]
     },
     {
-      "score": 0.1063,
+      "score": 0.2122,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
     {
-      "score": 0.1041,
-      "predicates": [
-        "http://dbpedia.org/property/occupation"
-      ]
-    },
-    {
-      "score": 0.0985,
-      "predicates": [
-        "http://dbpedia.org/ontology/knownFor"
-      ]
-    },
-    {
-      "score": 0.0943,
-      "predicates": [
-        "http://dbpedia.org/property/currentSeason"
-      ]
-    },
-    {
-      "score": 0.0928,
-      "predicates": [
-        "http://dbpedia.org/ontology/owner"
-      ]
-    },
-    {
-      "score": 0.0804,
-      "predicates": [
-        "http://dbpedia.org/ontology/award"
-      ]
-    },
-    {
-      "score": 0.0802,
+      "score": 0.1601,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.0737,
+      "score": 0.1359,
       "predicates": [
+        "http://dbpedia.org/property/inaugural"
+      ]
+    },
+    {
+      "score": 0.1119,
+      "predicates": [
+        "http://dbpedia.org/property/mostChamps"
+      ]
+    },
+    {
+      "score": 0.0856,
+      "predicates": [
+        "http://dbpedia.org/ontology/owner",
         "http://dbpedia.org/property/owner"
+      ]
+    },
+    {
+      "score": 0.0816,
+      "predicates": [
+        "http://dbpedia.org/property/champions"
+      ]
+    },
+    {
+      "score": 0.0804,
+      "predicates": [
+        "http://dbpedia.org/ontology/award",
+        "http://dbpedia.org/property/award"
+      ]
+    },
+    {
+      "score": 0.0784,
+      "predicates": [
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
+      ]
+    },
+    {
+      "score": 0.0665,
+      "predicates": [
+        "http://dbpedia.org/ontology/presenter",
+        "http://dbpedia.org/property/presenter"
       ]
     }
   ],
@@ -25542,123 +25633,130 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/employer"
-      ]
-    },
-    {
-      "score": 0.9629,
-      "predicates": [
-        "http://dbpedia.org/property/employer"
-      ]
-    },
-    {
-      "score": 0.7692,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.7255,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/employer",
+        "http://dbpedia.org/property/employer"
+      ]
+    },
+    {
+      "score": 0.9433,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.6846,
-      "predicates": [
-        "http://dbpedia.org/property/teams"
-      ]
-    },
-    {
-      "score": 0.6691,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.6429,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.4906,
-      "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
-      ]
-    },
-    {
-      "score": 0.4906,
-      "predicates": [
-        "http://dbpedia.org/ontology/authority",
-        "http://dbpedia.org/property/authority"
-      ]
-    },
-    {
-      "score": 0.441,
+      "score": 0.5733,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.4171,
+      "score": 0.4628,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
+        "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.4055,
+      "score": 0.4402,
       "predicates": [
-        "http://dbpedia.org/ontology/occupation"
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
       ]
     },
     {
-      "score": 0.2774,
+      "score": 0.4352,
       "predicates": [
-        "http://dbpedia.org/ontology/ceo"
+        "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.2487,
+      "score": 0.3629,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.3349,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.3233,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.144,
+      "score": 0.1612,
+      "predicates": [
+        "http://dbpedia.org/ontology/ceo",
+        "http://dbpedia.org/property/ceo"
+      ]
+    },
+    {
+      "score": 0.1448,
       "predicates": [
         "http://dbpedia.org/property/tenants"
       ]
     },
     {
-      "score": 0.1097,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.1051,
-      "predicates": [
-        "http://dbpedia.org/ontology/team"
-      ]
-    },
-    {
-      "score": 0.1026,
+      "score": 0.1333,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.1,
+      "score": 0.13,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.0991,
+      "score": 0.1209,
       "predicates": [
-        "http://dbpedia.org/property/occupation"
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
+      ]
+    },
+    {
+      "score": 0.0977,
+      "predicates": [
+        "http://dbpedia.org/ontology/presenter",
+        "http://dbpedia.org/property/presenter"
+      ]
+    },
+    {
+      "score": 0.0817,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.0587,
+      "predicates": [
+        "http://dbpedia.org/property/shortDescription",
+        "http://purl.org/dc/elements/1.1/description"
+      ]
+    },
+    {
+      "score": 0.0491,
+      "predicates": [
+        "http://dbpedia.org/property/parentOrganization"
+      ]
+    },
+    {
+      "score": 0.0491,
+      "predicates": [
+        "http://dbpedia.org/ontology/parentOrganisation"
       ]
     }
   ],
@@ -25666,73 +25764,82 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/team"
-      ]
-    },
-    {
-      "score": 0.8497,
-      "predicates": [
-        "http://dbpedia.org/property/teams"
-      ]
-    },
-    {
-      "score": 0.7556,
-      "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.7556,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.7556,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.6503,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/team",
+        "http://dbpedia.org/property/team"
+      ]
+    },
+    {
+      "score": 0.7473,
+      "predicates": [
+        "http://dbpedia.org/property/teams"
+      ]
+    },
+    {
+      "score": 0.5246,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.3779,
+      "score": 0.5,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.3779,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.2519,
+      "score": 0.3333,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.2519,
-      "predicates": [
-        "http://dbpedia.org/property/motto"
-      ]
-    },
-    {
-      "score": 0.2519,
+      "score": 0.3333,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.2519,
+      "score": 0.3333,
       "predicates": [
-        "http://dbpedia.org/ontology/motto"
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/champion"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/property/website"
+      ]
+    },
+    {
+      "score": 0.1667,
+      "predicates": [
+        "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
@@ -25742,39 +25849,17 @@
       ]
     },
     {
-      "score": 0.1259,
-      "predicates": [
-        "http://dbpedia.org/property/champion"
-      ]
-    },
-    {
-      "score": 0.1259,
-      "predicates": [
-        "http://dbpedia.org/property/website"
-      ]
-    },
-    {
-      "score": 0.1259,
-      "predicates": [
-        "http://dbpedia.org/ontology/formationDate"
-      ]
-    },
-    {
-      "score": 0.1223,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
       "score": 0.1055,
       "predicates": [
-        "http://dbpedia.org/ontology/occupation"
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
       ]
     },
     {
-      "score": 0.0706,
+      "score": 0.0947,
       "predicates": [
-        "http://dbpedia.org/property/union"
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
       ]
     },
     {
@@ -25783,131 +25868,165 @@
         "http://dbpedia.org/ontology/position",
         "http://dbpedia.org/property/position"
       ]
+    },
+    {
+      "score": 0.0705,
+      "predicates": [
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
+      ]
+    },
+    {
+      "score": 0.0601,
+      "predicates": [
+        "http://dbpedia.org/ontology/sportGoverningBody",
+        "http://dbpedia.org/property/union"
+      ]
+    },
+    {
+      "score": 0.0295,
+      "predicates": [
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
+      ]
     }
   ],
   "GolfLeague": [
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/property/award"
-      ]
-    },
-    {
-      "score": 0.8447,
-      "predicates": [
-        "http://dbpedia.org/ontology/award"
-      ]
-    },
-    {
-      "score": 0.5397,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.5323,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.479,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/award",
+        "http://dbpedia.org/property/award"
+      ]
+    },
+    {
+      "score": 0.9,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.3992,
+      "score": 0.75,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.3726,
+      "score": 0.7,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.3726,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.2928,
+      "score": 0.55,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.1079,
+      "score": 0.5258,
       "predicates": [
-        "http://dbpedia.org/property/country"
+        "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.0799,
+      "score": 0.15,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.0533,
+      "score": 0.1072,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.1,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.0266,
+      "score": 0.05,
       "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0266,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.0266,
+      "score": 0.05,
       "predicates": [
         "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.0266,
+      "score": 0.05,
       "predicates": [
+        "http://dbpedia.org/ontology/ceo",
         "http://dbpedia.org/property/ceo"
       ]
     },
     {
-      "score": 0.0113,
+      "score": 0.0057,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
       ]
     },
     {
-      "score": 0.0051,
-      "predicates": [
-        "http://dbpedia.org/ontology/occupation"
-      ]
-    },
-    {
-      "score": 0.0022,
+      "score": 0.0036,
       "predicates": [
         "http://dbpedia.org/property/currentChampion"
       ]
     },
     {
-      "score": 0.0001,
+      "score": 0.0002,
       "predicates": [
         "http://dbpedia.org/ontology/champion"
+      ]
+    },
+    {
+      "score": 0.0002,
+      "predicates": [
+        "http://dbpedia.org/property/affiliations"
+      ]
+    },
+    {
+      "score": 0.0001,
+      "predicates": [
+        "http://dbpedia.org/ontology/organisation"
+      ]
+    },
+    {
+      "score": 0.0001,
+      "predicates": [
+        "http://dbpedia.org/property/org"
+      ]
+    },
+    {
+      "score": 0.0001,
+      "predicates": [
+        "http://dbpedia.org/ontology/affiliation",
+        "http://dbpedia.org/property/affiliation"
       ]
     }
   ],
   "LacrosseLeague": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
     {
       "score": 0.9712,
       "predicates": [
@@ -25915,118 +26034,119 @@
       ]
     },
     {
-      "score": 0.6799,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.6694,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.6308,
+      "score": 0.9423,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.6179,
+      "score": 0.9231,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.3089,
+      "score": 0.2692,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.2368,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.2351,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1802,
-      "predicates": [
-        "http://dbpedia.org/property/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1802,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1416,
+      "score": 0.2115,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.1416,
-      "predicates": [
-        "http://dbpedia.org/property/mostChamps"
-      ]
-    },
-    {
-      "score": 0.1416,
+      "score": 0.2115,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.1339,
+      "score": 0.2115,
+      "predicates": [
+        "http://dbpedia.org/property/mostChamps"
+      ]
+    },
+    {
+      "score": 0.1299,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.0906,
+      "score": 0.0562,
       "predicates": [
-        "http://dbpedia.org/property/country"
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
       ]
     },
     {
-      "score": 0.0575,
+      "score": 0.0192,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0165,
+      "score": 0.0161,
       "predicates": [
-        "http://dbpedia.org/ontology/knownFor"
-      ]
-    },
-    {
-      "score": 0.0158,
-      "predicates": [
-        "http://dbpedia.org/ontology/sport"
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     },
     {
       "score": 0.0154,
       "predicates": [
+        "http://dbpedia.org/ontology/sport",
+        "http://dbpedia.org/property/sport"
+      ]
+    },
+    {
+      "score": 0.015,
+      "predicates": [
         "http://dbpedia.org/property/sports"
       ]
     },
     {
-      "score": 0.0129,
-      "predicates": [
-        "http://dbpedia.org/property/motto"
-      ]
-    },
-    {
-      "score": 0.0129,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.0032,
+      "score": 0.0031,
       "predicates": [
         "http://dbpedia.org/property/tenants"
+      ]
+    },
+    {
+      "score": 0.0015,
+      "predicates": [
+        "http://dbpedia.org/property/playedFor"
+      ]
+    },
+    {
+      "score": 0.0014,
+      "predicates": [
+        "http://dbpedia.org/ontology/formerTeam"
+      ]
+    },
+    {
+      "score": 0.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/athletics",
+        "http://dbpedia.org/property/athletics"
       ]
     }
   ],
@@ -35142,6 +35262,7 @@
     {
       "score": 0.0106,
       "predicates": [
+        "http://dbpedia.org/ontology/mediaType",
         "http://dbpedia.org/property/mediaType"
       ]
     },
@@ -35189,9 +35310,159 @@
 
   ],
   "Broadcaster": [
-
+    {
+      "score": 0.949,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 0.949,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 0.949,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 0.949,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.9213,
+      "predicates": [
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
+      ]
+    },
+    {
+      "score": 0.8823,
+      "predicates": [
+        "http://dbpedia.org/ontology/slogan",
+        "http://dbpedia.org/property/slogan"
+      ]
+    },
+    {
+      "score": 0.8807,
+      "predicates": [
+        "http://dbpedia.org/ontology/firstAirDate"
+      ]
+    },
+    {
+      "score": 0.7132,
+      "predicates": [
+        "http://dbpedia.org/ontology/facilityId",
+        "http://dbpedia.org/property/facilityId"
+      ]
+    },
+    {
+      "score": 0.6982,
+      "predicates": [
+        "http://dbpedia.org/ontology/callsignMeaning",
+        "http://dbpedia.org/property/callsignMeaning"
+      ]
+    },
+    {
+      "score": 0.6444,
+      "predicates": [
+        "http://dbpedia.org/ontology/broadcastStationClass"
+      ]
+    },
+    {
+      "score": 0.5967,
+      "predicates": [
+        "http://dbpedia.org/ontology/frequency",
+        "http://dbpedia.org/property/frequency"
+      ]
+    },
+    {
+      "score": 0.5915,
+      "predicates": [
+        "http://dbpedia.org/ontology/class",
+        "http://dbpedia.org/property/class"
+      ]
+    },
+    {
+      "score": 0.5873,
+      "predicates": [
+        "http://dbpedia.org/property/branding"
+      ]
+    },
+    {
+      "score": 0.5777,
+      "predicates": [
+        "http://dbpedia.org/ontology/licensee",
+        "http://dbpedia.org/property/licensee"
+      ]
+    },
+    {
+      "score": 0.5682,
+      "predicates": [
+        "http://dbpedia.org/ontology/formerCallsign"
+      ]
+    },
+    {
+      "score": 0.5582,
+      "predicates": [
+        "http://dbpedia.org/property/formerCallsigns"
+      ]
+    },
+    {
+      "score": 0.4733,
+      "predicates": [
+        "http://dbpedia.org/property/airdate"
+      ]
+    },
+    {
+      "score": 0.3565,
+      "predicates": [
+        "http://dbpedia.org/ontology/callSign"
+      ]
+    },
+    {
+      "score": 0.3517,
+      "predicates": [
+        "http://dbpedia.org/property/callLetters"
+      ]
+    },
+    {
+      "score": 0.3515,
+      "predicates": [
+        "http://dbpedia.org/ontology/heightAboveAverageTerrain"
+      ]
+    }
   ],
   "BusCompany": [
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
     {
       "score": 1.0,
       "predicates": [
@@ -35200,39 +35471,23 @@
       ]
     },
     {
-      "score": 0.5227,
+      "score": 0.2188,
       "predicates": [
-        "http://www.georss.org/georss/point"
+        "http://dbpedia.org/ontology/owner",
+        "http://dbpedia.org/property/owner"
       ]
     },
     {
-      "score": 0.5227,
+      "score": 0.1724,
       "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+        "http://dbpedia.org/property/website"
       ]
     },
     {
-      "score": 0.5227,
+      "score": 0.1635,
       "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
-      ]
-    },
-    {
-      "score": 0.5227,
-      "predicates": [
-        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
-      ]
-    },
-    {
-      "score": 0.5108,
-      "predicates": [
-        "http://dbpedia.org/ontology/owner"
-      ]
-    },
-    {
-      "score": 0.2204,
-      "predicates": [
-        "http://dbpedia.org/ontology/type"
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
       ]
     },
     {
@@ -35242,25 +35497,21 @@
       ]
     },
     {
-      "score": 0.1304,
-      "predicates": [
-        "http://dbpedia.org/property/operator"
-      ]
-    },
-    {
       "score": 0.1283,
       "predicates": [
+        "http://dbpedia.org/ontology/alliance",
         "http://dbpedia.org/property/alliance"
       ]
     },
     {
-      "score": 0.0901,
+      "score": 0.0804,
       "predicates": [
-        "http://dbpedia.org/property/website"
+        "http://dbpedia.org/ontology/operator",
+        "http://dbpedia.org/property/operator"
       ]
     },
     {
-      "score": 0.0603,
+      "score": 0.0604,
       "predicates": [
         "http://dbpedia.org/ontology/isPartOf",
         "http://dbpedia.org/property/subdivisionName"
@@ -35273,45 +35524,50 @@
       ]
     },
     {
-      "score": 0.0413,
+      "score": 0.0387,
       "predicates": [
-        "http://dbpedia.org/ontology/operator"
-      ]
-    },
-    {
-      "score": 0.0401,
-      "predicates": [
+        "http://dbpedia.org/ontology/address",
         "http://dbpedia.org/property/address"
       ]
     },
     {
-      "score": 0.0299,
+      "score": 0.0345,
       "predicates": [
-        "http://dbpedia.org/property/type"
-      ]
-    },
-    {
-      "score": 0.0288,
-      "predicates": [
-        "http://dbpedia.org/property/owner"
+        "http://dbpedia.org/property/zone"
       ]
     },
     {
       "score": 0.0259,
       "predicates": [
+        "http://dbpedia.org/ontology/other",
         "http://dbpedia.org/property/other"
       ]
     },
     {
       "score": 0.0249,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
       ]
     },
     {
-      "score": 0.018,
+      "score": 0.0172,
       "predicates": [
-        "http://dbpedia.org/property/zone"
+        "http://dbpedia.org/property/opened"
+      ]
+    },
+    {
+      "score": 0.0172,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfVehicles",
+        "http://dbpedia.org/property/vehicles"
+      ]
+    },
+    {
+      "score": 0.0172,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfStations",
+        "http://dbpedia.org/property/stations"
       ]
     }
   ],
@@ -35320,7 +35576,38 @@
   ],
   "LawFirm": [
     {
-      "score": 0.6147,
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
+    {
+      "score": 0.9642,
+      "predicates": [
+        "http://dbpedia.org/property/dateFounded"
+      ]
+    },
+    {
+      "score": 0.8684,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfOffices",
+        "http://dbpedia.org/property/numOffices"
+      ]
+    },
+    {
+      "score": 0.8589,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfLawyers"
+      ]
+    },
+    {
+      "score": 0.6653,
+      "predicates": [
+        "http://dbpedia.org/property/numAttorneys"
+      ]
+    },
+    {
+      "score": 0.6186,
       "predicates": [
         "http://dbpedia.org/ontology/legalForm"
       ]
@@ -35332,111 +35619,85 @@
       ]
     },
     {
-      "score": 0.5342,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.5151,
-      "predicates": [
-        "http://dbpedia.org/property/dateFounded"
-      ]
-    },
-    {
-      "score": 0.5048,
+      "score": 0.508,
       "predicates": [
         "http://dbpedia.org/ontology/service"
       ]
     },
     {
-      "score": 0.4667,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfOffices"
-      ]
-    },
-    {
-      "score": 0.4611,
-      "predicates": [
-        "http://dbpedia.org/property/numOffices"
-      ]
-    },
-    {
-      "score": 0.4607,
-      "predicates": [
-        "http://dbpedia.org/ontology/headquarter"
-      ]
-    },
-    {
-      "score": 0.4588,
-      "predicates": [
-        "http://dbpedia.org/ontology/numberOfLawyers"
-      ]
-    },
-    {
-      "score": 0.3553,
-      "predicates": [
-        "http://dbpedia.org/property/numAttorneys"
-      ]
-    },
-    {
-      "score": 0.3544,
-      "predicates": [
-        "http://dbpedia.org/ontology/type"
-      ]
-    },
-    {
-      "score": 0.3137,
-      "predicates": [
-        "http://dbpedia.org/property/headquarters"
-      ]
-    },
-    {
-      "score": 0.2749,
-      "predicates": [
-        "http://dbpedia.org/property/practiceAreas"
-      ]
-    },
-    {
-      "score": 0.271,
+      "score": 0.5074,
       "predicates": [
         "http://dbpedia.org/property/firmName"
       ]
     },
     {
-      "score": 0.2635,
+      "score": 0.4637,
+      "predicates": [
+        "http://dbpedia.org/ontology/headquarter"
+      ]
+    },
+    {
+      "score": 0.3567,
+      "predicates": [
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
+      ]
+    },
+    {
+      "score": 0.3266,
+      "predicates": [
+        "http://dbpedia.org/property/headquarters"
+      ]
+    },
+    {
+      "score": 0.32,
+      "predicates": [
+        "http://dbpedia.org/ontology/revenue",
+        "http://dbpedia.org/property/revenue"
+      ]
+    },
+    {
+      "score": 0.2932,
       "predicates": [
         "http://dbpedia.org/property/companyType"
       ]
     },
     {
-      "score": 0.2075,
+      "score": 0.2725,
+      "predicates": [
+        "http://dbpedia.org/property/practiceAreas"
+      ]
+    },
+    {
+      "score": 0.26,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
+      ]
+    },
+    {
+      "score": 0.2089,
       "predicates": [
         "http://dbpedia.org/ontology/keyPerson"
       ]
     },
     {
-      "score": 0.1721,
+      "score": 0.1811,
       "predicates": [
-        "http://dbpedia.org/ontology/revenue"
+        "http://dbpedia.org/property/numLawyers"
       ]
     },
     {
-      "score": 0.1698,
+      "score": 0.0968,
       "predicates": [
-        "http://dbpedia.org/property/revenue"
+        "http://dbpedia.org/ontology/dissolved",
+        "http://dbpedia.org/property/dissolved"
       ]
     },
     {
-      "score": 0.1394,
+      "score": 0.0968,
       "predicates": [
-        "http://dbpedia.org/ontology/numberOfEmployees"
-      ]
-    },
-    {
-      "score": 0.1383,
-      "predicates": [
-        "http://dbpedia.org/property/numEmployees"
+        "http://dbpedia.org/ontology/closingYear"
       ]
     }
   ],
@@ -35444,140 +35705,263 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9976,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9762,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9762,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.938,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9307,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.9022,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.8831,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.8496,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.8043,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.5011,
-      "predicates": [
         "http://dbpedia.org/property/wineryName"
       ]
     },
     {
-      "score": 0.3577,
+      "score": 0.7138,
       "predicates": [
         "http://www.georss.org/georss/point"
       ]
     },
     {
-      "score": 0.3577,
+      "score": 0.7138,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
       ]
     },
     {
-      "score": 0.3577,
+      "score": 0.7138,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#long"
       ]
     },
     {
-      "score": 0.3577,
+      "score": 0.7138,
       "predicates": [
         "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
       ]
     },
     {
-      "score": 0.2291,
+      "score": 0.5903,
       "predicates": [
         "http://dbpedia.org/ontology/locationCity",
         "http://dbpedia.org/property/locationCity"
       ]
     },
     {
-      "score": 0.2244,
+      "score": 0.5031,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
+        "http://dbpedia.org/ontology/location",
+        "http://dbpedia.org/property/location"
       ]
     },
     {
-      "score": 0.2029,
+      "score": 0.107,
       "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.1965,
-      "predicates": [
-        "http://dbpedia.org/ontology/locationCity",
-        "http://dbpedia.org/property/locationCity"
-      ]
-    },
-    {
-      "score": 0.0609,
-      "predicates": [
+        "http://dbpedia.org/ontology/locationCountry",
         "http://dbpedia.org/property/locationCountry"
+      ]
+    },
+    {
+      "score": 0.0266,
+      "predicates": [
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
+      ]
+    },
+    {
+      "score": 0.0189,
+      "predicates": [
+        "http://dbpedia.org/property/homepage"
+      ]
+    },
+    {
+      "score": 0.0127,
+      "predicates": [
+        "http://dbpedia.org/ontology/industry",
+        "http://dbpedia.org/property/industry"
+      ]
+    },
+    {
+      "score": 0.0092,
+      "predicates": [
+        "http://dbpedia.org/ontology/product"
+      ]
+    },
+    {
+      "score": 0.008,
+      "predicates": [
+        "http://dbpedia.org/property/products"
+      ]
+    },
+    {
+      "score": 0.0078,
+      "predicates": [
+        "http://dbpedia.org/ontology/type",
+        "http://dbpedia.org/property/type"
+      ]
+    },
+    {
+      "score": 0.0063,
+      "predicates": [
+        "http://dbpedia.org/ontology/revenue",
+        "http://dbpedia.org/property/revenue"
+      ]
+    },
+    {
+      "score": 0.0063,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfEmployees",
+        "http://dbpedia.org/property/numEmployees"
+      ]
+    },
+    {
+      "score": 0.0063,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
+    {
+      "score": 0.0057,
+      "predicates": [
+        "http://dbpedia.org/ontology/occupation",
+        "http://dbpedia.org/property/occupation"
+      ]
+    },
+    {
+      "score": 0.0056,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthPlace",
+        "http://dbpedia.org/property/birthPlace"
+      ]
+    },
+    {
+      "score": 0.0051,
+      "predicates": [
+        "http://dbpedia.org/property/origin"
       ]
     }
   ],
   "EducationalInstitution": [
-
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.georss.org/georss/point"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#geometry"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
+      ]
+    },
+    {
+      "score": 0.7252,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfStudents"
+      ]
+    },
+    {
+      "score": 0.6217,
+      "predicates": [
+        "http://dbpedia.org/ontology/motto",
+        "http://dbpedia.org/property/motto"
+      ]
+    },
+    {
+      "score": 0.5175,
+      "predicates": [
+        "http://dbpedia.org/property/students"
+      ]
+    },
+    {
+      "score": 0.4344,
+      "predicates": [
+        "http://dbpedia.org/ontology/officialSchoolColour"
+      ]
+    },
+    {
+      "score": 0.3749,
+      "predicates": [
+        "http://dbpedia.org/ontology/facultySize",
+        "http://dbpedia.org/property/faculty"
+      ]
+    },
+    {
+      "score": 0.3646,
+      "predicates": [
+        "http://dbpedia.org/property/established"
+      ]
+    },
+    {
+      "score": 0.3208,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
+    {
+      "score": 0.2998,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfUndergraduateStudents",
+        "http://dbpedia.org/property/undergrad"
+      ]
+    },
+    {
+      "score": 0.2802,
+      "predicates": [
+        "http://dbpedia.org/ontology/mascot",
+        "http://dbpedia.org/property/mascot"
+      ]
+    },
+    {
+      "score": 0.2758,
+      "predicates": [
+        "http://dbpedia.org/property/colors"
+      ]
+    },
+    {
+      "score": 0.2755,
+      "predicates": [
+        "http://dbpedia.org/property/nativeName"
+      ]
+    },
+    {
+      "score": 0.2575,
+      "predicates": [
+        "http://dbpedia.org/ontology/numberOfPostgraduateStudents",
+        "http://dbpedia.org/property/postgrad"
+      ]
+    },
+    {
+      "score": 0.2507,
+      "predicates": [
+        "http://dbpedia.org/property/nickname",
+        "http://xmlns.com/foaf/0.1/nick"
+      ]
+    },
+    {
+      "score": 0.2133,
+      "predicates": [
+        "http://dbpedia.org/ontology/endowment",
+        "http://dbpedia.org/property/endowment"
+      ]
+    },
+    {
+      "score": 0.2099,
+      "predicates": [
+        "http://dbpedia.org/ontology/staff",
+        "http://dbpedia.org/property/staff"
+      ]
+    },
+    {
+      "score": 0.2035,
+      "predicates": [
+        "http://dbpedia.org/property/enrollment"
+      ]
+    }
   ],
   "EmployersOrganisation": [
 
@@ -35589,7 +35973,133 @@
 
   ],
   "Group": [
-
+    {
+      "score": 0.9988,
+      "predicates": [
+        "http://dbpedia.org/ontology/background",
+        "http://dbpedia.org/property/background"
+      ]
+    },
+    {
+      "score": 0.9754,
+      "predicates": [
+        "http://dbpedia.org/ontology/activeYearsStartYear"
+      ]
+    },
+    {
+      "score": 0.9686,
+      "predicates": [
+        "http://dbpedia.org/property/yearsActive"
+      ]
+    },
+    {
+      "score": 0.5278,
+      "predicates": [
+        "http://dbpedia.org/ontology/activeYearsEndYear"
+      ]
+    },
+    {
+      "score": 0.3505,
+      "predicates": [
+        "http://dbpedia.org/ontology/recordLabel",
+        "http://dbpedia.org/property/label"
+      ]
+    },
+    {
+      "score": 0.3389,
+      "predicates": [
+        "http://dbpedia.org/property/origin"
+      ]
+    },
+    {
+      "score": 0.3219,
+      "predicates": [
+        "http://dbpedia.org/property/currentMembers"
+      ]
+    },
+    {
+      "score": 0.314,
+      "predicates": [
+        "http://dbpedia.org/property/pastMembers"
+      ]
+    },
+    {
+      "score": 0.2099,
+      "predicates": [
+        "http://dbpedia.org/property/associatedActs"
+      ]
+    },
+    {
+      "score": 0.145,
+      "predicates": [
+        "http://dbpedia.org/ontology/alias",
+        "http://dbpedia.org/property/alias"
+      ]
+    },
+    {
+      "score": 0.1271,
+      "predicates": [
+        "http://dbpedia.org/ontology/genre",
+        "http://dbpedia.org/property/genre"
+      ]
+    },
+    {
+      "score": 0.0403,
+      "predicates": [
+        "http://dbpedia.org/property/filename"
+      ]
+    },
+    {
+      "score": 0.039,
+      "predicates": [
+        "http://dbpedia.org/property/description"
+      ]
+    },
+    {
+      "score": 0.0113,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthDate",
+        "http://dbpedia.org/property/birthDate"
+      ]
+    },
+    {
+      "score": 0.0092,
+      "predicates": [
+        "http://xmlns.com/foaf/0.1/givenName"
+      ]
+    },
+    {
+      "score": 0.0086,
+      "predicates": [
+        "http://dbpedia.org/property/website"
+      ]
+    },
+    {
+      "score": 0.0084,
+      "predicates": [
+        "http://dbpedia.org/ontology/imdbId"
+      ]
+    },
+    {
+      "score": 0.0076,
+      "predicates": [
+        "http://dbpedia.org/ontology/birthName",
+        "http://dbpedia.org/property/birthName"
+      ]
+    },
+    {
+      "score": 0.0073,
+      "predicates": [
+        "http://dbpedia.org/property/id"
+      ]
+    },
+    {
+      "score": 0.005,
+      "predicates": [
+        "http://dbpedia.org/property/shortDescription",
+        "http://purl.org/dc/elements/1.1/description"
+      ]
+    }
   ],
   "InternationalOrganisation": [
 
@@ -35619,31 +36129,39 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.9204,
-      "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.9204,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.9204,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.9204,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
+    {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.8,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
@@ -35654,31 +36172,19 @@
       ]
     },
     {
-      "score": 0.7364,
-      "predicates": [
-        "http://dbpedia.org/property/currentSeason"
-      ]
-    },
-    {
-      "score": 0.7364,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.3682,
+      "score": 0.4,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1841,
+      "score": 0.2,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.1841,
+      "score": 0.2,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
@@ -35692,31 +36198,32 @@
       ]
     },
     {
-      "score": 0.8415,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
       "score": 0.6667,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.543,
+      "score": 0.5833,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.5099,
+      "score": 0.5539,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
+        "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.1666,
+      "score": 0.2927,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.1667,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
@@ -35759,91 +36266,76 @@
   ],
   "CricketLeague": [
     {
+      "score": 1.0,
+      "predicates": [
+        "http://dbpedia.org/ontology/foundingYear"
+      ]
+    },
+    {
       "score": 0.95,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.6291,
-      "predicates": [
-        "http://dbpedia.org/ontology/foundingYear"
-      ]
-    },
-    {
-      "score": 0.5088,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.5033,
+      "score": 0.8,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.473,
-      "predicates": [
-        "http://dbpedia.org/property/champion"
-      ]
-    },
-    {
-      "score": 0.4404,
+      "score": 0.7,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.4404,
+      "score": 0.7,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.3049,
+      "score": 0.4431,
       "predicates": [
+        "http://dbpedia.org/property/champion"
+      ]
+    },
+    {
+      "score": 0.3458,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
     {
-      "score": 0.1258,
+      "score": 0.2,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.1029,
+      "score": 0.1012,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.0629,
+      "score": 0.1,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.0629,
+      "score": 0.1,
       "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.0629,
-      "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0629,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.0004,
+      "score": 0.0005,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
@@ -35870,7 +36362,7 @@
       ]
     },
     {
-      "score": 0.8139,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
@@ -35893,62 +36385,52 @@
       ]
     },
     {
-      "score": 0.9642,
+      "score": 0.9643,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.9642,
+      "score": 0.9643,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.9285,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.8928,
+      "score": 0.8929,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.7879,
+      "score": 0.8214,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.568,
+      "score": 0.4904,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.4285,
+      "score": 0.4653,
       "predicates": [
+        "http://dbpedia.org/property/founded"
+      ]
+    },
+    {
+      "score": 0.4286,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.4285,
+      "score": 0.0541,
       "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.1403,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.0438,
-      "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
@@ -35966,107 +36448,95 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.836,
-      "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.811,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.8106,
+      "score": 0.9697,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.6079,
+      "score": 0.7273,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.6079,
+      "score": 0.7049,
       "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
+        "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.5826,
+      "score": 0.697,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.304,
+      "score": 0.6061,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.3636,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.2787,
+      "score": 0.3333,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.2493,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.1774,
+      "score": 0.1077,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1013,
+      "score": 0.0851,
+      "predicates": [
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
+      ]
+    },
+    {
+      "score": 0.0623,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.0762,
+      "score": 0.0606,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
-      ]
-    },
-    {
-      "score": 0.0507,
-      "predicates": [
+        "http://dbpedia.org/ontology/ceo",
         "http://dbpedia.org/property/ceo"
       ]
     },
     {
-      "score": 0.0254,
+      "score": 0.0303,
       "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0254,
+      "score": 0.0219,
       "predicates": [
+        "http://dbpedia.org/ontology/founder",
         "http://dbpedia.org/property/founder"
       ]
     },
     {
-      "score": 0.0254,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.001,
+      "score": 0.0018,
       "predicates": [
         "http://dbpedia.org/property/tenants"
       ]
@@ -36076,122 +36546,117 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/property/mostChamps"
-      ]
-    },
-    {
-      "score": 0.8473,
-      "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.8356,
+      "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/property/founded"
+        "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.8304,
+      "score": 0.9048,
+      "predicates": [
+        "http://dbpedia.org/ontology/participant"
+      ]
+    },
+    {
+      "score": 0.822,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.7665,
-      "predicates": [
-        "http://dbpedia.org/ontology/participant"
-      ]
-    },
-    {
-      "score": 0.6863,
-      "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.6859,
+      "score": 0.8095,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.5245,
+      "score": 0.7247,
       "predicates": [
-        "http://dbpedia.org/property/currentSeason"
+        "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.5245,
+      "score": 0.619,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.5245,
+      "score": 0.619,
       "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.3631,
+      "score": 0.4286,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]
     },
     {
-      "score": 0.3002,
+      "score": 0.3774,
       "predicates": [
+        "http://dbpedia.org/ontology/country",
         "http://dbpedia.org/property/country"
       ]
     },
     {
-      "score": 0.2348,
+      "score": 0.2346,
       "predicates": [
         "http://dbpedia.org/ontology/formerTeam"
       ]
     },
     {
-      "score": 0.121,
+      "score": 0.1429,
       "predicates": [
         "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.0824,
+      "score": 0.0703,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.0656,
+      "score": 0.0651,
       "predicates": [
-        "http://dbpedia.org/ontology/tenant"
+        "http://dbpedia.org/ontology/tenant",
+        "http://dbpedia.org/property/tenant"
       ]
     },
     {
-      "score": 0.0509,
+      "score": 0.0476,
       "predicates": [
-        "http://dbpedia.org/property/knownFor"
-      ]
-    },
-    {
-      "score": 0.0404,
-      "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0404,
+      "score": 0.0407,
       "predicates": [
-        "http://dbpedia.org/ontology/motto"
+        "http://dbpedia.org/ontology/knownFor",
+        "http://dbpedia.org/property/knownFor"
       ]
     },
     {
-      "score": 0.0404,
+      "score": 0.0239,
       "predicates": [
+        "http://dbpedia.org/ontology/founder",
         "http://dbpedia.org/property/founder"
+      ]
+    },
+    {
+      "score": 0.0137,
+      "predicates": [
+        "http://dbpedia.org/ontology/operator",
+        "http://dbpedia.org/property/operator"
       ]
     }
   ],
@@ -36237,85 +36702,71 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
-      ]
-    },
-    {
-      "score": 0.9391,
-      "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.8869,
+      "score": 0.9893,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.9444,
       "predicates": [
         "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.882,
+      "score": 0.9444,
       "predicates": [
         "http://dbpedia.org/property/founded"
       ]
     },
     {
-      "score": 0.8572,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.8347,
+      "score": 0.8889,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.5739,
+      "score": 0.6111,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.5739,
+      "score": 0.5556,
+      "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
+        "http://dbpedia.org/property/currentSeason"
+      ]
+    },
+    {
+      "score": 0.3057,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.5217,
+      "score": 0.2751,
       "predicates": [
-        "http://dbpedia.org/property/currentSeason"
+        "http://dbpedia.org/ontology/series",
+        "http://dbpedia.org/property/series"
       ]
     },
     {
-      "score": 0.5217,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.2683,
-      "predicates": [
-        "http://dbpedia.org/ontology/series"
-      ]
-    },
-    {
-      "score": 0.1044,
+      "score": 0.0595,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.0522,
+      "score": 0.0556,
       "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
-      ]
-    },
-    {
-      "score": 0.0522,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
       ]
     }
   ],
@@ -36326,102 +36777,87 @@
     {
       "score": 1.0,
       "predicates": [
-        "http://dbpedia.org/ontology/country"
+        "http://dbpedia.org/ontology/participant"
       ]
     },
     {
-      "score": 0.7497,
+      "score": 1.0,
       "predicates": [
         "http://dbpedia.org/ontology/league",
         "http://dbpedia.org/property/league"
       ]
     },
     {
-      "score": 0.7457,
-      "predicates": [
-        "http://dbpedia.org/ontology/participant"
-      ]
-    },
-    {
-      "score": 0.72,
+      "score": 0.9655,
       "predicates": [
         "http://dbpedia.org/ontology/foundingYear"
       ]
     },
     {
-      "score": 0.7004,
-      "predicates": [
-        "http://dbpedia.org/property/founded"
-      ]
-    },
-    {
-      "score": 0.4885,
+      "score": 0.6552,
       "predicates": [
         "http://dbpedia.org/ontology/title"
       ]
     },
     {
-      "score": 0.4628,
+      "score": 0.6509,
+      "predicates": [
+        "http://dbpedia.org/property/founded"
+      ]
+    },
+    {
+      "score": 0.6272,
+      "predicates": [
+        "http://dbpedia.org/ontology/country",
+        "http://dbpedia.org/property/country"
+      ]
+    },
+    {
+      "score": 0.6207,
       "predicates": [
         "http://dbpedia.org/property/teams"
       ]
     },
     {
-      "score": 0.36,
+      "score": 0.4828,
       "predicates": [
         "http://dbpedia.org/property/mostChamps"
       ]
     },
     {
-      "score": 0.3333,
-      "predicates": [
-        "http://dbpedia.org/property/country"
-      ]
-    },
-    {
-      "score": 0.2581,
+      "score": 0.2297,
       "predicates": [
         "http://dbpedia.org/property/champion"
       ]
     },
     {
-      "score": 0.1543,
+      "score": 0.2069,
       "predicates": [
+        "http://dbpedia.org/ontology/currentSeason",
         "http://dbpedia.org/property/currentSeason"
       ]
     },
     {
-      "score": 0.1543,
-      "predicates": [
-        "http://dbpedia.org/ontology/currentSeason"
-      ]
-    },
-    {
-      "score": 0.0257,
+      "score": 0.0345,
       "predicates": [
         "http://dbpedia.org/property/website"
       ]
     },
     {
-      "score": 0.0257,
+      "score": 0.0345,
       "predicates": [
+        "http://dbpedia.org/ontology/motto",
         "http://dbpedia.org/property/motto"
       ]
     },
     {
-      "score": 0.0257,
-      "predicates": [
-        "http://dbpedia.org/ontology/motto"
-      ]
-    },
-    {
-      "score": 0.0257,
+      "score": 0.0345,
       "predicates": [
         "http://dbpedia.org/ontology/formationDate"
       ]
     },
     {
-      "score": 0.0257,
+      "score": 0.0345,
       "predicates": [
         "http://dbpedia.org/property/inaugural"
       ]

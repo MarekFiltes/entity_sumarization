@@ -19,7 +19,7 @@ module BrowserWebData
       attr_reader :nif_file_path, :results_dir_path
 
       ###
-      # Create new instance.
+      # Create new instance of Statistic class.
       #
       # @param [String] nif_dataset_path
       # @param [String] results_dir_path
@@ -29,14 +29,14 @@ module BrowserWebData
         results_dir_path = results_dir_path.gsub('\\', '/').chomp('/')
 
         return false unless File.exists?(nif_dataset_path)
-        return false unless File.exists?(results_dir_path)
+        return false unless Dir.exists?(results_dir_path)
 
         @nif_file_path = nif_dataset_path.gsub('\\', '/')
         @results_dir_path = results_dir_path.gsub('\\', '/').chomp('/')
         @console_output = console_output
 
         @query = SPARQLRequest.new
-        @predicates_similarity = PredicatesSimilarity.new(@results_dir_path)
+        @predicates_similarity = PredicatesSimilarity.new(@results_dir_path, IDENTICAL_PROPERTY_LIMIT, console_output)
       end
 
       ###
@@ -45,7 +45,6 @@ module BrowserWebData
       # @param [Hash] params
       # @option params [Array<String>, String] :entity_types Types from http://mappings.dbpedia.org/server/ontology/classes/
       # @option params [Fixnum] :entity_count Best ranked resources by every entity type.
-      # @option params [Fixnum] :best_score_count Count of result predicates to keep.
       # @option params [FalseClass, TruesClass] :demand_reload
       # @option params [FalseClass, TruesClass] :identity_identical_predicates
       def create_by_nif_dataset(params)
@@ -54,7 +53,7 @@ module BrowserWebData
         generate_statistics_from_nif(params[:entity_types], params[:entity_count], params[:demand_reload])
 
         params[:entity_types].each { |type|
-          generate_knowledge_base(type, params[:best_score_count], params[:identity_identical_predicates])
+          generate_knowledge_base(type, params[:identity_identical_predicates])
         }
       end
 
@@ -251,25 +250,38 @@ module BrowserWebData
       # to one result knowledge base file.
       #
       # @param [String] type Type from http://mappings.dbpedia.org/server/ontology/classes/
-      # @param [Fixnum] best_count Define max count of properties that will be assign to entity class type.
       # @param [TrueClass, FalseClass] identify_identical Flag for process identify and group identical properties as one item.
-      def generate_knowledge_base(type, best_count = 20, identify_identical = true)
+      def generate_knowledge_base(type, identify_identical = true)
         puts "_____ #{type} _____" if @console_output
         files = Dir.glob("#{@results_dir_path}/#{type}/*.json")
         type = type.to_s.to_sym
 
         knowledge_data = {type => []}
 
-        files.each { |file_path|
-          puts "- calculate #{file_path}" if @console_output
-          file_data = JSON.parse(File.read(file_path).force_encoding('utf-8'), symbolize_names: true)
+        global_properties = get_global_statistic_by_type(type) || {}
 
-          if identify_identical
+        if identify_identical
+          try_this_identical = {}
+
+          files.each { |file_path|
+            file_data = JSON.parse(File.read(file_path).force_encoding('utf-8'), symbolize_names: true)
             file_data[:nif_data].each { |data|
-              all_properties = data[:properties][type].keys + ((data[:strict_properties]||{})[type] || {}).keys.uniq
-              @predicates_similarity.identify_identical_predicates(all_properties)
+              try_this_identical.merge!(data[:properties][type]) { |_, x, y| x + y }
             }
+          }
+
+          try_this_identical.merge!(global_properties) { |_, x, y| x + y }
+
+          if try_this_identical.size > 0
+            try_this_identical = Hash[try_this_identical.sort_by { |_,v|v}.reverse]
+            puts "- prepare to identify identical: total count #{try_this_identical.size}" if @console_output
+            @predicates_similarity.identify_identical_predicates(try_this_identical.keys)
           end
+        end
+
+        puts "- calculate: files count #{files.size}" if @console_output
+        files.each { |file_path|
+          file_data = JSON.parse(File.read(file_path).force_encoding('utf-8'), symbolize_names: true)
 
           file_data[:nif_data].each { |found|
 
@@ -309,10 +321,6 @@ module BrowserWebData
           end
         }
 
-        global_properties = get_global_statistic_by_type(type) || {}
-        if identify_identical
-          @predicates_similarity.identify_identical_predicates(global_properties.keys)
-        end
 
         if global_properties.size > 0
           max_count = global_properties.max_by { |_, count| count }[1].to_f
@@ -331,7 +339,11 @@ module BrowserWebData
           hash
         }
 
-        knowledge_data[type] = knowledge_data[type].sort_by { |hash| hash[:score] }.reverse.take(best_count)
+        knowledge_data[type] = knowledge_data[type].keep_if { |hash|
+          hash[:score] > 0
+        }.sort_by { |hash|
+          hash[:score]
+        }.reverse
 
         if identify_identical
           @predicates_similarity.reduce_identical
@@ -383,7 +395,7 @@ module BrowserWebData
       # @param [String] path
       #
       # @return [Hash] classes
-      def get_all_classes(path = File.join(__dir__,'../knowledge/classes_hierarchy.json'))
+      def get_all_classes(path = File.join(__dir__, '../knowledge/classes_hierarchy.json'))
         data = ensure_load_json(path, {})
         HashHelper.recursive_map_keys(data)
       end

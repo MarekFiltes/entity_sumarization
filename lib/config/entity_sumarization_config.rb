@@ -8,6 +8,8 @@ module BrowserWebData
 
     IDENTICAL_PROPERTY_LIMIT = 0.8
 
+    IMPORTANCE_TO_IDENTIFY_MAX_COUNT = 250
+
     NO_SENSE_PROPERTIES = %w(
       http://xmlns.com/foaf/0.1/primaryTopic
       http://dbpedia.org/ontology/wikiPageRedirects

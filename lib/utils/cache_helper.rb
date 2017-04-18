@@ -56,6 +56,33 @@ module CacheHelper
   end
 
   ###
+  # The method helps to update knowledge by key in yield block.
+  #
+  # @param [String] key Key of stored knowledge.
+  #
+  # @yield param actual_data
+  # @yield return new_data
+  def self.update_knowledge(key)
+    dir_path = "#{File.dirname(File.expand_path('..', __FILE__))}/knowledge"
+    file_path = "#{dir_path}/#{StringHelper.get_clear_file_path(key)}.json"
+
+    hash = {}
+    if !File.exists?(file_path)
+
+      if block_given?
+        hash = yield hash
+        File.open(file_path, 'w') { |f| f.puts hash.to_json } unless hash.empty?
+      end
+    else
+      old_hash = JSON.parse(File.read(file_path).force_encoding('UTF-8'), symbolize_names: true)
+      hash = yield old_hash
+      File.open(file_path, 'w') { |f| f.puts hash.to_json } unless hash.empty?
+    end
+
+    HashHelper.recursive_symbolize_keys(hash)
+  end
+
+  ###
   # The method helps to get build in knowledge by key.
   #
   # @param [String] key

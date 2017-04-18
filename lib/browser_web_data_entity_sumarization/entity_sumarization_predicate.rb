@@ -11,7 +11,6 @@ module BrowserWebData
 
     ###
     # The class include helper methods.
-    # (todo definition of predicate instance)
     class Predicate
       include BrowserWebData::EntitySumarizationConfig
 
