@@ -28,7 +28,7 @@ module BrowserWebData
         nif_dataset_path = nif_dataset_path.gsub('\\', '/') if nif_dataset_path
         results_dir_path = results_dir_path.gsub('\\', '/').chomp('/') if results_dir_path
 
-        unless Dir.exists?(results_dir_path)
+        unless Dir.exist?(results_dir_path)
           cache_dir_path = "#{Dir.tmpdir}/#{BrowserWebData::TMP_DIR}"
           Dir.mkdir(cache_dir_path) unless Dir.exist?(cache_dir_path)
           results_dir_path = "#{cache_dir_path}/results"
