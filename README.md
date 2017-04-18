@@ -120,8 +120,9 @@ was generated from NIF dataset: nif-text-links_en
 [2016-04/ext/nif-abstracts/en/](http://downloads.dbpedia.org/2016-04/ext/nif-abstracts/en/)
 
 Results contains:
-- global_statistics.json
 - knowledge_base.json
+- global_statistics.json
+- identical_predicates.json
 - statistics.zip
 
 
