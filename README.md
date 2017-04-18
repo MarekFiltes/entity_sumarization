@@ -9,6 +9,11 @@ Linked based relations is expanded with entity class global relations that point
 Tool can reduce basic duplicates of predicates. 
 At the end calculate total score for every predicate and generate knowledge base.    
 
+### RubyDoc
+[browser_web_data_entity_sumarization-1.1.0](http://www.rubydoc.info/gems/browser_web_data_entity_sumarization/1.1.0)
+
+---
+
 ## Basic usage
 Requires installed JRuby on machine.
 
@@ -113,6 +118,8 @@ statistic.get_all_classes.each{|entity_class_type|
   statistic.generate_knowledge_base(entity_class_type, identify_identical_predicates)
 }
 ```
+
+---
 
 ## Results description 
 Results publish in this project [Sumarization results](results/) 

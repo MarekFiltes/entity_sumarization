@@ -111,8 +111,6 @@ module BrowserWebData
                 result_relations = find_relations(resource_uri, actual_resource_data, type)
                 generate_result_file(resource_uri, type, result_relations, this_time)
 
-                break if resources.empty?
-
                 actual_resource_data = []
                 time_start = Time.now
               end
@@ -125,6 +123,7 @@ module BrowserWebData
               lines_group << line
             end
 
+            break if resources.empty?
           end
 
         ensure

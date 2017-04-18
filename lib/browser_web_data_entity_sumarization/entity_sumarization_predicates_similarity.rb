@@ -65,8 +65,6 @@ module BrowserWebData
 
         combination.each_with_index { |values, i|
 
-
-
           already_mark_same = find_identical(values)
           already_mark_different = find_different(values)
 
@@ -100,7 +98,7 @@ module BrowserWebData
           end
 
           if @console_output && ( i == 0 || (i+1) % times_count == 0 )
-            puts "#{Time.now.localtime} | #{(((i+1)/combination.size) * 100).round(2)}% | [#{(i+1)}/#{combination.size}]"
+            puts "#{Time.now.localtime} | #{(((i+1)/combination.size.to_f) * 100).round(0)}% | [#{(i+1)}/#{combination.size}]"
           end
 
         }
