@@ -7,7 +7,7 @@ Links are stored in dataset of NLP Interchange Format (NIF).
 In next step find all relations in which are used collected links to entities of given class (eg. City, Artist, ...).
 Linked based relations is expanded with entity class global relations that point to literal.
 Tool can reduce basic duplicates of predicates. 
-At the end calculate total score for every predicated and generate knowledge base.    
+At the end calculate total score for every predicate and generate knowledge base.    
 
 ## Basic usage
 Requires installed JRuby on machine.
