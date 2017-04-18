@@ -4,7 +4,7 @@ Ruby tool to entity sumarization. [Sumarization results](results/).
 ## Tool description
 Tool was developed as part of diploma thesis. Tool lookup resource links that is included in Wikipedia abstract.
 Links are stored in dataset of NLP Interchange Format (NIF). 
-In next step find all relations in witch are used collected links to entities of given class (eg. City, Artist, ...).
+In next step find all relations in which are used collected links to entities of given class (eg. City, Artist, ...).
 Linked based relations is expanded with entity class global relations that point to literal.
 Tool can reduce basic duplicates of predicates. 
 At the end calculate total score for every predicated and generate knowledge base.    
