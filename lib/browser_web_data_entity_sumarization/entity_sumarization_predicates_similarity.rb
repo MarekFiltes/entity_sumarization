@@ -277,7 +277,7 @@ module BrowserWebData
       end
 
       def store_identical_properties
-        File.write("#{@results_dir_path}/different_predicates.json", JSON.generate(@different_predicates))
+        File.write("#{@results_dir_path}/identical_predicates.json", JSON.generate(@identical_predicates))
       end
 
       def store_different_predicates
