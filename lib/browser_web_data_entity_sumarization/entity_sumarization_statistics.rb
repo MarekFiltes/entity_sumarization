@@ -21,18 +21,22 @@ module BrowserWebData
       ###
       # Create new instance of Statistic class.
       #
-      # @param [String] nif_dataset_path
-      # @param [String] results_dir_path
+      # @param [String] nif_dataset_path Optional param. Default value is nil.
+      # @param [String] results_dir_path Default value is Optional param. Default value is Temp/BROWSER_WEB_DATA/results.
       # @param [TrueClass, FalseClass] console_output Allow puts info to console. Default is false.
-      def initialize(nif_dataset_path, results_dir_path = File.join(__dir__, '../../results'), console_output = false)
-        nif_dataset_path = nif_dataset_path.gsub('\\', '/')
-        results_dir_path = results_dir_path.gsub('\\', '/').chomp('/')
+      def initialize(nif_dataset_path = nil, results_dir_path = nil, console_output = false)
+        nif_dataset_path = nif_dataset_path.gsub('\\', '/') if nif_dataset_path
+        results_dir_path = results_dir_path.gsub('\\', '/').chomp('/') if results_dir_path
 
-        return false unless File.exists?(nif_dataset_path)
-        return false unless Dir.exists?(results_dir_path)
+        unless Dir.exists?(results_dir_path)
+          cache_dir_path = "#{Dir.tmpdir}/#{BrowserWebData::TMP_DIR}"
+          Dir.mkdir(cache_dir_path) unless Dir.exist?(cache_dir_path)
+          results_dir_path = "#{cache_dir_path}/results"
+          Dir.mkdir(results_dir_path) unless Dir.exist?(results_dir_path)
+        end
 
-        @nif_file_path = nif_dataset_path.gsub('\\', '/')
-        @results_dir_path = results_dir_path.gsub('\\', '/').chomp('/')
+        @nif_file_path = nif_dataset_path
+        @results_dir_path = results_dir_path
         @console_output = console_output
 
         @query = SPARQLRequest.new
@@ -46,37 +50,19 @@ module BrowserWebData
       # @option params [Array<String>, String] :entity_types Types from http://mappings.dbpedia.org/server/ontology/classes/
       # @option params [Fixnum] :entity_count Best ranked resources by every entity type.
       # @option params [FalseClass, TruesClass] :demand_reload
-      # @option params [FalseClass, TruesClass] :identity_identical_predicates
-      def create_by_nif_dataset(params)
+      # @option params [FalseClass, TruesClass] :identify_identical_predicates
+      def create_complete_knowledge_base(params)
         params[:entity_types] = [params[:entity_types]] unless params[:entity_types].is_a?(Array)
 
         generate_statistics_from_nif(params[:entity_types], params[:entity_count], params[:demand_reload])
 
         params[:entity_types].each { |type|
-          generate_knowledge_base(type, params[:identity_identical_predicates])
-        }
-      end
-
-      ###
-      # The method return list of best ranked resources by required entity types.
-      #
-      # @param [Array<String>, String] entity_types Types from http://mappings.dbpedia.org/server/ontology/classes/
-      # @param [Fixnum] count Count of best ranked resources
-      #
-      # @return [Hash] resources
-      def get_best_ranked_resources(entity_types, count = 10)
-        resources = {}
-        entity_types = [entity_types] unless entity_types.is_a?(Array)
-
-        entity_types.each { |type|
-          top_ranked_entities = @query.get_resources_by_dbpedia_page_rank(type, count)
-
-          top_ranked_entities.each { |solution|
-            resources[solution.entity.value] = {type: type, rank: solution.rank.value.to_f}
-          }
+          generate_literal_statistics(type)
         }
 
-        resources
+        params[:entity_types].each { |type|
+          generate_knowledge_base_for_entity(type, params[:identify_identical_predicates])
+        }
       end
 
       ###
@@ -87,8 +73,11 @@ module BrowserWebData
       # @param [Fixnum] count Count of best ranked resources
       # @param [FalseClass, TruesClass] demand_reload
       def generate_statistics_from_nif(entity_types, count = 10, demand_reload = false)
-        resources = get_best_ranked_resources(entity_types, count)
+        unless @nif_file_path
+          raise RuntimeError.new('Instance has no defined return nif_dataset_path. Can not start generate from nif datset. Please create new instance.')
+        end
 
+        resources = get_best_ranked_resources(entity_types, count)
         resources = keep_unloaded(resources) unless demand_reload
 
         actual_resource_data = []
@@ -144,6 +133,65 @@ module BrowserWebData
       end
 
       ###
+      # The method generate simple statistics that contain all predicates that links to literal.
+      # Predicates are grouped by entity class type and also contains count of total occurrence.
+      # Predicates find from best ranked resources.
+      #
+      # @param [String] type Type from http://mappings.dbpedia.org/server/ontology/classes/
+      # @param [Fixnum] count Count of best ranked resources
+      def generate_literal_statistics(type = nil, count = 10000)
+        unless type
+          type = get_all_classes
+        end
+
+        type = [type] unless type.is_a?(Array)
+
+        type.each_with_index { |entity_type, index|
+          all_properties = {}
+          puts "#{__method__} - start process entity type: #{entity_type} [#{(index / type.size.to_f).round(2)}]" if @console_output
+          entity_type = entity_type.to_s.to_sym
+
+          get_best_ranked_resources(entity_type, count).each { |resource, _|
+            properties = @query.get_all_predicates_by_subject(resource.to_s, true).map { |solution_prop|
+              solution_prop[:property].to_s
+            } || []
+
+            properties.uniq.each { |prop|
+              next if Predicate.unimportant?(prop)
+              all_properties[entity_type] ||= {}
+              all_properties[entity_type][prop] ||= 0
+              all_properties[entity_type][prop] += 1
+            }
+
+          }
+
+          update_global_statistic(all_properties)
+        }
+      end
+
+      ###
+      # The method return list of best ranked resources by required entity types.
+      #
+      # @param [Array<String>, String] entity_types Types from http://mappings.dbpedia.org/server/ontology/classes/
+      # @param [Fixnum] count Count of best ranked resources
+      #
+      # @return [Hash] resources
+      def get_best_ranked_resources(entity_types, count = 10)
+        resources = {}
+        entity_types = [entity_types] unless entity_types.is_a?(Array)
+
+        entity_types.each { |type|
+          top_ranked_entities = @query.get_resources_by_dbpedia_page_rank(type, count)
+
+          top_ranked_entities.each { |solution|
+            resources[solution.entity.value] = {type: type, rank: solution.rank.value.to_f}
+          }
+        }
+
+        resources
+      end
+
+      ###
       # The method helps to recollect relations by already generated result files.
       #
       # @param [Array<String>, String] entity_types Types from http://mappings.dbpedia.org/server/ontology/classes/
@@ -162,7 +210,6 @@ module BrowserWebData
         }
 
       end
-
 
       ###
       # The method find predicates by given link.
@@ -251,7 +298,7 @@ module BrowserWebData
       #
       # @param [String] type Type from http://mappings.dbpedia.org/server/ontology/classes/
       # @param [TrueClass, FalseClass] identify_identical Flag for process identify and group identical properties as one item.
-      def generate_knowledge_base(type, identify_identical = true)
+      def generate_knowledge_base_for_entity(type, identify_identical = true)
         puts "_____ #{type} _____" if @console_output
         files = Dir.glob("#{@results_dir_path}/#{type}/*.json")
         type = type.to_s.to_sym
@@ -273,7 +320,7 @@ module BrowserWebData
           try_this_identical.merge!(global_properties) { |_, x, y| x + y }
 
           if try_this_identical.size > 0
-            try_this_identical = Hash[try_this_identical.sort_by { |_,v|v}.reverse]
+            try_this_identical = Hash[try_this_identical.sort_by { |_, v| v }.reverse]
             puts "- prepare to identify identical: total count #{try_this_identical.size}" if @console_output
             @predicates_similarity.identify_identical_predicates(try_this_identical.keys)
           end
@@ -353,48 +400,11 @@ module BrowserWebData
       end
 
       ###
-      # The method generate simple statistics that contain all predicates that links to literal.
-      # Predicates are grouped by entity class type and also contains count of total occurrence.
-      # Predicates find from best ranked resources.
-      #
-      # @param [String] type Type from http://mappings.dbpedia.org/server/ontology/classes/
-      # @param [Fixnum] count Count of best ranked resources
-      def generate_literal_statistics(type = nil, count = 10)
-        unless type
-          type = get_all_classes
-        end
-
-        type = [type] unless type.is_a?(Array)
-
-        type.each_with_index { |entity_type, index|
-          all_properties = {}
-          puts "#{__method__} - start process entity type: #{entity_type} [#{(index / type.size.to_f).round(2)}]" if @console_output
-          entity_type = entity_type.to_s.to_sym
-
-          get_best_ranked_resources(entity_type, count).each { |resource, _|
-            properties = @query.get_all_predicates_by_subject(resource.to_s, true).map { |solution_prop|
-              solution_prop[:property].to_s
-            } || []
-
-            properties.uniq.each { |prop|
-              next if Predicate.unimportant?(prop)
-              all_properties[entity_type] ||= {}
-              all_properties[entity_type][prop] ||= 0
-              all_properties[entity_type][prop] += 1
-            }
-
-          }
-
-          update_global_statistic(all_properties)
-        }
-      end
-
-      ###
       # The method load all defined entity class types by http://mappings.dbpedia.org/server/ontology/classes/
       #
       # @param [String] path
       #
-      # @return [Hash] classes
+      # @return [Array<String>] classes
       def get_all_classes(path = File.join(__dir__, '../knowledge/classes_hierarchy.json'))
         data = ensure_load_json(path, {})
         HashHelper.recursive_map_keys(data)
