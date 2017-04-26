@@ -61,7 +61,7 @@ module BrowserWebData
       # @param [Array<String>] predicates
       def identify_identical_predicates(predicates, identical_limit = @identical_limit)
         combination = predicates.take(IMPORTANCE_TO_IDENTIFY_MAX_COUNT).map { |p| p.to_sym }.combination(2)
-        times_count = combination.size / 10
+        times_count = combination.size / 10.0
 
         combination.each_with_index { |values, i|
 
@@ -270,7 +270,7 @@ module BrowserWebData
       def load_counts
         unless @counts
           file_path = "#{@results_dir_path}/counts.json"
-          @counts = ensure_load_json(file_path, {})
+          @counts = ensure_load_json(file_path, {}, {symbolize_names: true})
         end
       end
 

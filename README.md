@@ -2,10 +2,12 @@
 Ruby tool to entity sumarization. [Sumarization results](results/).
 
 ## Tool description
-Tool was developed as part of diploma thesis. Tool lookup resource links that is included in Wikipedia abstract.
-Links are stored in dataset of NLP Interchange Format (NIF). 
-In next step find all relations in which are used collected links to entities of given class (eg. City, Artist, ...).
-Linked based relations is expanded with entity class global relations that point to literal.
+Tool was developed as part of diploma thesis. Tool generate .json knowledge base.
+Knowledge base is based on outward resource links from Wikipedia abstracts, 
+global link relations of entity classes and global literal relations of entity classes.
+Strict links are collected from dataset of NLP Interchange Format (NIF). 
+In next step find all relations in which are used collected links for entities of given class (eg. City, Artist, ...).
+Linked based relations are expanded with entity class global relations that point to literal.
 Tool can reduce basic duplicates of predicates. 
 At the end calculate total score for every predicate and generate knowledge base.    
 
@@ -122,7 +124,7 @@ statistic.get_all_classes.each{|entity_class_type|
 ---
 
 ## Results description 
-Results publish in this project [Sumarization results](results/) 
+Results published in this project [Sumarization results](results/) 
 was generated from NIF dataset: nif-text-links_en
 [2016-04/ext/nif-abstracts/en/](http://downloads.dbpedia.org/2016-04/ext/nif-abstracts/en/)
 
